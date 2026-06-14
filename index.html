@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ronit Parmar — IT Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --bg:#0a0e1a;--surface:#111827;--card:#161d2e;
+    --accent:#00d4ff;--accent2:#7c3aed;
+    --text:#f0f4ff;--muted:#8892a4;--border:#1e2a3a;
+  }
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;}
+
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,14,26,0.95);backdrop-filter:blur(8px);z-index:100;}
+  .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .nav-links{display:flex;gap:1.5rem;}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;letter-spacing:0.04em;transition:color .2s;}
+  .nav-links a:hover{color:var(--accent);}
+
+  .hero{padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;max-width:800px;margin:0 auto;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(0,212,255,0.07),transparent);pointer-events:none;}
+  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);border-radius:99px;padding:4px 14px;font-size:0.75rem;color:var(--accent);margin-bottom:1.5rem;letter-spacing:0.06em;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;display:inline-block;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+  .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;line-height:1.1;margin-bottom:0.75rem;}
+  .hero h1 span{background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .hero-sub{color:var(--muted);font-size:1rem;max-width:500px;margin:0 auto 1.5rem;}
+  .hero-company{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:0.85rem;color:var(--muted);}
+  .hero-company strong{color:var(--text);}
+  .cta-row{display:flex;justify-content:center;gap:12px;margin-top:2rem;flex-wrap:wrap;}
+  .btn-primary{background:linear-gradient(135deg,#00d4ff,#7c3aed);color:#fff;border:none;border-radius:8px;padding:10px 24px;font-size:0.9rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;}
+  .btn-outline{background:transparent;color:var(--accent);border:1px solid rgba(0,212,255,0.4);border-radius:8px;padding:10px 24px;font-size:0.9rem;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s;}
+  .btn-outline:hover{background:rgba(0,212,255,0.08);}
+
+  section{padding:4rem 2rem;max-width:900px;margin:0 auto;}
+  .section-label{font-size:0.72rem;letter-spacing:0.12em;color:var(--accent);font-weight:500;margin-bottom:0.5rem;text-transform:uppercase;}
+  .section-title{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;margin-bottom:2rem;}
+  .divider{border:none;border-top:1px solid var(--border);max-width:900px;margin:0 auto;}
+
+  .skills-grid{display:flex;flex-wrap:wrap;gap:10px;}
+  .skill-tag{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:0.85rem;color:var(--text);display:flex;align-items:center;gap:8px;}
+  .skill-dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+  .d-cyan{background:#00d4ff;}.d-purple{background:#7c3aed;}.d-green{background:#10b981;}.d-orange{background:#f59e0b;}
+
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+  .proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:border-color .2s,transform .2s;}
+  .proj-card:hover{border-color:rgba(0,212,255,0.35);transform:translateY(-3px);}
+  .proj-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+  .proj-emoji{width:46px;height:46px;border-radius:10px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+  .proj-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;}
+  .proj-type{font-size:0.73rem;color:var(--accent);letter-spacing:0.05em;margin-top:2px;}
+  .proj-desc{font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:12px;}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);border-radius:4px;padding:2px 8px;font-size:0.72rem;color:#a78bfa;}
+  .tag.cyan{background:rgba(0,212,255,0.08);border-color:rgba(0,212,255,0.2);color:var(--accent);}
+  .demo-note{margin-top:1.5rem;font-size:0.82rem;color:var(--muted);text-align:center;}
+
+  .contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;}
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem;}
+  .contact-item{display:flex;align-items:center;gap:10px;}
+  .contact-icon{width:36px;height:36px;border-radius:8px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .contact-icon i{font-size:16px;color:var(--accent);}
+  .contact-val{color:var(--text);font-size:0.83rem;word-break:break-all;}
+  .contact-lbl{font-size:0.7rem;color:var(--muted);}
+  .available-banner{display:flex;align-items:center;gap:10px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:12px 16px;font-size:0.85rem;color:#34d399;margin-bottom:1.5rem;}
+  .green-dot{width:8px;height:8px;border-radius:50%;background:#10b981;animation:pulse 2s infinite;flex-shrink:0;display:inline-block;}
+
+  footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);}
+
+  @media(max-width:600px){
+    nav{padding:1rem;}
+    .nav-links{gap:1rem;}
+    .hero{padding:3rem 1rem 2.5rem;}
+    section{padding:2.5rem 1rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Ronit Parmar</span>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge"><span class="dot"></span>&nbsp; Open to opportunities</div>
+  <h1>Hi, I'm <span>Ronit Parmar</span></h1>
+  <p class="hero-sub">IT Software Developer specializing in Web Development &amp; Android Apps (APK)</p>
+  <div class="hero-company">
+    <i class="ti ti-briefcase" style="font-size:15px;color:#8892a4"></i>
+    Currently at <strong style="margin-left:4px">Laxman &amp; Sons Tech</strong> &mdash; Surat, Gujarat
+  </div>
+  <div class="cta-row">
+    <a href="#projects" class="btn-primary">View My Projects</a>
+    <a href="#contact" class="btn-outline">Contact Me</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<section id="skills">
+  <p class="section-label">What I work with</p>
+  <h2 class="section-title">Skills &amp; Technologies</h2>
+  <div class="skills-grid">
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>React.js</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Flutter</div>
+    <div class="skill-tag"><span class="skill-dot d-purple"></span>Java</div>
+    <div class="skill-tag"><span class="skill-dot d-purple"></span>Kotlin</div>
+    <div class="skill-tag"><span class="skill-dot d-purple"></span>Android SDK</div>
+    <div class="skill-tag"><span class="skill-dot d-green"></span>Firebase</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>HTML / CSS / JS</div>
+    <div class="skill-tag"><span class="skill-dot d-orange"></span>REST APIs</div>
+    <div class="skill-tag"><span class="skill-dot d-green"></span>APK Development</div>
+    <div class="skill-tag"><span class="skill-dot d-orange"></span>UI/UX Design</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="projects">
+  <p class="section-label">What I've built</p>
+  <h2 class="section-title">Android App Projects</h2>
+  <div class="projects-grid">
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-emoji">🤖</div>
+        <div>
+          <div class="proj-name">Gamma AI</div>
+          <div class="proj-type">AI CHATBOT APP</div>
+        </div>
+      </div>
+      <p class="proj-desc">A free AI chatbot app inspired by ChatGPT/Claude. Gives users access to intelligent conversation with a clean, lightweight interface — no subscription needed.</p>
+      <div class="proj-tags">
+        <span class="tag cyan">Android</span>
+        <span class="tag">AI / LLM</span>
+        <span class="tag">Java / Kotlin</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-emoji">🎨</div>
+        <div>
+          <div class="proj-name">WhatsMade</div>
+          <div class="proj-type">SOCIAL MEDIA EDITOR</div>
+        </div>
+      </div>
+      <p class="proj-desc">A free social media content creation app for making Reels, DP images, and Status graphics. Helps users create eye-catching posts without needing design skills.</p>
+      <div class="proj-tags">
+        <span class="tag cyan">Android</span>
+        <span class="tag">Image Processing</span>
+        <span class="tag">Flutter</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-emoji">🚌</div>
+        <div>
+          <div class="proj-name">Swadesh Bus</div>
+          <div class="proj-type">TICKET BOOKING APP</div>
+        </div>
+      </div>
+      <p class="proj-desc">A bus ticket booking Android app connecting the Bhavnagar–Surat fixed route. Enables passengers to browse timings and book seats directly from their phone.</p>
+      <div class="proj-tags">
+        <span class="tag cyan">Android</span>
+        <span class="tag">Booking System</span>
+        <span class="tag">Java</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-emoji">🏦</div>
+        <div>
+          <div class="proj-name">Mitra Mandal</div>
+          <div class="proj-type">NBFC FINANCE APP</div>
+        </div>
+      </div>
+      <p class="proj-desc">Digitized a village-owned NBFC that previously ran on paper. The Android app manages member funds, loan records, and transactions for the community.</p>
+      <div class="proj-tags">
+        <span class="tag cyan">Android</span>
+        <span class="tag">FinTech</span>
+        <span class="tag">Kotlin</span>
+      </div>
+    </div>
+
+  </div>
+  <p class="demo-note"><i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>Live demos available on request — video recordings &amp; APKs ready on pendrive</p>
+</section>
+
+<hr class="divider">
+
+<section id="contact">
+  <p class="section-label">Get in touch</p>
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-card">
+    <div class="available-banner">
+      <span class="green-dot"></span>
+      Currently available for full-time roles in Web &amp; Android Development
+    </div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-icon"><i class="ti ti-phone"></i></div>
+        <div><div class="contact-lbl">Mobile</div><div class="contact-val">+91 93139 99596</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="ti ti-mail"></i></div>
+        <div><div class="contact-lbl">Personal email</div><div class="contact-val">parmarronit018@gmail.com</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="ti ti-world"></i></div>
+        <div><div class="contact-lbl">Work email</div><div class="contact-val">lstglobal.in@gmail.com</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="ti ti-map-pin"></i></div>
+        <div><div class="contact-lbl">Location</div><div class="contact-val">Surat, Gujarat, India</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built by Ronit Parmar &nbsp;&middot;&nbsp; Laxman &amp; Sons Tech &nbsp;&middot;&nbsp; Surat, Gujarat
+</footer>
+
+</body>
+</html>

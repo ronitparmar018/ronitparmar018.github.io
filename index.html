@@ -9,11 +9,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
-  :root{
-    --bg:#0a0e1a;--surface:#111827;--card:#161d2e;
-    --accent:#00d4ff;--accent2:#7c3aed;
-    --text:#f0f4ff;--muted:#8892a4;--border:#1e2a3a;
-  }
+  :root{--bg:#0a0e1a;--surface:#111827;--card:#161d2e;--accent:#00d4ff;--accent2:#7c3aed;--text:#f0f4ff;--muted:#8892a4;--border:#1e2a3a;}
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;}
 
@@ -38,28 +34,41 @@
   .btn-outline{background:transparent;color:var(--accent);border:1px solid rgba(0,212,255,0.4);border-radius:8px;padding:10px 24px;font-size:0.9rem;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s;}
   .btn-outline:hover{background:rgba(0,212,255,0.08);}
 
-  section{padding:4rem 2rem;max-width:900px;margin:0 auto;}
+  section{padding:4rem 2rem;max-width:960px;margin:0 auto;}
   .section-label{font-size:0.72rem;letter-spacing:0.12em;color:var(--accent);font-weight:500;margin-bottom:0.5rem;text-transform:uppercase;}
   .section-title{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;margin-bottom:2rem;}
-  .divider{border:none;border-top:1px solid var(--border);max-width:900px;margin:0 auto;}
+  .divider{border:none;border-top:1px solid var(--border);max-width:960px;margin:0 auto;}
 
   .skills-grid{display:flex;flex-wrap:wrap;gap:10px;}
   .skill-tag{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:0.85rem;color:var(--text);display:flex;align-items:center;gap:8px;}
   .skill-dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
   .d-cyan{background:#00d4ff;}.d-purple{background:#7c3aed;}.d-green{background:#10b981;}.d-orange{background:#f59e0b;}
 
-  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+  /* section labels */
+  .cat-label{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;letter-spacing:0.1em;font-weight:600;padding:3px 12px;border-radius:99px;margin-bottom:1.2rem;}
+  .cat-android{background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);}
+  .cat-web{background:rgba(0,212,255,0.08);color:var(--accent);border:1px solid rgba(0,212,255,0.2);}
+
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-bottom:2.5rem;}
   .proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:border-color .2s,transform .2s;}
   .proj-card:hover{border-color:rgba(0,212,255,0.35);transform:translateY(-3px);}
+  .proj-card.web-card:hover{border-color:rgba(124,58,237,0.4);}
   .proj-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
   .proj-emoji{width:46px;height:46px;border-radius:10px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
   .proj-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;}
   .proj-type{font-size:0.73rem;color:var(--accent);letter-spacing:0.05em;margin-top:2px;}
+  .proj-type.purple{color:#a78bfa;}
   .proj-desc{font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:12px;}
   .proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
   .tag{background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);border-radius:4px;padding:2px 8px;font-size:0.72rem;color:#a78bfa;}
   .tag.cyan{background:rgba(0,212,255,0.08);border-color:rgba(0,212,255,0.2);color:var(--accent);}
-  .demo-note{margin-top:1.5rem;font-size:0.82rem;color:var(--muted);text-align:center;}
+  .tag.green{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.2);color:#34d399;}
+  .tag.amber{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.2);color:#fbbf24;}
+
+  /* private badge */
+  .private-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:6px;padding:4px 10px;font-size:0.72rem;color:#fbbf24;margin-top:10px;}
+
+  .demo-note{font-size:0.82rem;color:var(--muted);text-align:center;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;line-height:1.6;}
 
   .contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;}
   .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem;}
@@ -113,14 +122,17 @@
   <h2 class="section-title">Skills &amp; Technologies</h2>
   <div class="skills-grid">
     <div class="skill-tag"><span class="skill-dot d-cyan"></span>React.js</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Next.js</div>
     <div class="skill-tag"><span class="skill-dot d-cyan"></span>Flutter</div>
     <div class="skill-tag"><span class="skill-dot d-purple"></span>Java</div>
     <div class="skill-tag"><span class="skill-dot d-purple"></span>Kotlin</div>
     <div class="skill-tag"><span class="skill-dot d-purple"></span>Android SDK</div>
     <div class="skill-tag"><span class="skill-dot d-green"></span>Firebase</div>
+    <div class="skill-tag"><span class="skill-dot d-green"></span>Machine Learning / AI</div>
     <div class="skill-tag"><span class="skill-dot d-cyan"></span>HTML / CSS / JS</div>
     <div class="skill-tag"><span class="skill-dot d-orange"></span>REST APIs</div>
     <div class="skill-tag"><span class="skill-dot d-green"></span>APK Development</div>
+    <div class="skill-tag"><span class="skill-dot d-orange"></span>E-Commerce</div>
     <div class="skill-tag"><span class="skill-dot d-orange"></span>UI/UX Design</div>
   </div>
 </section>
@@ -129,7 +141,53 @@
 
 <section id="projects">
   <p class="section-label">What I've built</p>
-  <h2 class="section-title">Android App Projects</h2>
+  <h2 class="section-title">Projects</h2>
+
+  <!-- WEB PROJECTS -->
+  <div class="cat-label cat-web"><i class="ti ti-world" style="font-size:13px"></i> Web Projects</div>
+  <div class="projects-grid">
+
+    <div class="proj-card web-card">
+      <div class="proj-header">
+        <div class="proj-emoji">📈</div>
+        <div>
+          <div class="proj-name">LST AI Market</div>
+          <div class="proj-type purple">AI TRADING PLATFORM</div>
+        </div>
+      </div>
+      <p class="proj-desc">A professional live market trading platform with AI-powered Option Chain analysis. Features candlestick charts, EMA/MACD/RSI indicators, real-time market watch, paper trading desk, and an in-house Machine Learning AI advisor that generates buy/sell signals with confidence scores.</p>
+      <div class="proj-tags">
+        <span class="tag cyan">Next.js</span>
+        <span class="tag green">Machine Learning</span>
+        <span class="tag amber">Kite API</span>
+        <span class="tag">AI Signals</span>
+        <span class="tag cyan">Real-time</span>
+      </div>
+      <div class="private-badge"><i class="ti ti-lock" style="font-size:12px"></i> Demo on request (offline / pendrive only)</div>
+    </div>
+
+    <div class="proj-card web-card">
+      <div class="proj-header">
+        <div class="proj-emoji">🛒</div>
+        <div>
+          <div class="proj-name">Client E-Commerce Website</div>
+          <div class="proj-type purple">FULL-STACK WEB APP</div>
+        </div>
+      </div>
+      <p class="proj-desc">A complete e-commerce website built for a private client. Includes product listings, cart, checkout flow, order management, and admin dashboard. Client name kept confidential per NDA.</p>
+      <div class="proj-tags">
+        <span class="tag cyan">React.js</span>
+        <span class="tag green">Node.js</span>
+        <span class="tag amber">Payment Gateway</span>
+        <span class="tag">Admin Panel</span>
+      </div>
+      <div class="private-badge"><i class="ti ti-lock" style="font-size:12px"></i> Client confidential — demo available in person</div>
+    </div>
+
+  </div>
+
+  <!-- ANDROID PROJECTS -->
+  <div class="cat-label cat-android"><i class="ti ti-device-mobile" style="font-size:13px"></i> Android Apps</div>
   <div class="projects-grid">
 
     <div class="proj-card">
@@ -140,7 +198,7 @@
           <div class="proj-type">AI CHATBOT APP</div>
         </div>
       </div>
-      <p class="proj-desc">A free AI chatbot app inspired by ChatGPT/Claude. Gives users access to intelligent conversation with a clean, lightweight interface — no subscription needed.</p>
+      <p class="proj-desc">A free AI chatbot app inspired by ChatGPT/Claude. Gives users intelligent conversation with a clean, lightweight interface — no subscription needed.</p>
       <div class="proj-tags">
         <span class="tag cyan">Android</span>
         <span class="tag">AI / LLM</span>
@@ -156,7 +214,7 @@
           <div class="proj-type">SOCIAL MEDIA EDITOR</div>
         </div>
       </div>
-      <p class="proj-desc">A free social media content creation app for making Reels, DP images, and Status graphics. Helps users create eye-catching posts without needing design skills.</p>
+      <p class="proj-desc">A free social media content creation app for making Reels, DP images, and Status graphics. Create eye-catching posts without needing design skills.</p>
       <div class="proj-tags">
         <span class="tag cyan">Android</span>
         <span class="tag">Image Processing</span>
@@ -172,7 +230,7 @@
           <div class="proj-type">TICKET BOOKING APP</div>
         </div>
       </div>
-      <p class="proj-desc">A bus ticket booking Android app connecting the Bhavnagar–Surat fixed route. Enables passengers to browse timings and book seats directly from their phone.</p>
+      <p class="proj-desc">A bus ticket booking Android app connecting the Bhavnagar–Surat fixed route. Passengers browse timings and book seats directly from their phone.</p>
       <div class="proj-tags">
         <span class="tag cyan">Android</span>
         <span class="tag">Booking System</span>
@@ -197,7 +255,11 @@
     </div>
 
   </div>
-  <p class="demo-note"><i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>Live demos available on request — video recordings &amp; APKs ready on pendrive</p>
+
+  <div class="demo-note">
+    <i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:6px"></i>
+    Live demos available on request &mdash; APKs on WhatsApp and website localhost ready on pendrive <strong style="color:var(--text)">(personally / offline only</strong> due to personal use &amp; security reasons of these sites)
+  </div>
 </section>
 
 <hr class="divider">
@@ -213,7 +275,7 @@
     <div class="contact-grid">
       <div class="contact-item">
         <div class="contact-icon"><i class="ti ti-phone"></i></div>
-        <div><div class="contact-lbl">Mobile</div><div class="contact-val">+91 93139 99596</div></div>
+        <div><div class="contact-lbl">Mobile / WhatsApp</div><div class="contact-val">+91 93139 99596</div></div>
       </div>
       <div class="contact-item">
         <div class="contact-icon"><i class="ti ti-mail"></i></div>

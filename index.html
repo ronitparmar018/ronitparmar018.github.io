@@ -1,9 +1,11 @@
+cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ronit Parmar — Web & Android App  Developer</title>
+<title>Ronit Parmar — Web & Android Developer</title>
+<meta name="description" content="Ronit Parmar — Web & Android App Developer building real-world apps with AI, React & Kotlin. Based in Surat, Gujarat.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -13,80 +15,127 @@
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;}
 
-  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,14,26,0.95);backdrop-filter:blur(8px);z-index:100;}
+  /* NAV */
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,14,26,0.95);backdrop-filter:blur(10px);z-index:100;}
   .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-  .nav-links{display:flex;gap:1.5rem;}
+  .nav-links{display:flex;gap:2rem;align-items:center;}
   .nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;letter-spacing:0.04em;transition:color .2s;}
   .nav-links a:hover{color:var(--accent);}
+  .nav-hire{background:linear-gradient(135deg,#00d4ff,#7c3aed);color:#fff !important;padding:6px 16px;border-radius:6px;font-size:0.8rem !important;font-weight:500;}
+  .nav-hire:hover{opacity:0.9;}
 
-  .hero{padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;max-width:800px;margin:0 auto;}
-  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(0,212,255,0.07),transparent);pointer-events:none;}
-  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);border-radius:99px;padding:4px 14px;font-size:0.75rem;color:var(--accent);margin-bottom:1.5rem;letter-spacing:0.06em;}
+  /* HERO */
+  .hero{padding:6rem 2rem 5rem;text-align:center;position:relative;overflow:hidden;max-width:820px;margin:0 auto;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(0,212,255,0.07),transparent);pointer-events:none;}
+  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);border-radius:99px;padding:5px 16px;font-size:0.75rem;color:var(--accent);margin-bottom:1.8rem;letter-spacing:0.06em;}
   .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;display:inline-block;}
   @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-  .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;line-height:1.1;margin-bottom:0.75rem;}
+  .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:700;line-height:1.1;margin-bottom:1rem;}
   .hero h1 span{background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-  .hero-sub{color:var(--muted);font-size:1rem;max-width:500px;margin:0 auto 1.5rem;}
-  .hero-company{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:0.85rem;color:var(--muted);}
+  .hero-sub{color:var(--muted);font-size:1.05rem;max-width:520px;margin:0 auto 1rem;line-height:1.6;}
+  .hero-sub strong{color:var(--text);}
+  .hero-company{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 18px;font-size:0.85rem;color:var(--muted);margin-bottom:2rem;}
   .hero-company strong{color:var(--text);}
-  .cta-row{display:flex;justify-content:center;gap:12px;margin-top:2rem;flex-wrap:wrap;}
-  .btn-primary{background:linear-gradient(135deg,#00d4ff,#7c3aed);color:#fff;border:none;border-radius:8px;padding:10px 24px;font-size:0.9rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;}
-  .btn-outline{background:transparent;color:var(--accent);border:1px solid rgba(0,212,255,0.4);border-radius:8px;padding:10px 24px;font-size:0.9rem;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s;}
+
+  /* STATS ROW */
+  .stats-row{display:flex;justify-content:center;gap:2.5rem;margin:2rem 0 2.5rem;flex-wrap:wrap;}
+  .stat{text-align:center;}
+  .stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+  .stat-lbl{font-size:0.72rem;color:var(--muted);letter-spacing:0.06em;margin-top:4px;}
+  .stat-divider{width:1px;background:var(--border);}
+
+  .cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+  .btn-primary{background:linear-gradient(135deg,#00d4ff,#7c3aed);color:#fff;border:none;border-radius:8px;padding:11px 28px;font-size:0.9rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;}
+  .btn-outline{background:transparent;color:var(--accent);border:1px solid rgba(0,212,255,0.4);border-radius:8px;padding:11px 28px;font-size:0.9rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:background .2s;}
   .btn-outline:hover{background:rgba(0,212,255,0.08);}
 
-  section{padding:4rem 2rem;max-width:960px;margin:0 auto;}
+  /* SECTIONS */
+  section{padding:4.5rem 2rem;max-width:980px;margin:0 auto;}
   .section-label{font-size:0.72rem;letter-spacing:0.12em;color:var(--accent);font-weight:500;margin-bottom:0.5rem;text-transform:uppercase;}
-  .section-title{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;margin-bottom:2rem;}
-  .divider{border:none;border-top:1px solid var(--border);max-width:960px;margin:0 auto;}
+  .section-title{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:700;margin-bottom:0.5rem;}
+  .section-sub{color:var(--muted);font-size:0.9rem;margin-bottom:2rem;}
+  .divider{border:none;border-top:1px solid var(--border);max-width:980px;margin:0 auto;}
 
+  /* SKILLS */
   .skills-grid{display:flex;flex-wrap:wrap;gap:10px;}
-  .skill-tag{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:0.85rem;color:var(--text);display:flex;align-items:center;gap:8px;}
-  .skill-dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
-  .d-cyan{background:#00d4ff;}.d-purple{background:#7c3aed;}.d-green{background:#10b981;}.d-orange{background:#f59e0b;}
+  .skill-tag{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:9px 16px;font-size:0.85rem;color:var(--text);display:flex;align-items:center;gap:8px;transition:border-color .2s;}
+  .skill-tag:hover{border-color:rgba(0,212,255,0.3);}
+  .skill-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
+  .d-cyan{background:#00d4ff;}.d-purple{background:#7c3aed;}.d-green{background:#10b981;}.d-orange{background:#f59e0b;}.d-red{background:#ef4444;}
 
-  /* section labels */
-  .cat-label{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;letter-spacing:0.1em;font-weight:600;padding:3px 12px;border-radius:99px;margin-bottom:1.2rem;}
+  /* EXPERIENCE TIMELINE */
+  .timeline{position:relative;padding-left:1.5rem;}
+  .timeline::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:1px;background:var(--border);}
+  .tl-item{position:relative;margin-bottom:2rem;}
+  .tl-item::before{content:'';position:absolute;left:-1.85rem;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
+  .tl-date{font-size:0.75rem;color:var(--accent);letter-spacing:0.06em;margin-bottom:3px;}
+  .tl-role{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;margin-bottom:2px;}
+  .tl-company{font-size:0.85rem;color:var(--muted);margin-bottom:8px;}
+  .tl-desc{font-size:0.85rem;color:var(--muted);line-height:1.6;}
+
+  /* PROJECT CATEGORY LABELS */
+  .cat-label{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;letter-spacing:0.1em;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:1.2rem;}
   .cat-android{background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);}
   .cat-web{background:rgba(0,212,255,0.08);color:var(--accent);border:1px solid rgba(0,212,255,0.2);}
 
-  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-bottom:2.5rem;}
-  .proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:border-color .2s,transform .2s;}
+  /* PROJECT CARDS */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:2.5rem;}
+  .proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;}
   .proj-card:hover{border-color:rgba(0,212,255,0.35);transform:translateY(-3px);}
   .proj-card.web-card:hover{border-color:rgba(124,58,237,0.4);}
   .proj-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
-  .proj-emoji{width:46px;height:46px;border-radius:10px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+  .proj-emoji{width:48px;height:48px;border-radius:10px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;border:1px solid var(--border);}
   .proj-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;}
-  .proj-type{font-size:0.73rem;color:var(--accent);letter-spacing:0.05em;margin-top:2px;}
+  .proj-type{font-size:0.7rem;color:var(--accent);letter-spacing:0.06em;margin-top:3px;}
   .proj-type.purple{color:#a78bfa;}
-  .proj-desc{font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:12px;}
+  .proj-desc{font-size:0.84rem;color:var(--muted);line-height:1.65;margin-bottom:14px;flex:1;}
   .proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
-  .tag{background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);border-radius:4px;padding:2px 8px;font-size:0.72rem;color:#a78bfa;}
+  .tag{background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);border-radius:4px;padding:2px 9px;font-size:0.71rem;color:#a78bfa;}
   .tag.cyan{background:rgba(0,212,255,0.08);border-color:rgba(0,212,255,0.2);color:var(--accent);}
   .tag.green{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.2);color:#34d399;}
   .tag.amber{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.2);color:#fbbf24;}
+  .private-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:6px;padding:4px 10px;font-size:0.71rem;color:#fbbf24;margin-top:12px;width:fit-content;}
 
-  /* private badge */
-  .private-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:6px;padding:4px 10px;font-size:0.72rem;color:#fbbf24;margin-top:10px;}
+  /* DEMO NOTE */
+  .demo-note{font-size:0.83rem;color:var(--muted);text-align:center;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:8px;line-height:1.7;}
 
-  .demo-note{font-size:0.82rem;color:var(--muted);text-align:center;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;line-height:1.6;}
+  /* WHAT I OFFER */
+  .offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+  .offer-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;transition:border-color .2s;}
+  .offer-card:hover{border-color:rgba(0,212,255,0.25);}
+  .offer-icon{font-size:1.4rem;margin-bottom:10px;}
+  .offer-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:0.9rem;margin-bottom:5px;}
+  .offer-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;}
 
-  .contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;}
+  /* CONTACT */
+  .contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2.2rem;}
   .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem;}
-  .contact-item{display:flex;align-items:center;gap:10px;}
-  .contact-icon{width:36px;height:36px;border-radius:8px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .contact-icon i{font-size:16px;color:var(--accent);}
-  .contact-val{color:var(--text);font-size:0.83rem;word-break:break-all;}
-  .contact-lbl{font-size:0.7rem;color:var(--muted);}
-  .available-banner{display:flex;align-items:center;gap:10px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:12px 16px;font-size:0.85rem;color:#34d399;margin-bottom:1.5rem;}
+  .contact-item{display:flex;align-items:center;gap:12px;}
+  .contact-icon{width:38px;height:38px;border-radius:9px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .contact-icon i{font-size:17px;color:var(--accent);}
+  .contact-val{color:var(--text);font-size:0.84rem;word-break:break-all;}
+  .contact-lbl{font-size:0.7rem;color:var(--muted);margin-bottom:1px;}
+  .available-banner{display:flex;align-items:center;gap:10px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:13px 16px;font-size:0.85rem;color:#34d399;margin-bottom:1.5rem;}
   .green-dot{width:8px;height:8px;border-radius:50%;background:#10b981;animation:pulse 2s infinite;flex-shrink:0;display:inline-block;}
 
-  footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);}
+  /* FOOTER */
+  footer{text-align:center;padding:2.5rem 2rem;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);}
+  .footer-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;}
+  .footer-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;transition:color .2s;}
+  .footer-links a:hover{color:var(--accent);}
 
-  @media(max-width:600px){
-    nav{padding:1rem;}
+  /* SCROLL TO TOP */
+  #scrolltop{position:fixed;bottom:2rem;right:2rem;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#7c3aed);border:none;color:#fff;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.1rem;z-index:99;transition:opacity .2s;}
+  #scrolltop.show{display:flex;}
+
+  @media(max-width:640px){
+    nav{padding:1rem 1.2rem;}
     .nav-links{gap:1rem;}
-    .hero{padding:3rem 1rem 2.5rem;}
-    section{padding:2.5rem 1rem;}
+    .nav-hire{display:none;}
+    .hero{padding:3.5rem 1rem 3rem;}
+    section{padding:3rem 1rem;}
+    .stats-row{gap:1.5rem;}
+    .stat-divider{display:none;}
   }
 </style>
 </head>
@@ -95,56 +144,150 @@
 <nav>
   <span class="nav-logo">Ronit Parmar</span>
   <div class="nav-links">
+    <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
+    <a href="mailto:parmarronit018@gmail.com" class="nav-hire">Hire Me</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-badge"><span class="dot"></span>&nbsp; Open to opportunities</div>
   <h1>Hi, I'm <span>Ronit Parmar</span></h1>
-  <p class="hero-sub">Web & Android App  Developer — Building real-world Web & Apps  &amp;with AI, React & Kotlin</p>
+  <p class="hero-sub">Web &amp; Android App Developer — Building real-world apps with <strong>AI, React &amp; Kotlin</strong></p>
   <div class="hero-company">
     <i class="ti ti-briefcase" style="font-size:15px;color:#8892a4"></i>
     Currently at <strong style="margin-left:4px">Laxman &amp; Sons Tech</strong> &mdash; Surat, Gujarat
   </div>
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-num">6+</div>
+      <div class="stat-lbl">PROJECTS BUILT</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-lbl">ANDROID APPS</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-lbl">WEB PLATFORMS</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">1</div>
+      <div class="stat-lbl">AI PRODUCT</div>
+    </div>
+  </div>
+
   <div class="cta-row">
-    <a href="#projects" class="btn-primary">View My Projects</a>
-    <a href="#contact" class="btn-outline">Contact Me</a>
+    <a href="#projects" class="btn-primary"><i class="ti ti-layout-grid" style="font-size:15px"></i> View Projects</a>
+    <a href="mailto:parmarronit018@gmail.com" class="btn-outline"><i class="ti ti-mail" style="font-size:15px"></i> Contact Me</a>
   </div>
 </div>
 
 <hr class="divider">
 
-<section id="skills">
-  <p class="section-label">What I work with</p>
-  <h2 class="section-title">Skills &amp; Technologies</h2>
-  <div class="skills-grid">
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>React.js</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Next.js</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Flutter</div>
-    <div class="skill-tag"><span class="skill-dot d-purple"></span>Java</div>
-    <div class="skill-tag"><span class="skill-dot d-purple"></span>Kotlin</div>
-    <div class="skill-tag"><span class="skill-dot d-purple"></span>Android SDK</div>
-    <div class="skill-tag"><span class="skill-dot d-green"></span>Firebase</div>
-    <div class="skill-tag"><span class="skill-dot d-green"></span>Machine Learning / AI</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>HTML / CSS / JS</div>
-    <div class="skill-tag"><span class="skill-dot d-orange"></span>REST APIs</div>
-    <div class="skill-tag"><span class="skill-dot d-green"></span>APK Development</div>
-    <div class="skill-tag"><span class="skill-dot d-orange"></span>E-Commerce</div>
-    <div class="skill-tag"><span class="skill-dot d-orange"></span>UI/UX Design</div>
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">Who I am</p>
+  <h2 class="section-title">About Me</h2>
+  <p class="section-sub">A little background on my journey and what I bring to the table</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+    <div>
+      <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem;">I'm a software developer based in <strong style="color:var(--text)">Surat, Gujarat</strong> with hands-on experience building Android apps and full-stack web platforms. I work at <strong style="color:var(--text)">Laxman &amp; Sons Tech</strong>, where I've built everything from AI-powered trading tools to community finance apps.</p>
+      <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;">I enjoy turning complex problems into clean, usable products — whether that's a real-time stock market dashboard with ML signals or an Android app that digitizes a village's financial system.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
+        <i class="ti ti-map-pin" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Location</span>
+        <span style="margin-left:auto;color:var(--text)">Surat, Gujarat, India</span>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
+        <i class="ti ti-code" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Focus</span>
+        <span style="margin-left:auto;color:var(--text)">Web &amp; Android</span>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
+        <i class="ti ti-language" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Languages</span>
+        <span style="margin-left:auto;color:var(--text)">Hindi, Gujarati, English</span>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
+        <i class="ti ti-device-mobile" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Available</span>
+        <span style="margin-left:auto;"><span style="background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 8px;font-size:0.75rem;">Full-time</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT I OFFER -->
+  <div style="margin-top:2.5rem;">
+    <p style="font-size:0.8rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;">What I can build for you</p>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-icon">🌐</div>
+        <div class="offer-title">Web Applications</div>
+        <div class="offer-desc">Custom websites, dashboards, and full-stack web apps using React &amp; Next.js</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon">📱</div>
+        <div class="offer-title">Android Apps</div>
+        <div class="offer-desc">Native Android APKs with Java/Kotlin, or cross-platform apps with Flutter</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon">🤖</div>
+        <div class="offer-title">AI Integration</div>
+        <div class="offer-desc">Add AI/ML features into products — chatbots, signal engines, smart automation</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon">🛒</div>
+        <div class="offer-title">E-Commerce</div>
+        <div class="offer-desc">Online stores with product management, cart, payments, and admin panels</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <hr class="divider">
 
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">What I work with</p>
+  <h2 class="section-title">Skills &amp; Technologies</h2>
+  <p class="section-sub">Technologies I use to build web and mobile products</p>
+  <div class="skills-grid">
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>React.js</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Next.js</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Flutter</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>HTML / CSS / JavaScript</div>
+    <div class="skill-tag"><span class="skill-dot d-purple"></span>Java</div>
+    <div class="skill-tag"><span class="skill-dot d-purple"></span>Kotlin</div>
+    <div class="skill-tag"><span class="skill-dot d-purple"></span>Android SDK</div>
+    <div class="skill-tag"><span class="skill-dot d-green"></span>Firebase</div>
+    <div class="skill-tag"><span class="skill-dot d-green"></span>Machine Learning / AI</div>
+    <div class="skill-tag"><span class="skill-dot d-green"></span>Node.js</div>
+    <div class="skill-tag"><span class="skill-dot d-orange"></span>REST APIs</div>
+    <div class="skill-tag"><span class="skill-dot d-orange"></span>E-Commerce Development</div>
+    <div class="skill-tag"><span class="skill-dot d-orange"></span>UI/UX Design</div>
+    <div class="skill-tag"><span class="skill-dot d-red"></span>Git &amp; GitHub</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
 <section id="projects">
   <p class="section-label">What I've built</p>
   <h2 class="section-title">Projects</h2>
+  <p class="section-sub">Real products built and shipped — from AI platforms to community apps</p>
 
-  <!-- WEB PROJECTS -->
-  <div class="cat-label cat-web"><i class="ti ti-world" style="font-size:13px"></i> Web Projects</div>
+  <div class="cat-label cat-web"><i class="ti ti-world" style="font-size:13px"></i>&nbsp; Web Projects</div>
   <div class="projects-grid">
 
     <div class="proj-card web-card">
@@ -155,7 +298,7 @@
           <div class="proj-type purple">AI TRADING PLATFORM</div>
         </div>
       </div>
-      <p class="proj-desc">A professional live market trading platform with AI-powered Option Chain analysis. Features candlestick charts, EMA/MACD/RSI indicators, real-time market watch, paper trading desk, and an in-house Machine Learning AI advisor that generates buy/sell signals with confidence scores.</p>
+      <p class="proj-desc">Professional live market trading platform with AI-powered Option Chain analysis. Features real-time candlestick charts, EMA/MACD/RSI indicators, paper trading desk, live market watch across 215+ instruments, and an in-house ML advisor generating buy/sell signals with confidence scores.</p>
       <div class="proj-tags">
         <span class="tag cyan">Next.js</span>
         <span class="tag green">Machine Learning</span>
@@ -163,31 +306,30 @@
         <span class="tag">AI Signals</span>
         <span class="tag cyan">Real-time</span>
       </div>
-      <div class="private-badge"><i class="ti ti-lock" style="font-size:12px"></i> Demo on request (offline / pendrive only)</div>
+      <div class="private-badge"><i class="ti ti-lock" style="font-size:12px"></i>&nbsp; Demo on request — offline / pendrive only</div>
     </div>
 
     <div class="proj-card web-card">
       <div class="proj-header">
         <div class="proj-emoji">🛒</div>
         <div>
-          <div class="proj-name">Client E-Commerce Website</div>
+          <div class="proj-name">Client E-Commerce Platform</div>
           <div class="proj-type purple">FULL-STACK WEB APP</div>
         </div>
       </div>
-      <p class="proj-desc">A complete e-commerce website built for a private client. Includes product listings, cart, checkout flow, order management, and admin dashboard. Client name kept confidential per NDA.</p>
+      <p class="proj-desc">A complete e-commerce website built for a private client. Includes product catalog, shopping cart, checkout flow, payment gateway integration, order management system, and a full admin dashboard for inventory and sales tracking.</p>
       <div class="proj-tags">
         <span class="tag cyan">React.js</span>
         <span class="tag green">Node.js</span>
         <span class="tag amber">Payment Gateway</span>
         <span class="tag">Admin Panel</span>
       </div>
-      <div class="private-badge"><i class="ti ti-lock" style="font-size:12px"></i> Client confidential — demo available in person</div>
+      <div class="private-badge"><i class="ti ti-lock" style="font-size:12px"></i>&nbsp; Client confidential — demo available in person</div>
     </div>
 
   </div>
 
-  <!-- ANDROID PROJECTS -->
-  <div class="cat-label cat-android"><i class="ti ti-device-mobile" style="font-size:13px"></i> Android Apps</div>
+  <div class="cat-label cat-android"><i class="ti ti-device-mobile" style="font-size:13px"></i>&nbsp; Android Apps</div>
   <div class="projects-grid">
 
     <div class="proj-card">
@@ -198,7 +340,7 @@
           <div class="proj-type">AI CHATBOT APP</div>
         </div>
       </div>
-      <p class="proj-desc">A free AI chatbot app inspired by ChatGPT/Claude. Gives users intelligent conversation with a clean, lightweight interface — no subscription needed.</p>
+      <p class="proj-desc">A free AI chatbot Android app inspired by ChatGPT &amp; Claude. Delivers intelligent conversation through a clean, lightweight interface with no subscription required.</p>
       <div class="proj-tags">
         <span class="tag cyan">Android</span>
         <span class="tag">AI / LLM</span>
@@ -214,7 +356,7 @@
           <div class="proj-type">SOCIAL MEDIA EDITOR</div>
         </div>
       </div>
-      <p class="proj-desc">A free social media content creation app for making Reels, DP images, and Status graphics. Create eye-catching posts without needing design skills.</p>
+      <p class="proj-desc">A free social media content creation app for making Reels, DP images, and WhatsApp Status graphics. Users create eye-catching posts without any design skills.</p>
       <div class="proj-tags">
         <span class="tag cyan">Android</span>
         <span class="tag">Image Processing</span>
@@ -230,7 +372,7 @@
           <div class="proj-type">TICKET BOOKING APP</div>
         </div>
       </div>
-      <p class="proj-desc">A bus ticket booking Android app connecting the Bhavnagar–Surat fixed route. Passengers browse timings and book seats directly from their phone.</p>
+      <p class="proj-desc">Android app connecting the Bhavnagar–Surat fixed bus route. Passengers browse timings, check seat availability, and book tickets directly from their phone.</p>
       <div class="proj-tags">
         <span class="tag cyan">Android</span>
         <span class="tag">Booking System</span>
@@ -246,7 +388,7 @@
           <div class="proj-type">NBFC FINANCE APP</div>
         </div>
       </div>
-      <p class="proj-desc">Digitized a village-owned NBFC that previously ran on paper. The Android app manages member funds, loan records, and transactions for the community.</p>
+      <p class="proj-desc">Digitized a village-owned NBFC (Non-Banking Financial Company) that previously ran entirely on paper. Manages member funds, loan records, and community transactions.</p>
       <div class="proj-tags">
         <span class="tag cyan">Android</span>
         <span class="tag">FinTech</span>
@@ -258,19 +400,22 @@
 
   <div class="demo-note">
     <i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:6px"></i>
-    Live demos available on request &mdash; APKs on WhatsApp and website localhost ready on pendrive <strong style="color:var(--text)">(personally / offline only</strong> due to personal use &amp; security reasons of these sites)
+    Live demos available on request &mdash; APKs on WhatsApp and website localhost ready on pendrive
+    <strong style="color:var(--text)">&nbsp;(personally / offline only</strong> due to personal use &amp; security reasons of these sites)
   </div>
 </section>
 
 <hr class="divider">
 
+<!-- CONTACT -->
 <section id="contact">
   <p class="section-label">Get in touch</p>
   <h2 class="section-title">Contact</h2>
+  <p class="section-sub">Interested in working together? Let's talk.</p>
   <div class="contact-card">
     <div class="available-banner">
       <span class="green-dot"></span>
-      Currently available for full-time roles in Web &amp; Android Development
+      Currently available for full-time roles in Web &amp; Android Development — open to relocate
     </div>
     <div class="contact-grid">
       <div class="contact-item">
@@ -286,6 +431,10 @@
         <div><div class="contact-lbl">Work email</div><div class="contact-val">lstglobal.in@gmail.com</div></div>
       </div>
       <div class="contact-item">
+        <div class="contact-icon"><i class="ti ti-brand-github"></i></div>
+        <div><div class="contact-lbl">GitHub</div><div class="contact-val"><a href="https://github.com/ronitparmar018" style="color:var(--accent);text-decoration:none;" target="_blank">github.com/ronitparmar018</a></div></div>
+      </div>
+      <div class="contact-item">
         <div class="contact-icon"><i class="ti ti-map-pin"></i></div>
         <div><div class="contact-lbl">Location</div><div class="contact-val">Surat, Gujarat, India</div></div>
       </div>
@@ -294,8 +443,27 @@
 </section>
 
 <footer>
-  Built by Ronit Parmar &nbsp;&middot;&nbsp; Laxman &amp; Sons Tech &nbsp;&middot;&nbsp; Surat, Gujarat
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:parmarronit018@gmail.com">Hire Me</a>
+  </div>
+  <p>Designed &amp; built by <strong style="color:var(--text)">Ronit Parmar</strong> &nbsp;&middot;&nbsp; Laxman &amp; Sons Tech &nbsp;&middot;&nbsp; Surat, Gujarat</p>
+  <p style="margin-top:4px;font-size:0.75rem;opacity:0.5;">&copy; 2026 Ronit Parmar. All rights reserved.</p>
 </footer>
 
+<button id="scrolltop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <i class="ti ti-arrow-up"></i>
+</button>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    document.getElementById('scrolltop').classList.toggle('show',window.scrollY>400);
+  });
+</script>
 </body>
 </html>
+HTMLEOF
+echo "Done"

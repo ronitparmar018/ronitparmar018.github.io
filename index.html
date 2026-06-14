@@ -10,12 +10,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
-  :root{--bg:#0a0e1a;--surface:#111827;--card:#161d2e;--accent:#00d4ff;--accent2:#7c3aed;--text:#f0f4ff;--muted:#8892a4;--border:#1e2a3a;}
+  :root{
+    --bg:#0a0e1a;--surface:#111827;--card:#161d2e;
+    --accent:#00d4ff;--accent2:#7c3aed;
+    --text:#f0f4ff;--muted:#8892a4;--border:#1e2a3a;
+    --side:clamp(1.5rem,5vw,6rem);
+    --max:1200px;
+  }
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;}
 
   /* NAV */
-  :root{--side:clamp(1.5rem, 5vw, 6rem);}
   nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem var(--side);border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,14,26,0.95);backdrop-filter:blur(10px);z-index:100;}
   .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
   .nav-links{display:flex;gap:2rem;align-items:center;}
@@ -25,54 +30,49 @@
   .nav-hire:hover{opacity:0.9;}
 
   /* HERO */
-  .hero{padding:6rem var(--side) 5rem;text-align:center;position:relative;overflow:hidden;max-width:900px;margin:0 auto;}
+  .hero{padding:6rem var(--side) 5rem;text-align:center;position:relative;overflow:hidden;max-width:var(--max);margin:0 auto;}
   .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(0,212,255,0.07),transparent);pointer-events:none;}
   .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);border-radius:99px;padding:5px 16px;font-size:0.75rem;color:var(--accent);margin-bottom:1.8rem;letter-spacing:0.06em;}
   .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;display:inline-block;}
   @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
   .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:700;line-height:1.1;margin-bottom:1rem;}
   .hero h1 span{background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-  .hero-sub{color:var(--muted);font-size:1.05rem;max-width:520px;margin:0 auto 1rem;line-height:1.6;}
+  .hero-sub{color:var(--muted);font-size:1.05rem;max-width:560px;margin:0 auto 1rem;line-height:1.6;}
   .hero-sub strong{color:var(--text);}
   .hero-company{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 18px;font-size:0.85rem;color:var(--muted);margin-bottom:2rem;}
   .hero-company strong{color:var(--text);}
-
-  /* STATS ROW */
   .stats-row{display:flex;justify-content:center;gap:2.5rem;margin:2rem 0 2.5rem;flex-wrap:wrap;}
   .stat{text-align:center;}
   .stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
   .stat-lbl{font-size:0.72rem;color:var(--muted);letter-spacing:0.06em;margin-top:4px;}
   .stat-divider{width:1px;background:var(--border);}
-
   .cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
   .btn-primary{background:linear-gradient(135deg,#00d4ff,#7c3aed);color:#fff;border:none;border-radius:8px;padding:11px 28px;font-size:0.9rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;}
   .btn-outline{background:transparent;color:var(--accent);border:1px solid rgba(0,212,255,0.4);border-radius:8px;padding:11px 28px;font-size:0.9rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:background .2s;}
   .btn-outline:hover{background:rgba(0,212,255,0.08);}
 
   /* SECTIONS */
-  .page-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 var(--side);}
-  section{padding:4.5rem 0;max-width:1200px;margin:0 auto;padding-left:var(--side);padding-right:var(--side);}
+  section{padding:4.5rem var(--side);max-width:var(--max);margin:0 auto;}
   .section-label{font-size:0.72rem;letter-spacing:0.12em;color:var(--accent);font-weight:500;margin-bottom:0.5rem;text-transform:uppercase;}
   .section-title{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:700;margin-bottom:0.5rem;}
   .section-sub{color:var(--muted);font-size:0.9rem;margin-bottom:2rem;}
-  .divider{border:none;border-top:1px solid var(--border);max-width:1200px;margin:0 auto;padding:0 var(--side);}
+  .divider{border:none;border-top:1px solid var(--border);max-width:var(--max);margin:0 auto;padding:0 var(--side);}
 
   /* SKILLS */
-  .skills-grid{display:flex;flex-wrap:wrap;gap:10px;}
+  .skills-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:2.5rem;}
   .skill-tag{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:9px 16px;font-size:0.85rem;color:var(--text);display:flex;align-items:center;gap:8px;transition:border-color .2s;}
   .skill-tag:hover{border-color:rgba(0,212,255,0.3);}
   .skill-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
   .d-cyan{background:#00d4ff;}.d-purple{background:#7c3aed;}.d-green{background:#10b981;}.d-orange{background:#f59e0b;}.d-red{background:#ef4444;}
 
-  /* EXPERIENCE TIMELINE */
-  .timeline{position:relative;padding-left:1.5rem;}
-  .timeline::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:1px;background:var(--border);}
-  .tl-item{position:relative;margin-bottom:2rem;}
-  .tl-item::before{content:'';position:absolute;left:-1.85rem;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
-  .tl-date{font-size:0.75rem;color:var(--accent);letter-spacing:0.06em;margin-bottom:3px;}
-  .tl-role{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;margin-bottom:2px;}
-  .tl-company{font-size:0.85rem;color:var(--muted);margin-bottom:8px;}
-  .tl-desc{font-size:0.85rem;color:var(--muted);line-height:1.6;}
+  /* OFFER CARDS (inside skills) */
+  .offer-section-label{font-size:0.8rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;margin-top:0.5rem;padding-top:2rem;border-top:1px solid var(--border);}
+  .offer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .offer-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;transition:border-color .2s;}
+  .offer-card:hover{border-color:rgba(0,212,255,0.25);}
+  .offer-icon{font-size:1.4rem;margin-bottom:10px;}
+  .offer-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:0.9rem;margin-bottom:5px;}
+  .offer-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;}
 
   /* PROJECT CATEGORY LABELS */
   .cat-label{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;letter-spacing:0.1em;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:1.2rem;}
@@ -80,7 +80,7 @@
   .cat-web{background:rgba(0,212,255,0.08);color:var(--accent);border:1px solid rgba(0,212,255,0.2);}
 
   /* PROJECT CARDS */
-  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:2.5rem;}
+  .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:2.5rem;}
   .proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;}
   .proj-card:hover{border-color:rgba(0,212,255,0.35);transform:translateY(-3px);}
   .proj-card.web-card:hover{border-color:rgba(124,58,237,0.4);}
@@ -96,17 +96,19 @@
   .tag.green{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.2);color:#34d399;}
   .tag.amber{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.2);color:#fbbf24;}
   .private-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:6px;padding:4px 10px;font-size:0.71rem;color:#fbbf24;margin-top:12px;width:fit-content;}
-
-  /* DEMO NOTE */
   .demo-note{font-size:0.83rem;color:var(--muted);text-align:center;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:8px;line-height:1.7;}
 
-  /* WHAT I OFFER */
-  .offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
-  .offer-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;transition:border-color .2s;}
-  .offer-card:hover{border-color:rgba(0,212,255,0.25);}
-  .offer-icon{font-size:1.4rem;margin-bottom:10px;}
-  .offer-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:0.9rem;margin-bottom:5px;}
-  .offer-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;}
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;}
+  .about-info-col{display:flex;flex-direction:column;gap:10px;}
+  .about-info-row{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;}
+  .about-text p{color:var(--muted);font-size:0.9rem;line-height:1.85;margin-bottom:1rem;}
+
+  /* QR */
+  .qr-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;margin-top:10px;}
+  .qr-box canvas,.qr-box img{width:130px;height:130px;border-radius:6px;display:block;margin:0 auto 8px;}
+  .qr-label{font-size:0.75rem;color:var(--muted);line-height:1.4;}
+  .qr-label strong{color:var(--accent);display:block;font-size:0.8rem;margin-bottom:2px;}
 
   /* CONTACT */
   .contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2.2rem;}
@@ -121,29 +123,31 @@
 
   /* FOOTER */
   footer{text-align:center;padding:2.5rem var(--side);color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);}
-  .footer-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;}
+  .footer-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;}
   .footer-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;transition:color .2s;}
   .footer-links a:hover{color:var(--accent);}
 
   /* SCROLL TO TOP */
-  #scrolltop{position:fixed;bottom:2rem;right:2rem;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#7c3aed);border:none;color:#fff;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.1rem;z-index:99;transition:opacity .2s;}
+  #scrolltop{position:fixed;bottom:2rem;right:2rem;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#7c3aed);border:none;color:#fff;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.1rem;z-index:99;}
   #scrolltop.show{display:flex;}
 
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .offer-grid{grid-template-columns:repeat(2,1fr);}
+    .about-grid{grid-template-columns:1fr;}
+  }
   @media(max-width:768px){
     :root{--side:1.25rem;}
     .nav-links{gap:1rem;}
     .nav-hire{display:none;}
-    .hero{padding:3.5rem var(--side) 3rem;}
     .stats-row{gap:1.2rem;}
     .stat-divider{display:none;}
-    .about-grid{grid-template-columns:1fr !important;}
     .projects-grid{grid-template-columns:1fr !important;}
-    .offer-grid{grid-template-columns:1fr 1fr !important;}
-    .contact-grid{grid-template-columns:1fr !important;}
+    .contact-grid{grid-template-columns:1fr;}
   }
   @media(max-width:480px){
     :root{--side:1rem;}
-    .offer-grid{grid-template-columns:1fr !important;}
+    .offer-grid{grid-template-columns:1fr;}
     .stats-row{gap:1rem;}
     .hero h1{font-size:2rem;}
   }
@@ -154,9 +158,9 @@
 <nav>
   <span class="nav-logo">Ronit Parmar</span>
   <div class="nav-links">
-    <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
     <a href="mailto:parmarronit018@gmail.com" class="nav-hire">Hire Me</a>
   </div>
@@ -171,29 +175,15 @@
     <i class="ti ti-briefcase" style="font-size:15px;color:#8892a4"></i>
     Currently at <strong style="margin-left:4px">Laxman &amp; Sons Tech</strong> &mdash; Surat, Gujarat
   </div>
-
   <div class="stats-row">
-    <div class="stat">
-      <div class="stat-num">6+</div>
-      <div class="stat-lbl">PROJECTS BUILT</div>
-    </div>
+    <div class="stat"><div class="stat-num">6+</div><div class="stat-lbl">PROJECTS BUILT</div></div>
     <div class="stat-divider"></div>
-    <div class="stat">
-      <div class="stat-num">4</div>
-      <div class="stat-lbl">ANDROID APPS</div>
-    </div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-lbl">ANDROID APPS</div></div>
     <div class="stat-divider"></div>
-    <div class="stat">
-      <div class="stat-num">2</div>
-      <div class="stat-lbl">WEB PLATFORMS</div>
-    </div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-lbl">WEB PLATFORMS</div></div>
     <div class="stat-divider"></div>
-    <div class="stat">
-      <div class="stat-num">1</div>
-      <div class="stat-lbl">AI PRODUCT</div>
-    </div>
+    <div class="stat"><div class="stat-num">1</div><div class="stat-lbl">AI PRODUCT</div></div>
   </div>
-
   <div class="cta-row">
     <a href="#projects" class="btn-primary"><i class="ti ti-layout-grid" style="font-size:15px"></i> View Projects</a>
     <a href="mailto:parmarronit018@gmail.com" class="btn-outline"><i class="ti ti-mail" style="font-size:15px"></i> Contact Me</a>
@@ -202,71 +192,7 @@
 
 <hr class="divider">
 
-<!-- ABOUT -->
-<section id="about">
-  <p class="section-label">Who I am</p>
-  <h2 class="section-title">About Me</h2>
-  <p class="section-sub">A little background on my journey and what I bring to the table</p>
-  <div class="about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
-    <div>
-      <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem;">I'm a software developer based in <strong style="color:var(--text)">Surat, Gujarat</strong> with hands-on experience building Android apps and full-stack web platforms. I work at <strong style="color:var(--text)">Laxman &amp; Sons Tech</strong>, where I've built everything from AI-powered trading tools to community finance apps.</p>
-      <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;">I enjoy turning complex problems into clean, usable products — whether that's a real-time stock market dashboard with ML signals or an Android app that digitizes a village's financial system.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
-        <i class="ti ti-map-pin" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Location</span>
-        <span style="margin-left:auto;color:var(--text)">Surat, Gujarat, India</span>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
-        <i class="ti ti-code" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Focus</span>
-        <span style="margin-left:auto;color:var(--text)">Web &amp; Android</span>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
-        <i class="ti ti-language" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Languages</span>
-        <span style="margin-left:auto;color:var(--text)">Hindi, Gujarati, English</span>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
-        <i class="ti ti-device-mobile" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Available</span>
-        <span style="margin-left:auto;"><span style="background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 8px;font-size:0.75rem;">Full-time</span></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- WHAT I OFFER -->
-  <div style="margin-top:2.5rem;">
-    <p style="font-size:0.8rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;">What I can build for you</p>
-    <div class="offer-grid">
-      <div class="offer-card">
-        <div class="offer-icon">🌐</div>
-        <div class="offer-title">Web Applications</div>
-        <div class="offer-desc">Custom websites, dashboards, and full-stack web apps using React &amp; Next.js</div>
-      </div>
-      <div class="offer-card">
-        <div class="offer-icon">📱</div>
-        <div class="offer-title">Android Apps</div>
-        <div class="offer-desc">Native Android APKs with Java/Kotlin, or cross-platform apps with Flutter</div>
-      </div>
-      <div class="offer-card">
-        <div class="offer-icon">🤖</div>
-        <div class="offer-title">AI Integration</div>
-        <div class="offer-desc">Add AI/ML features into products — chatbots, signal engines, smart automation</div>
-      </div>
-      <div class="offer-card">
-        <div class="offer-icon">🛒</div>
-        <div class="offer-title">E-Commerce</div>
-        <div class="offer-desc">Online stores with product management, cart, payments, and admin panels</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- SKILLS -->
+<!-- SKILLS & TECHNOLOGIES -->
 <section id="skills">
   <p class="section-label">What I work with</p>
   <h2 class="section-title">Skills &amp; Technologies</h2>
@@ -287,6 +213,31 @@
     <div class="skill-tag"><span class="skill-dot d-orange"></span>UI/UX Design</div>
     <div class="skill-tag"><span class="skill-dot d-red"></span>Git &amp; GitHub</div>
   </div>
+
+  <!-- WHAT I CAN BUILD -->
+  <p class="offer-section-label">What I can build for you</p>
+  <div class="offer-grid">
+    <div class="offer-card">
+      <div class="offer-icon">🌐</div>
+      <div class="offer-title">Web Applications</div>
+      <div class="offer-desc">Custom websites, dashboards, and full-stack web apps using React &amp; Next.js</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon">📱</div>
+      <div class="offer-title">Android Apps</div>
+      <div class="offer-desc">Native Android APKs with Java/Kotlin, or cross-platform apps with Flutter</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon">🤖</div>
+      <div class="offer-title">AI Integration</div>
+      <div class="offer-desc">Add AI/ML features into products — chatbots, signal engines, smart automation</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon">🛒</div>
+      <div class="offer-title">E-Commerce</div>
+      <div class="offer-desc">Online stores with product management, cart, payments, and admin panels</div>
+    </div>
+  </div>
 </section>
 
 <hr class="divider">
@@ -299,7 +250,6 @@
 
   <div class="cat-label cat-web"><i class="ti ti-world" style="font-size:13px"></i>&nbsp; Web Projects</div>
   <div class="projects-grid">
-
     <div class="proj-card web-card">
       <div class="proj-header">
         <div class="proj-emoji">📈</div>
@@ -336,82 +286,112 @@
       </div>
       <div class="private-badge"><i class="ti ti-lock" style="font-size:12px"></i>&nbsp; Client confidential — demo available in person</div>
     </div>
-
   </div>
 
   <div class="cat-label cat-android"><i class="ti ti-device-mobile" style="font-size:13px"></i>&nbsp; Android Apps</div>
   <div class="projects-grid">
-
     <div class="proj-card">
       <div class="proj-header">
         <div class="proj-emoji">🤖</div>
-        <div>
-          <div class="proj-name">Gamma AI</div>
-          <div class="proj-type">AI CHATBOT APP</div>
-        </div>
+        <div><div class="proj-name">Gamma AI</div><div class="proj-type">AI CHATBOT APP</div></div>
       </div>
       <p class="proj-desc">A free AI chatbot Android app inspired by ChatGPT &amp; Claude. Delivers intelligent conversation through a clean, lightweight interface with no subscription required.</p>
       <div class="proj-tags">
-        <span class="tag cyan">Android</span>
-        <span class="tag">AI / LLM</span>
-        <span class="tag">Java / Kotlin</span>
+        <span class="tag cyan">Android</span><span class="tag">AI / LLM</span><span class="tag">Java / Kotlin</span>
       </div>
     </div>
 
     <div class="proj-card">
       <div class="proj-header">
         <div class="proj-emoji">🎨</div>
-        <div>
-          <div class="proj-name">WhatsMade</div>
-          <div class="proj-type">SOCIAL MEDIA EDITOR</div>
-        </div>
+        <div><div class="proj-name">WhatsMade</div><div class="proj-type">SOCIAL MEDIA EDITOR</div></div>
       </div>
       <p class="proj-desc">A free social media content creation app for making Reels, DP images, and WhatsApp Status graphics. Users create eye-catching posts without any design skills.</p>
       <div class="proj-tags">
-        <span class="tag cyan">Android</span>
-        <span class="tag">Image Processing</span>
-        <span class="tag">Flutter</span>
+        <span class="tag cyan">Android</span><span class="tag">Image Processing</span><span class="tag">Flutter</span>
       </div>
     </div>
 
     <div class="proj-card">
       <div class="proj-header">
         <div class="proj-emoji">🚌</div>
-        <div>
-          <div class="proj-name">Swadesh Bus</div>
-          <div class="proj-type">TICKET BOOKING APP</div>
-        </div>
+        <div><div class="proj-name">Swadesh Bus</div><div class="proj-type">TICKET BOOKING APP</div></div>
       </div>
       <p class="proj-desc">Android app connecting the Bhavnagar–Surat fixed bus route. Passengers browse timings, check seat availability, and book tickets directly from their phone.</p>
       <div class="proj-tags">
-        <span class="tag cyan">Android</span>
-        <span class="tag">Booking System</span>
-        <span class="tag">Java</span>
+        <span class="tag cyan">Android</span><span class="tag">Booking System</span><span class="tag">Java</span>
       </div>
     </div>
 
     <div class="proj-card">
       <div class="proj-header">
         <div class="proj-emoji">🏦</div>
-        <div>
-          <div class="proj-name">Mitra Mandal</div>
-          <div class="proj-type">NBFC FINANCE APP</div>
-        </div>
+        <div><div class="proj-name">Mitra Mandal</div><div class="proj-type">NBFC FINANCE APP</div></div>
       </div>
       <p class="proj-desc">Digitized a village-owned NBFC (Non-Banking Financial Company) that previously ran entirely on paper. Manages member funds, loan records, and community transactions.</p>
       <div class="proj-tags">
-        <span class="tag cyan">Android</span>
-        <span class="tag">FinTech</span>
-        <span class="tag">Kotlin</span>
+        <span class="tag cyan">Android</span><span class="tag">FinTech</span><span class="tag">Kotlin</span>
       </div>
     </div>
-
   </div>
 
   <div class="demo-note">
     <i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:6px"></i>
     Live demos available on request &mdash; APKs on WhatsApp and website localhost ready on pendrive
     <strong style="color:var(--text)">&nbsp;(personally / offline only</strong> due to personal use &amp; security reasons of these sites)
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT ME (before Contact) -->
+<section id="about">
+  <p class="section-label">Who I am</p>
+  <h2 class="section-title">About Me</h2>
+  <p class="section-sub">A little background on my journey and what I bring to the table</p>
+
+  <div class="about-grid">
+    <!-- LEFT: text -->
+    <div class="about-text">
+      <p>I'm a software developer based in <strong style="color:var(--text)">Surat, Gujarat</strong> with hands-on experience building Android applications, full-stack web platforms, and AI-powered products.</p>
+      <p>Currently I work at <strong style="color:var(--text)">Laxman &amp; Sons Tech</strong>, where I've built everything from AI-powered trading systems and real-time stock market dashboards to finance and business management applications.</p>
+      <p>I enjoy turning complex problems into clean, practical products that solve real-world challenges and create meaningful experiences for users.</p>
+    </div>
+
+    <!-- RIGHT: info + QR -->
+    <div class="about-info-col">
+      <div class="about-info-row">
+        <i class="ti ti-map-pin" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Location</span>
+        <span style="margin-left:auto;color:var(--text)">Surat, Gujarat, India</span>
+      </div>
+      <div class="about-info-row">
+        <i class="ti ti-code" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Focus</span>
+        <span style="margin-left:auto;color:var(--text)">Web &amp; Android</span>
+      </div>
+      <div class="about-info-row">
+        <i class="ti ti-language" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Languages</span>
+        <span style="margin-left:auto;color:var(--text)">Hindi, Gujarati, English</span>
+      </div>
+      <div class="about-info-row">
+        <i class="ti ti-device-mobile" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Available</span>
+        <span style="margin-left:auto;">
+          <span style="background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 10px;font-size:0.75rem;">Full-time</span>
+        </span>
+      </div>
+
+      <!-- QR CODE -->
+      <div class="qr-box">
+        <canvas id="qr-canvas"></canvas>
+        <div class="qr-label">
+          <strong>Scan to visit portfolio</strong>
+          ronitparmar018.github.io
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -454,9 +434,9 @@
 
 <footer>
   <div class="footer-links">
-    <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
     <a href="mailto:parmarronit018@gmail.com">Hire Me</a>
   </div>
@@ -468,10 +448,26 @@
   <i class="ti ti-arrow-up"></i>
 </button>
 
+<!-- QR CODE GENERATOR (pure JS, no CDN needed) -->
 <script>
-  window.addEventListener('scroll',()=>{
-    document.getElementById('scrolltop').classList.toggle('show',window.scrollY>400);
-  });
+// Minimal QR code generator for the portfolio URL
+(function(){
+  const url = 'https://ronitparmar018.github.io';
+  const size = 130;
+  const canvas = document.getElementById('qr-canvas');
+  if(!canvas) return;
+  // Use Google Charts QR API as an img fallback (reliable, no library needed)
+  const img = document.createElement('img');
+  img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=' + encodeURIComponent(url) + '&bgcolor=111827&color=00d4ff&qzone=1';
+  img.alt = 'QR code for portfolio';
+  img.width = 130; img.height = 130;
+  img.style.borderRadius = '6px';
+  canvas.replaceWith(img);
+})();
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrolltop').classList.toggle('show',window.scrollY>400);
+});
 </script>
 </body>
 </html>

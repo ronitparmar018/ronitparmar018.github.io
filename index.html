@@ -136,6 +136,88 @@
     .stats-row{gap:1.5rem;}
     .stat-divider{display:none;}
   }
+ /* ABOUT SECTION FIX */
+.about-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:2rem;
+  align-items:start;
+}
+
+.about-text p{
+  color:var(--muted);
+  font-size:0.95rem;
+  line-height:1.9;
+  margin-bottom:1rem;
+}
+
+.about-cards{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.info-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.info-card i{
+  color:var(--accent);
+  font-size:18px;
+}
+
+.info-label{
+  color:var(--muted);
+}
+
+.info-value{
+  margin-left:auto;
+  color:var(--text);
+  text-align:right;
+}
+
+.qr-card{
+  text-align:center;
+}
+
+.qr-card img{
+  width:180px;
+  max-width:100%;
+  border-radius:12px;
+  background:white;
+  padding:10px;
+}
+
+.qr-card p{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:0.8rem;
+}
+
+@media(max-width:768px){
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .info-value{
+    text-align:left;
+  }
+
+  .info-card{
+    justify-content:flex-start;
+  }
+
+  .qr-card img{
+    width:150px;
+  }
+}
 </style>
 </head>
 <body>
@@ -193,61 +275,128 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <p class="section-label">Who I am</p>
+  <p class="section-label">Who I Am</p>
   <h2 class="section-title">About Me</h2>
-  <p class="section-sub">A little background on my journey and what I bring to the table</p>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
-    <div>
-      <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem;">I'm a software developer based in <strong style="color:var(--text)">Surat, Gujarat</strong> with hands-on experience building Android apps and full-stack web platforms. I work at <strong style="color:var(--text)">Laxman &amp; Sons Tech</strong>, where I've built everything from AI-powered trading tools to community finance apps.</p>
-      <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;">I enjoy turning complex problems into clean, usable products — whether that's a real-time stock market dashboard with ML signals or an Android app that digitizes a village's financial system.</p>
+  <p class="section-sub">
+    A little background on my journey and what I bring to the table
+  </p>
+
+  <div class="about-grid">
+
+    <div class="about-text">
+
+      <p>
+        I'm a software developer based in
+        <strong style="color:var(--text)">Surat, Gujarat</strong>
+        with hands-on experience building Android applications,
+        full-stack web platforms and AI-powered products.
+      </p>
+
+      <p>
+        Currently I work at
+        <strong style="color:var(--text)">Laxman & Sons Tech</strong>,
+        where I've built everything from AI-powered trading systems
+        and real-time stock market dashboards to finance and
+        business management applications.
+      </p>
+
+      <p>
+        I enjoy turning complex problems into clean, practical
+        products that solve real-world challenges and create
+        meaningful experiences for users.
+      </p>
+
     </div>
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
-        <i class="ti ti-map-pin" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Location</span>
-        <span style="margin-left:auto;color:var(--text)">Surat, Gujarat, India</span>
+
+    <div class="about-cards">
+
+      <div class="info-card">
+        <i class="ti ti-map-pin"></i>
+        <span class="info-label">Location</span>
+        <span class="info-value">Surat, Gujarat, India</span>
       </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
-        <i class="ti ti-code" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Focus</span>
-        <span style="margin-left:auto;color:var(--text)">Web &amp; Android</span>
+
+      <div class="info-card">
+        <i class="ti ti-code"></i>
+        <span class="info-label">Focus</span>
+        <span class="info-value">Web & Android</span>
       </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
-        <i class="ti ti-language" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Languages</span>
-        <span style="margin-left:auto;color:var(--text)">Hindi, Gujarati, English</span>
+
+      <div class="info-card">
+        <i class="ti ti-language"></i>
+        <span class="info-label">Languages</span>
+        <span class="info-value">Hindi, Gujarati, English</span>
       </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;">
-        <i class="ti ti-device-mobile" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Available</span>
-        <span style="margin-left:auto;"><span style="background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 8px;font-size:0.75rem;">Full-time</span></span>
+
+      <div class="info-card">
+        <i class="ti ti-device-mobile"></i>
+        <span class="info-label">Available</span>
+        <span class="info-value">
+          <span style="
+            background:rgba(16,185,129,.1);
+            color:#34d399;
+            border:1px solid rgba(16,185,129,.2);
+            border-radius:6px;
+            padding:4px 10px;
+          ">
+            Full-time
+          </span>
+        </span>
       </div>
+
+      <div class="info-card qr-card">
+        <div style="width:100%;">
+          <img src="QR.png" alt="Portfolio QR">
+          <p>Scan to open my portfolio</p>
+        </div>
+      </div>
+
     </div>
+
   </div>
 
-  <!-- WHAT I OFFER -->
   <div style="margin-top:2.5rem;">
-    <p style="font-size:0.8rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;">What I can build for you</p>
+    <p style="
+      font-size:0.8rem;
+      color:var(--muted);
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      margin-bottom:1rem;
+    ">
+      What I Can Build For You
+    </p>
+
     <div class="offer-grid">
       <div class="offer-card">
         <div class="offer-icon">🌐</div>
         <div class="offer-title">Web Applications</div>
-        <div class="offer-desc">Custom websites, dashboards, and full-stack web apps using React &amp; Next.js</div>
+        <div class="offer-desc">
+          Custom websites, dashboards and full-stack web apps.
+        </div>
       </div>
+
       <div class="offer-card">
         <div class="offer-icon">📱</div>
         <div class="offer-title">Android Apps</div>
-        <div class="offer-desc">Native Android APKs with Java/Kotlin, or cross-platform apps with Flutter</div>
+        <div class="offer-desc">
+          Native Android applications using Java & Kotlin.
+        </div>
       </div>
+
       <div class="offer-card">
         <div class="offer-icon">🤖</div>
         <div class="offer-title">AI Integration</div>
-        <div class="offer-desc">Add AI/ML features into products — chatbots, signal engines, smart automation</div>
+        <div class="offer-desc">
+          AI features, automation, chatbots and ML solutions.
+        </div>
       </div>
+
       <div class="offer-card">
         <div class="offer-icon">🛒</div>
         <div class="offer-title">E-Commerce</div>
-        <div class="offer-desc">Online stores with product management, cart, payments, and admin panels</div>
+        <div class="offer-desc">
+          Complete online stores with payments and admin panels.
+        </div>
       </div>
     </div>
   </div>

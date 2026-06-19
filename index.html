@@ -298,132 +298,21 @@
         <li>Working on Dosa Charcoal (V1) — a live production Restaurant POS built with React 18 + TypeScript + Tailwind CSS + Redux Toolkit</li>
         <li>Built the complete User Management module including Add User Form and User List</li>
         <li>Developed Role Permission system with access control logic for different user roles within the POS</li>
-        <li>Designed reusable UI components — data cards, tables, and form elements — for consistent design across module
-  /* QR */
-  .qr-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;margin-top:10px;}
-  .qr-box canvas,.qr-box img{width:130px;height:130px;border-radius:6px;display:block;margin:0 auto 8px;}
-  .qr-label{font-size:0.75rem;color:var(--muted);line-height:1.4;}
-  .qr-label strong{color:var(--accent);display:block;font-size:0.8rem;margin-bottom:2px;}
-
-  /* CONTACT */
-  .contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2.2rem;}
-  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem;}
-  .contact-item{display:flex;align-items:center;gap:12px;}
-  .contact-icon{width:38px;height:38px;border-radius:9px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .contact-icon i{font-size:17px;color:var(--accent);}
-  .contact-val{color:var(--text);font-size:0.84rem;word-break:break-all;}
-  .contact-lbl{font-size:0.7rem;color:var(--muted);margin-bottom:1px;}
-  .available-banner{display:flex;align-items:center;gap:10px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:13px 16px;font-size:0.85rem;color:#34d399;margin-bottom:1.5rem;}
-  .green-dot{width:8px;height:8px;border-radius:50%;background:#10b981;animation:pulse 2s infinite;flex-shrink:0;display:inline-block;}
-
-  /* FOOTER */
-  footer{text-align:center;padding:2.5rem var(--side);color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);}
-  .footer-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;}
-  .footer-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;transition:color .2s;}
-  .footer-links a:hover{color:var(--accent);}
-
-  /* SCROLL TO TOP */
-  #scrolltop{position:fixed;bottom:2rem;right:2rem;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#7c3aed);border:none;color:#fff;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.1rem;z-index:99;}
-  #scrolltop.show{display:flex;}
-
-  /* RESPONSIVE */
-  @media(max-width:900px){
-    .offer-grid{grid-template-columns:repeat(2,1fr);}
-    .about-grid{grid-template-columns:1fr;}
-  }
-  @media(max-width:768px){
-    :root{--side:1.25rem;}
-    .nav-links{gap:1rem;}
-    .nav-hire{display:none;}
-    .stats-row{gap:1.2rem;}
-    .stat-divider{display:none;}
-    .projects-grid{grid-template-columns:1fr !important;}
-    .contact-grid{grid-template-columns:1fr;}
-  }
-  @media(max-width:480px){
-    :root{--side:1rem;}
-    .offer-grid{grid-template-columns:1fr;}
-    .stats-row{gap:1rem;}
-    .hero h1{font-size:2rem;}
-  }
-</style>
-</head>
-<body>
-
-<nav>
-  <span class="nav-logo">Ronit Parmar</span>
-  <div class="nav-links">
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="mailto:parmarronit018@gmail.com" class="nav-hire">Hire Me</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-badge"><span class="dot"></span>&nbsp; Open to opportunities</div>
-  <h1>Hi, I'm <span>Ronit Parmar</span></h1>
-  <p class="hero-sub">Web &amp; Mobile App Developer — Building real-world apps with <strong>React, React Native &amp; AI</strong></p>
-  <div class="hero-company">
-    <i class="ti ti-briefcase" style="font-size:15px;color:#8892a4"></i>
-    Currently at <strong style="margin-left:4px">SkyLink IT Hub</strong> &mdash; Ahmedabad
-  </div>
-  <div class="stats-row">
-    <div class="stat"><div class="stat-num">6+</div><div class="stat-lbl">PROJECTS BUILT</div></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><div class="stat-num">4</div><div class="stat-lbl">ANDROID APPS</div></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><div class="stat-num">2</div><div class="stat-lbl">WEB PLATFORMS</div></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><div class="stat-num">1</div><div class="stat-lbl">AI PRODUCT</div></div>
-  </div>
-  <div class="cta-row">
-    <a href="#projects" class="btn-primary"><i class="ti ti-layout-grid" style="font-size:15px"></i> View Projects</a>
-    <a href="mailto:parmarronit018@gmail.com" class="btn-outline"><i class="ti ti-mail" style="font-size:15px"></i> Hire Me</a>
-  </div>
-</div>
-
-<hr class="divider">
-
-<!-- SKILLS & TECHNOLOGIES -->
-<section id="skills">
-  <p class="section-label">What I work with</p>
-  <h2 class="section-title">Skills &amp; Technologies</h2>
-  <p class="section-sub">Technologies I use to build web and mobile products</p>
-  <div class="skills-grid">
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>React</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>React Native</div>
-    <div class="skill-tag"><span class="skill-dot d-orange"></span>UI/UX Design</div>
-    <div class="skill-tag"><span class="skill-dot d-orange"></span>REST APIs</div>
-    <div class="skill-tag"><span class="skill-dot d-green"></span>Firebase / Supabase Backend</div>
-    <div class="skill-tag"><span class="skill-dot d-green"></span>Node.js</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Next.js</div>
-  </div>
-
-  <!-- WHAT I CAN BUILD -->
-  <p class="offer-section-label">What I can build for you</p>
-  <div class="offer-grid">
-    <div class="offer-card">
-      <div class="offer-icon">🌐</div>
-      <div class="offer-title">Web Applications</div>
-      <div class="offer-desc">Custom websites, dashboards, and full-stack web apps using React &amp; Next.js</div>
+        <li>Designed reusable UI components — data cards, tables, and form elements — for consistent design across modules</li>
+        <li>Collaborating on production codebase using Git branching strategy and code review practices</li>
+      </ul>
     </div>
-    <div class="offer-card">
-      <div class="offer-icon">📱</div>
-      <div class="offer-title">Android Apps</div>
-      <div class="offer-desc">Cross-platform mobile apps built with React Native — fast, smooth, and native-feeling</div>
-    </div>
-    <div class="offer-card">
-      <div class="offer-icon">🤖</div>
-      <div class="offer-title">AI Integration</div>
-      <div class="offer-desc">Add AI/ML features into products — chatbots, signal engines, smart automation</div>
-    </div>
-    <div class="offer-card">
-      <div class="offer-icon">🛒</div>
-      <div class="offer-title">E-Commerce</div>
-      <div class="offer-desc">Online stores with product management, cart, payments, and admin panels</div>
+
+    <div class="tl-item">
+      <div class="tl-date">DEC 2025 – JUN 2026</div>
+      <div class="tl-role">React JS Developer Intern</div>
+      <div class="tl-company">SkyLink IT Hub &middot; Ahmedabad, Gujarat &middot; Internship, later continued as freelance contributor</div>
+      <ul class="tl-desc">
+        <li>Built LUMIERE — a full-featured Jewellery Store web app with modern UI/UX using React.js</li>
+        <li>Integrated Razorpay Payment Gateway for secure transactions and order management</li>
+        <li>Implemented Google Maps API for store location and JWT-based authentication flow</li>
+        <li>Consumed REST APIs for dynamic product listing, filtering, and cart functionality</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -434,91 +323,51 @@
 <section id="projects">
   <p class="section-label">What I've built</p>
   <h2 class="section-title">Projects</h2>
-  <p class="section-sub">Real products built and shipped — from AI platforms to community apps</p>
+  <p class="section-sub">Solo-built and freelance projects, shipped to production</p>
 
-  <div class="cat-label cat-web"><i class="ti ti-world" style="font-size:13px"></i>&nbsp; Web Projects</div>
   <div class="projects-grid">
     <div class="proj-card web-card">
       <div class="proj-header">
-        <div class="proj-emoji">📈</div>
+        <div class="proj-emoji">🚌</div>
         <div>
-          <div class="proj-name">LST AI Market</div>
-          <div class="proj-type purple">AI TRADING PLATFORM</div>
+          <div class="proj-name">SwadeshBus</div>
+          <div class="proj-type purple">BUS BOOKING MOBILE APP</div>
         </div>
       </div>
-      <p class="proj-desc">Professional live market trading platform with AI-powered Option Chain analysis. Features real-time candlestick charts, EMA/MACD/RSI indicators, paper trading desk, live market watch across 215+ instruments, and an in-house ML advisor generating buy/sell signals with confidence scores.</p>
+      <ul class="proj-desc">
+        <li>Solo-built — a multi-role bus booking app for the Surat–Vallabhipur route, packaged as a production-ready APK using EAS Build</li>
+        <li>Real-time seat selection across 40+ seats with Firestore sync, UPI payment flow, and dynamic pricing</li>
+        <li>Multi-role architecture (Admin / Manager / Passenger) with PIN-based auth and OTP flows</li>
+        <li>Bilingual UI (English/Gujarati), ad monetization via Start.io</li>
+      </ul>
       <div class="proj-tags">
-        <span class="tag cyan">Next.js</span>
-        <span class="tag green">Machine Learning</span>
-        <span class="tag amber">Kite API</span>
-        <span class="tag">AI Signals</span>
-        <span class="tag cyan">Real-time</span>
+        <span class="tag cyan">React Native</span>
+        <span class="tag">Expo</span>
+        <span class="tag green">Firebase</span>
+        <span class="tag amber">TypeScript</span>
+        <span class="tag">EAS Build</span>
       </div>
-      <div class="private-badge"><i class="ti ti-lock" style="font-size:12px"></i>&nbsp; Demo on request — offline / pendrive only</div>
     </div>
 
     <div class="proj-card web-card">
       <div class="proj-header">
         <div class="proj-emoji">🛒</div>
         <div>
-          <div class="proj-name">Client E-Commerce Platform</div>
-          <div class="proj-type purple">FULL-STACK WEB APP</div>
+          <div class="proj-name">Ram Enterprise</div>
+          <div class="proj-type purple">E-COMMERCE WEB APP</div>
         </div>
       </div>
-      <p class="proj-desc">A complete e-commerce website built for a private client. Includes product catalog, shopping cart, checkout flow, payment gateway integration, order management system, and a full admin dashboard for inventory and sales tracking.</p>
+      <ul class="proj-desc">
+        <li>E-commerce platform with product listing, cart, and order management, including a Super Admin Panel (UI built, functionality in progress)</li>
+        <li>Firebase Firestore for real-time data sync and Firebase Auth for user authentication</li>
+        <li>Luxury dark-themed UI with fully responsive UserPanel and Admin layout built with Tailwind CSS</li>
+      </ul>
       <div class="proj-tags">
         <span class="tag cyan">React.js</span>
-        <span class="tag green">Node.js</span>
-        <span class="tag amber">Payment Gateway</span>
-        <span class="tag">Admin Panel</span>
-      </div>
-      <div class="private-badge"><i class="ti ti-lock" style="font-size:12px"></i>&nbsp; Client confidential — demo available in person</div>
-    </div>
-  </div>
-
-  <div class="cat-label cat-android"><i class="ti ti-device-mobile" style="font-size:13px"></i>&nbsp; Android Apps</div>
-  <div class="projects-grid">
-    <div class="proj-card">
-      <div class="proj-header">
-        <div class="proj-emoji">🤖</div>
-        <div><div class="proj-name">Gamma AI</div><div class="proj-type">AI CHATBOT APP</div></div>
-      </div>
-      <p class="proj-desc">A free AI chatbot Android app inspired by ChatGPT &amp; Claude. Delivers intelligent conversation through a clean, lightweight interface with no subscription required.</p>
-      <div class="proj-tags">
-        <span class="tag cyan">Android</span><span class="tag">AI / LLM</span><span class="tag">REST APIs</span>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header">
-        <div class="proj-emoji">🎨</div>
-        <div><div class="proj-name">WhatsMade</div><div class="proj-type">SOCIAL MEDIA EDITOR</div></div>
-      </div>
-      <p class="proj-desc">A free social media content creation app for making Reels, DP images, and WhatsApp Status graphics. Users create eye-catching posts without any design skills.</p>
-      <div class="proj-tags">
-        <span class="tag cyan">Android</span><span class="tag">Image Processing</span><span class="tag">UI/UX Design</span>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header">
-        <div class="proj-emoji">🚌</div>
-        <div><div class="proj-name">Swadesh Bus</div><div class="proj-type">TICKET BOOKING APP</div></div>
-      </div>
-      <p class="proj-desc">Android app connecting the Bhavnagar–Surat fixed bus route. Passengers browse timings, check seat availability, and book tickets directly from their phone.</p>
-      <div class="proj-tags">
-        <span class="tag cyan">Android</span><span class="tag">Booking System</span><span class="tag">Firebase</span>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header">
-        <div class="proj-emoji">🏦</div>
-        <div><div class="proj-name">Mitra Mandal</div><div class="proj-type">NBFC FINANCE APP</div></div>
-      </div>
-      <p class="proj-desc">Digitized a village-owned NBFC (Non-Banking Financial Company) that previously ran entirely on paper. Manages member funds, loan records, and community transactions.</p>
-      <div class="proj-tags">
-        <span class="tag cyan">Android</span><span class="tag">FinTech</span><span class="tag">Supabase</span>
+        <span class="tag green">Firebase</span>
+        <span class="tag amber">Tailwind CSS</span>
+        <span class="tag">Redux Toolkit</span>
+        <span class="tag cyan">Node.js</span>
       </div>
     </div>
   </div>
@@ -532,50 +381,62 @@
 
 <hr class="divider">
 
-<!-- ABOUT ME (before Contact) -->
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label">My background</p>
+  <h2 class="section-title">Education</h2>
+  <div class="edu-card">
+    <div class="edu-icon">🎓</div>
+    <div>
+      <div class="edu-degree">B.Tech — Information Technology</div>
+      <div class="edu-school">Bhagwan Arihant Institute of Technology (BAIT), Surat, Gujarat</div>
+      <div class="edu-date">Aug 2022 – Apr 2026</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
 <section id="about">
   <p class="section-label">Who I am</p>
   <h2 class="section-title">About Me</h2>
   <p class="section-sub">A little background on my journey and what I bring to the table</p>
 
   <div class="about-grid">
-    <!-- LEFT: text -->
     <div class="about-text">
-      <p>I'm a software developer based in <strong style="color:var(--text)">Surat, Gujarat</strong> with hands-on experience building Android applications, full-stack web platforms, and AI-powered products.</p>
-      <p>Currently I work at <strong style="color:var(--text)">SkyLink IT Hub</strong>, where I've built everything from AI-powered trading systems and real-time stock market dashboards to finance and business management applications.</p>
-      <p>I started my journey building mobile apps with <strong style="color:var(--text)">React Native</strong>, then expanded into web development with <strong style="color:var(--text)">React and Next.js</strong>. Over time I've worked on projects across fintech, social media, transport, and AI — each one teaching me something new.</p>
-      <p>I enjoy turning complex problems into clean, practical products that solve real-world challenges and create meaningful experiences for users. I care about writing code that is not just functional, but also easy to maintain and scale.</p>
-      <p>When I'm not coding, I'm exploring new technologies, learning about AI/ML trends, and thinking about how software can make everyday life simpler for people around me.</p>
+      <p>I'm a <strong style="color:var(--text)">B.Tech IT fresher (2026)</strong> based in Surat, Gujarat, who has built and shipped 2 production-grade apps — a live Restaurant POS system (Dosa Charcoal) and a solo-built, multi-role bus booking app packaged as a production-ready APK.</p>
+      <p>I gained hands-on experience through a 3-month internship and ongoing freelance project work with <strong style="color:var(--text)">React.js, TypeScript, Firebase, Node.js, and REST APIs</strong>. I started with mobile development using React Native and Expo, then expanded into full-stack web development.</p>
+      <p>I write clean, component-driven code and thrive in fast-paced, real-world codebases. I enjoy turning complex problems into clean, practical products that solve real challenges — whether that's a real-time seat booking system or a role-based POS access control flow.</p>
+      <p>I'm currently working as a freelancer from my hometown, Surat, and open to Surat-based or hybrid opportunities where I can keep learning and contributing to production codebases.</p>
     </div>
 
-    <!-- RIGHT: info + QR -->
     <div class="about-info-col">
       <div class="about-info-row">
         <i class="ti ti-map-pin" style="color:var(--accent);font-size:16px"></i>
         <span style="color:var(--muted)">Location</span>
-        <span style="margin-left:auto;color:var(--text)">Surat, Gujarat, India</span>
+        <span style="margin-left:auto;color:var(--text)">Varachha, Surat, Gujarat</span>
       </div>
       <div class="about-info-row">
         <i class="ti ti-code" style="color:var(--accent);font-size:16px"></i>
         <span style="color:var(--muted)">Focus</span>
-        <span style="margin-left:auto;color:var(--text)">Web &amp; Android</span>
+        <span style="margin-left:auto;color:var(--text)">Full Stack &amp; Mobile</span>
       </div>
       <div class="about-info-row">
         <i class="ti ti-language" style="color:var(--accent);font-size:16px"></i>
         <span style="color:var(--muted)">Languages</span>
-        <span style="margin-left:auto;color:var(--text)">Hindi, Gujarati, English</span>
+        <span style="margin-left:auto;color:var(--text)">English, Hindi, Gujarati</span>
       </div>
       <div class="about-info-row">
         <i class="ti ti-device-mobile" style="color:var(--accent);font-size:16px"></i>
         <span style="color:var(--muted)">Available</span>
         <span style="margin-left:auto;">
-          <span style="background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 10px;font-size:0.75rem;">Full-time</span>
+          <span style="background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 10px;font-size:0.75rem;">Surat / Hybrid</span>
         </span>
       </div>
 
-      <!-- QR CODE -->
       <div class="qr-box">
-        <canvas id="qr-canvas"></canvas>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https%3A%2F%2Fronitparmar018.github.io&bgcolor=111827&color=00d4ff&qzone=1" alt="QR code for portfolio" width="130" height="130">
         <div class="qr-label">
           <strong>Scan to visit portfolio</strong>
           ronitparmar018.github.io
@@ -595,7 +456,7 @@
   <div class="contact-card">
     <div class="available-banner">
       <span class="green-dot"></span>
-      Currently available for full-time roles in Web &amp; Android Development — open to relocate
+      Currently available for full-time, freelance, or hybrid opportunities
     </div>
     <div class="contact-grid">
       <div class="contact-item">
@@ -604,11 +465,15 @@
       </div>
       <div class="contact-item">
         <div class="contact-icon"><i class="ti ti-mail"></i></div>
-        <div><div class="contact-lbl">Personal email</div><div class="contact-val">parmarronit018@gmail.com</div></div>
+        <div><div class="contact-lbl">Email</div><div class="contact-val">parmarronit018@gmail.com</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="ti ti-brand-linkedin"></i></div>
+        <div><div class="contact-lbl">LinkedIn</div><div class="contact-val"><a href="https://linkedin.com/in/ronitparmar18" target="_blank">linkedin.com/in/ronitparmar18</a></div></div>
       </div>
       <div class="contact-item">
         <div class="contact-icon"><i class="ti ti-brand-github"></i></div>
-        <div><div class="contact-lbl">GitHub</div><div class="contact-val"><a href="https://github.com/ronitparmar018" style="color:var(--accent);text-decoration:none;" target="_blank">github.com/ronitparmar018</a></div></div>
+        <div><div class="contact-lbl">GitHub</div><div class="contact-val"><a href="https://github.com/parmarronit018" target="_blank">github.com/parmarronit018</a></div></div>
       </div>
       <div class="contact-item">
         <div class="contact-icon"><i class="ti ti-map-pin"></i></div>
@@ -621,12 +486,13 @@
 <footer>
   <div class="footer-links">
     <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
     <a href="mailto:parmarronit018@gmail.com">Hire Me</a>
   </div>
-  <p>Designed &amp; built by <strong style="color:var(--text)">Ronit Parmar</strong> &nbsp;&middot;&nbsp; SkyLink IT Hub &nbsp;&middot;&nbsp; Ahmedabad</p>
+  <p>Designed &amp; built by <strong style="color:var(--text)">Ronit Parmar</strong> &nbsp;&middot;&nbsp; Surat, Gujarat</p>
   <p style="margin-top:4px;font-size:0.75rem;opacity:0.5;">&copy; 2026 Ronit Parmar. All rights reserved.</p>
 </footer>
 
@@ -634,26 +500,12 @@
   <i class="ti ti-arrow-up"></i>
 </button>
 
-<!-- QR CODE GENERATOR (pure JS, no CDN needed) -->
 <script>
-// Minimal QR code generator for the portfolio URL
-(function(){
-  const url = 'https://ronitparmar018.github.io';
-  const size = 130;
-  const canvas = document.getElementById('qr-canvas');
-  if(!canvas) return;
-  // Use Google Charts QR API as an img fallback (reliable, no library needed)
-  const img = document.createElement('img');
-  img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=' + encodeURIComponent(url) + '&bgcolor=111827&color=00d4ff&qzone=1';
-  img.alt = 'QR code for portfolio';
-  img.width = 130; img.height = 130;
-  img.style.borderRadius = '6px';
-  canvas.replaceWith(img);
-})();
-
 window.addEventListener('scroll',()=>{
   document.getElementById('scrolltop').classList.toggle('show',window.scrollY>400);
 });
 </script>
 </body>
 </html>
+
+         

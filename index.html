@@ -9,180 +9,454 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;}
-  :root{
-    --bg:#0a0e1a;--surface:#111827;--card:#161d2e;
-    --accent:#00d4ff;--accent2:#7c3aed;
-    --text:#f0f4ff;--muted:#8892a4;--border:#1e2a3a;
-    --side:clamp(1.5rem,5vw,6rem);
-    --max:1200px;
-  }
-  html{scroll-behavior:smooth;}
-  body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',serif;font-size:15px;line-height:1.7;}
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0a0e1a;
+  --surface:#111827;
+  --card:#161d2e;
+  --accent:#00d4ff;
+  --accent2:#7c3aed;
+  --text:#f0f4ff;
+  --muted:#8892a4;
+  --border:#1e2a3a;
+  --max:1100px;
+  --side:clamp(1.2rem,5vw,5rem);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;}
 
-  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem var(--side);border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,14,26,0.95);backdrop-filter:blur(10px);z-index:100;gap:1rem;}
-  .nav-logo{font-family:'Source Serif 4',serif;font-weight:700;font-size:1.1rem;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap;flex-shrink:0;text-decoration:none;cursor:pointer;}
-  .nav-links{display:flex;gap:2rem;align-items:center;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
-  .nav-links::-webkit-scrollbar{display:none;}
-  .nav-links a{color:var(--muted);text-decoration:none;font-size:0.93rem;letter-spacing:0.04em;transition:color .2s;white-space:nowrap;flex-shrink:0;}
-  .nav-links a:hover{color:var(--accent);}
-  .nav-hire{background:linear-gradient(135deg,#00d4ff,#7c3aed);color:#fff !important;padding:6px 16px;border-radius:6px;font-size:0.88rem !important;font-weight:500;}
-  .nav-hire:hover{opacity:0.9;}
+/* ── NAV ── */
+nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem var(--side);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;
+  background:rgba(10,14,26,0.96);
+  backdrop-filter:blur(12px);
+  z-index:100;gap:1rem;
+}
+.nav-logo{
+  font-family:'Source Serif 4',serif;font-weight:700;font-size:1.1rem;
+  background:linear-gradient(135deg,#00d4ff,#7c3aed);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  white-space:nowrap;flex-shrink:0;text-decoration:none;
+}
+.nav-links{
+  display:flex;gap:1.6rem;align-items:center;
+  overflow-x:auto;scrollbar-width:none;
+}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-links a{
+  color:var(--muted);text-decoration:none;
+  font-size:0.88rem;letter-spacing:0.03em;
+  transition:color .2s;white-space:nowrap;
+}
+.nav-links a:hover{color:var(--accent);}
+.nav-hire{
+  background:linear-gradient(135deg,#00d4ff,#7c3aed);
+  color:#fff !important;padding:6px 16px;
+  border-radius:6px;font-size:0.85rem !important;font-weight:600;
+}
 
-  .hero{padding:6rem var(--side) 5rem;text-align:center;position:relative;overflow:hidden;max-width:var(--max);margin:0 auto;}
-  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(0,212,255,0.07),transparent);pointer-events:none;}
-  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);border-radius:99px;padding:5px 16px;font-size:0.83rem;color:var(--accent);margin-bottom:1.8rem;letter-spacing:0.06em;}
-  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;display:inline-block;}
-  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-  .hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:700;line-height:1.1;margin-bottom:1rem;}
-  .hero h1 span{background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-  .hero-sub{color:var(--muted);font-size:1.05rem;max-width:600px;margin:0 auto 1rem;line-height:1.6;}
-  .hero-sub strong{color:var(--text);}
-  .hero-company{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 18px;font-size:0.93rem;color:var(--muted);margin-bottom:2rem;}
-  .stats-row{display:flex;justify-content:center;gap:2.5rem;margin:2rem 0 2.5rem;flex-wrap:wrap;}
-  .stat{text-align:center;}
-  .stat-num{font-family:'Source Serif 4',serif;font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
-  .stat-lbl{font-size:0.8rem;color:var(--muted);letter-spacing:0.06em;margin-top:4px;}
-  .stat-divider{width:1px;background:var(--border);}
-  .cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
-  .btn-primary{background:linear-gradient(135deg,#00d4ff,#7c3aed);color:#fff;border:none;border-radius:8px;padding:11px 28px;font-size:0.98rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;}
-  .btn-outline{background:transparent;color:var(--accent);border:1px solid rgba(0,212,255,0.4);border-radius:8px;padding:11px 28px;font-size:0.98rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:background .2s;}
-  .btn-outline:hover{background:rgba(0,212,255,0.08);}
+/* ── HERO ── */
+.hero{
+  padding:5rem var(--side) 4rem;
+  text-align:center;position:relative;overflow:hidden;
+  max-width:var(--max);margin:0 auto;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,212,255,0.08),transparent);
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(0,212,255,0.08);
+  border:1px solid rgba(0,212,255,0.2);
+  border-radius:99px;padding:6px 18px;
+  font-size:0.82rem;color:var(--accent);
+  margin-bottom:1.6rem;letter-spacing:0.05em;
+}
+.pulse-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--accent);
+  animation:pulse 2s infinite;display:inline-block;
+}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
+.hero h1{
+  font-family:'Source Serif 4',serif;
+  font-size:clamp(2rem,7vw,3.8rem);
+  font-weight:700;line-height:1.1;margin-bottom:1rem;
+}
+.hero h1 span{
+  background:linear-gradient(135deg,#00d4ff,#7c3aed);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-sub{
+  color:var(--muted);font-size:clamp(0.95rem,2.5vw,1.05rem);
+  max-width:520px;margin:0 auto 1.2rem;line-height:1.65;
+}
+.hero-sub strong{color:var(--text);}
+.hero-location{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:8px 18px;
+  font-size:0.88rem;color:var(--muted);margin-bottom:2.2rem;
+}
+.stats-row{
+  display:flex;justify-content:center;gap:0;
+  margin:0 auto 2.5rem;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;max-width:480px;overflow:hidden;
+}
+.stat{
+  flex:1;text-align:center;
+  padding:1rem 0.5rem;
+  border-right:1px solid var(--border);
+}
+.stat:last-child{border-right:none;}
+.stat-num{
+  font-family:'Source Serif 4',serif;font-size:1.6rem;font-weight:700;
+  background:linear-gradient(135deg,#00d4ff,#7c3aed);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.stat-lbl{font-size:0.7rem;color:var(--muted);letter-spacing:0.06em;margin-top:4px;}
+.cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.btn-primary{
+  background:linear-gradient(135deg,#00d4ff,#7c3aed);
+  color:#fff;border:none;border-radius:8px;
+  padding:12px 28px;font-size:0.95rem;font-weight:600;
+  cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:7px;
+  transition:opacity .2s;
+}
+.btn-primary:hover{opacity:0.88;}
+.btn-outline{
+  background:transparent;color:var(--accent);
+  border:1px solid rgba(0,212,255,0.4);
+  border-radius:8px;padding:12px 28px;
+  font-size:0.95rem;cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:7px;
+  transition:background .2s;
+}
+.btn-outline:hover{background:rgba(0,212,255,0.08);}
 
-  section{padding:4.5rem var(--side);max-width:var(--max);margin:0 auto;}
-  .section-label{font-size:0.8rem;letter-spacing:0.12em;color:var(--accent);font-weight:500;margin-bottom:0.5rem;text-transform:uppercase;}
-  .section-title{font-family:'Source Serif 4',serif;font-size:1.7rem;font-weight:700;margin-bottom:0.5rem;}
-  .section-sub{color:var(--muted);font-size:0.98rem;margin-bottom:2rem;}
-  .divider{border:none;border-top:1px solid var(--border);max-width:var(--max);margin:0 auto;}
+/* ── SECTION BASE ── */
+section{padding:4rem var(--side);max-width:var(--max);margin:0 auto;}
+.section-label{
+  font-size:0.75rem;letter-spacing:0.14em;
+  color:var(--accent);font-weight:600;
+  margin-bottom:0.4rem;text-transform:uppercase;
+}
+.section-title{
+  font-family:'Source Serif 4',serif;
+  font-size:clamp(1.4rem,4vw,1.8rem);
+  font-weight:700;margin-bottom:0.4rem;
+}
+.section-sub{color:var(--muted);font-size:0.93rem;margin-bottom:2rem;}
+.divider{border:none;border-top:1px solid var(--border);max-width:var(--max);margin:0 auto;}
 
-  /* ABOUT */
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;}
-  .about-info-col{display:flex;flex-direction:column;gap:10px;}
-  .about-info-row{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.93rem;}
-  .about-text p{color:var(--muted);font-size:0.98rem;line-height:1.85;margin-bottom:1.1rem;}
-  .about-text p:last-child{margin-bottom:0;}
-  .about-highlight{display:flex;align-items:flex-start;gap:10px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);border-radius:10px;padding:14px 16px;margin-bottom:1.1rem;}
-  .about-highlight-icon{color:var(--accent);font-size:1.1rem;flex-shrink:0;margin-top:2px;}
-  .about-highlight-text{font-size:0.93rem;color:var(--muted);line-height:1.65;}
-  .about-highlight-text strong{color:var(--text);}
-  .qr-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;margin-top:10px;}
-  .qr-box img{width:130px;height:130px;border-radius:6px;display:block;margin:0 auto 8px;}
-  .qr-label{font-size:0.83rem;color:var(--muted);line-height:1.4;}
-  .qr-label strong{color:var(--accent);display:block;font-size:0.88rem;margin-bottom:2px;}
+/* ── ABOUT ── */
+.about-grid{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:2rem;align-items:start;
+}
+.about-highlight{
+  display:flex;align-items:flex-start;gap:12px;
+  background:rgba(0,212,255,0.05);
+  border:1px solid rgba(0,212,255,0.18);
+  border-radius:10px;padding:16px;margin-bottom:1.2rem;
+}
+.about-highlight i{color:var(--accent);font-size:1.2rem;flex-shrink:0;margin-top:2px;}
+.about-highlight p{font-size:0.94rem;color:var(--muted);line-height:1.7;}
+.about-highlight p strong{color:var(--text);}
+.about-text p{
+  color:var(--muted);font-size:0.94rem;
+  line-height:1.85;margin-bottom:1rem;
+}
+.about-text p:last-child{margin-bottom:0;}
+.about-text p strong{color:var(--text);}
 
-  /* SKILLS */
-  .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:2rem;}
-  .skill-tag{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:0.91rem;color:var(--text);display:flex;align-items:center;gap:8px;transition:border-color .2s;justify-content:center;text-align:center;}
-  .skill-tag:hover{border-color:rgba(0,212,255,0.3);}
-  .skill-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
-  .d-cyan{background:#00d4ff;}.d-purple{background:#7c3aed;}.d-green{background:#10b981;}.d-orange{background:#f59e0b;}.d-red{background:#ef4444;}
-  .skill-cat-label{font-size:0.86rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin:1.6rem 0 0.8rem;font-weight:500;}
-  .skill-cat-label:first-child{margin-top:0;}
-  .offer-section-label{font-size:0.88rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;margin-top:0.5rem;padding-top:2rem;border-top:1px solid var(--border);}
-  .offer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-  .offer-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;transition:border-color .2s;}
-  .offer-card:hover{border-color:rgba(0,212,255,0.25);}
-  .offer-icon{font-size:1.4rem;margin-bottom:10px;}
-  .offer-title{font-family:'Source Serif 4',serif;font-weight:600;font-size:0.98rem;margin-bottom:5px;}
-  .offer-desc{font-size:0.88rem;color:var(--muted);line-height:1.5;}
+.info-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;margin-bottom:12px;
+}
+.info-row{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 16px;border-bottom:1px solid var(--border);
+  font-size:0.88rem;
+}
+.info-row:last-child{border-bottom:none;}
+.info-row i{color:var(--accent);font-size:15px;flex-shrink:0;}
+.info-label{color:var(--muted);flex:1;}
+.info-value{color:var(--text);font-weight:500;}
+.avail-badge{
+  background:rgba(16,185,129,0.12);
+  color:#34d399;
+  border:1px solid rgba(16,185,129,0.25);
+  border-radius:4px;padding:2px 10px;font-size:0.8rem;
+}
+.qr-box{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:1.2rem;text-align:center;
+}
+.qr-box img{width:120px;height:120px;border-radius:8px;display:block;margin:0 auto 8px;}
+.qr-label{font-size:0.8rem;color:var(--muted);}
+.qr-label strong{color:var(--accent);display:block;font-size:0.84rem;margin-bottom:2px;}
 
-  /* EXPERIENCE */
-  .timeline{position:relative;padding-left:1.8rem;}
-  .timeline::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--border);}
-  .tl-item{position:relative;margin-bottom:2.2rem;}
-  .tl-item:last-child{margin-bottom:0;}
-  .tl-item::before{content:'';position:absolute;left:-1.8rem;top:6px;width:11px;height:11px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);}
-  .tl-date{font-size:0.82rem;color:var(--accent);letter-spacing:0.05em;margin-bottom:4px;font-weight:500;}
-  .tl-role{font-family:'Source Serif 4',serif;font-weight:600;font-size:1.05rem;margin-bottom:2px;}
-  .tl-company{font-size:0.93rem;color:var(--muted);margin-bottom:10px;}
-  .tl-desc{font-size:0.93rem;color:var(--muted);line-height:1.7;}
-  .tl-desc li{margin-bottom:5px;list-style:none;padding-left:1.1rem;position:relative;}
-  .tl-desc li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
-  .tl-badge{display:inline-block;background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 9px;font-size:0.78rem;margin-left:8px;vertical-align:middle;}
+/* ── SKILLS ── */
+.skill-category{margin-bottom:1.8rem;}
+.skill-cat-title{
+  font-size:0.75rem;color:var(--accent);
+  letter-spacing:0.1em;text-transform:uppercase;
+  font-weight:600;margin-bottom:0.7rem;
+  display:flex;align-items:center;gap:8px;
+}
+.skill-cat-title::after{
+  content:'';flex:1;height:1px;background:var(--border);
+}
+.pills{display:flex;flex-wrap:wrap;gap:8px;}
+.pill{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:99px;
+  padding:6px 16px;
+  font-size:0.86rem;color:var(--text);
+  transition:border-color .2s, color .2s;
+  white-space:nowrap;
+}
+.pill:hover{border-color:var(--accent);color:var(--accent);}
+.pill.cyan{border-color:rgba(0,212,255,0.3);color:var(--accent);}
+.pill.purple{border-color:rgba(124,58,237,0.35);color:#a78bfa;}
+.pill.green{border-color:rgba(16,185,129,0.3);color:#34d399;}
+.pill.orange{border-color:rgba(245,158,11,0.3);color:#fbbf24;}
+.pill.red{border-color:rgba(239,68,68,0.3);color:#f87171;}
 
-  /* PROJECTS */
-  .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:2.5rem;}
-  .proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;}
-  .proj-card:hover{border-color:rgba(0,212,255,0.35);transform:translateY(-3px);}
-  .proj-card.web-card:hover{border-color:rgba(124,58,237,0.4);}
-  .proj-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
-  .proj-emoji{width:48px;height:48px;border-radius:10px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;border:1px solid var(--border);}
-  .proj-name{font-family:'Source Serif 4',serif;font-weight:600;font-size:1rem;}
-  .proj-type{font-size:0.78rem;color:var(--accent);letter-spacing:0.06em;margin-top:3px;}
-  .proj-type.purple{color:#a78bfa;}
-  .proj-desc{font-size:0.92rem;color:var(--muted);line-height:1.65;margin-bottom:14px;flex:1;}
-  .proj-desc li{margin-bottom:4px;list-style:none;padding-left:1rem;position:relative;}
-  .proj-desc li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
-  .proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
-  .tag{background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);border-radius:4px;padding:2px 9px;font-size:0.79rem;color:#a78bfa;}
-  .tag.cyan{background:rgba(0,212,255,0.08);border-color:rgba(0,212,255,0.2);color:var(--accent);}
-  .tag.green{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.2);color:#34d399;}
-  .tag.amber{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.2);color:#fbbf24;}
+.offer-sep{
+  border-top:1px solid var(--border);
+  padding-top:2rem;margin-top:0.5rem;
+}
+.offer-label{
+  font-size:0.75rem;color:var(--muted);
+  letter-spacing:0.1em;text-transform:uppercase;
+  font-weight:600;margin-bottom:1rem;
+}
+.offer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.offer-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:1.1rem;transition:border-color .2s;
+}
+.offer-card:hover{border-color:rgba(0,212,255,0.3);}
+.offer-icon{font-size:1.3rem;margin-bottom:8px;}
+.offer-title{font-weight:600;font-size:0.92rem;margin-bottom:4px;}
+.offer-desc{font-size:0.84rem;color:var(--muted);line-height:1.5;}
 
-  /* EDUCATION */
-  .edu-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.6rem;display:flex;gap:16px;align-items:flex-start;}
-  .edu-icon{width:48px;height:48px;border-radius:10px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
-  .edu-degree{font-family:'Source Serif 4',serif;font-weight:600;font-size:1.05rem;margin-bottom:3px;}
-  .edu-school{font-size:0.96rem;color:var(--muted);margin-bottom:3px;}
-  .edu-date{font-size:0.86rem;color:var(--accent);}
+/* ── EXPERIENCE ── */
+.timeline{position:relative;padding-left:1.6rem;}
+.timeline::before{
+  content:'';position:absolute;left:4px;top:8px;bottom:8px;
+  width:1px;background:var(--border);
+}
+.tl-item{position:relative;margin-bottom:2rem;}
+.tl-item:last-child{margin-bottom:0;}
+.tl-dot{
+  position:absolute;left:-1.6rem;top:5px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--accent);border:3px solid var(--bg);
+}
+.tl-date{font-size:0.78rem;color:var(--accent);letter-spacing:0.04em;margin-bottom:3px;font-weight:600;}
+.tl-role{font-family:'Source Serif 4',serif;font-weight:600;font-size:1rem;margin-bottom:2px;}
+.tl-badge{
+  display:inline-block;
+  background:rgba(16,185,129,0.1);color:#34d399;
+  border:1px solid rgba(16,185,129,0.25);
+  border-radius:4px;padding:1px 8px;font-size:0.75rem;
+  margin-left:8px;vertical-align:middle;
+}
+.tl-company{font-size:0.88rem;color:var(--muted);margin-bottom:10px;}
+.tl-list{list-style:none;padding:0;}
+.tl-list li{
+  font-size:0.9rem;color:var(--muted);line-height:1.65;
+  margin-bottom:5px;padding-left:1rem;position:relative;
+}
+.tl-list li::before{
+  content:'›';position:absolute;left:0;
+  color:var(--accent);font-weight:700;
+}
 
-  /* CONTACT */
-  .contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2.2rem;}
-  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem;}
-  .contact-item{display:flex;align-items:center;gap:12px;}
-  .contact-icon{width:38px;height:38px;border-radius:9px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .contact-icon i{font-size:17px;color:var(--accent);}
-  .contact-val{color:var(--text);font-size:0.92rem;word-break:break-all;}
-  .contact-val a{color:var(--text);text-decoration:none;}
-  .contact-val a:hover{color:var(--accent);}
-  .contact-lbl{font-size:0.78rem;color:var(--muted);margin-bottom:1px;}
-  .available-banner{display:flex;align-items:center;gap:10px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:13px 16px;font-size:0.93rem;color:#34d399;margin-bottom:1.5rem;}
-  .green-dot{width:8px;height:8px;border-radius:50%;background:#10b981;animation:pulse 2s infinite;flex-shrink:0;display:inline-block;}
+/* ── PROJECTS ── */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.proj-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:12px;padding:1.4rem;
+  transition:border-color .2s,transform .2s;
+  display:flex;flex-direction:column;
+}
+.proj-card:hover{border-color:rgba(124,58,237,0.4);transform:translateY(-3px);}
+.proj-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.proj-emoji{
+  width:46px;height:46px;border-radius:10px;
+  background:var(--surface);display:flex;align-items:center;
+  justify-content:center;font-size:1.4rem;
+  flex-shrink:0;border:1px solid var(--border);
+}
+.proj-name{font-family:'Source Serif 4',serif;font-weight:600;font-size:1rem;}
+.proj-type{font-size:0.75rem;color:#a78bfa;letter-spacing:0.06em;margin-top:3px;}
+.proj-list{list-style:none;padding:0;flex:1;margin-bottom:14px;}
+.proj-list li{
+  font-size:0.88rem;color:var(--muted);line-height:1.65;
+  margin-bottom:4px;padding-left:1rem;position:relative;
+}
+.proj-list li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{
+  border-radius:4px;padding:2px 9px;font-size:0.78rem;
+  border:1px solid;
+}
+.tag.purple{background:rgba(124,58,237,0.1);border-color:rgba(124,58,237,0.25);color:#a78bfa;}
+.tag.cyan{background:rgba(0,212,255,0.07);border-color:rgba(0,212,255,0.2);color:var(--accent);}
+.tag.green{background:rgba(16,185,129,0.07);border-color:rgba(16,185,129,0.2);color:#34d399;}
+.tag.amber{background:rgba(245,158,11,0.07);border-color:rgba(245,158,11,0.2);color:#fbbf24;}
 
-  footer{text-align:center;padding:2.5rem var(--side);color:var(--muted);font-size:0.88rem;border-top:1px solid var(--border);}
-  .footer-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;}
-  .footer-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;transition:color .2s;}
-  .footer-links a:hover{color:var(--accent);}
+/* ── EDUCATION ── */
+.edu-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:12px;padding:1.6rem;
+  display:flex;gap:16px;align-items:flex-start;
+}
+.edu-icon{
+  width:48px;height:48px;border-radius:10px;
+  background:rgba(0,212,255,0.08);
+  border:1px solid rgba(0,212,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;flex-shrink:0;
+}
+.edu-degree{font-family:'Source Serif 4',serif;font-weight:600;font-size:1.05rem;margin-bottom:4px;}
+.edu-school{font-size:0.9rem;color:var(--muted);margin-bottom:4px;}
+.edu-date{font-size:0.83rem;color:var(--accent);font-weight:500;}
 
-  #scrolltop{position:fixed;bottom:2rem;right:2rem;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#7c3aed);border:none;color:#fff;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.1rem;z-index:99;}
-  #scrolltop.show{display:flex;}
+/* ── CONTACT ── */
+.contact-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:12px;padding:2rem;
+}
+.avail-banner{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(16,185,129,0.07);
+  border:1px solid rgba(16,185,129,0.2);
+  border-radius:8px;padding:12px 16px;
+  font-size:0.9rem;color:#34d399;margin-bottom:1.5rem;
+}
+.green-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:#10b981;animation:pulse 2s infinite;flex-shrink:0;
+}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.contact-item{display:flex;align-items:center;gap:12px;}
+.contact-icon{
+  width:40px;height:40px;border-radius:9px;
+  background:rgba(0,212,255,0.08);
+  border:1px solid rgba(0,212,255,0.15);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.contact-icon i{font-size:17px;color:var(--accent);}
+.contact-lbl{font-size:0.76rem;color:var(--muted);margin-bottom:1px;}
+.contact-val{color:var(--text);font-size:0.9rem;word-break:break-all;}
+.contact-val a{color:var(--text);text-decoration:none;}
+.contact-val a:hover{color:var(--accent);}
 
-  @media(max-width:900px){
-    .offer-grid{grid-template-columns:repeat(2,1fr);}
-    .about-grid{grid-template-columns:1fr;}
-    .skills-grid{grid-template-columns:repeat(3,1fr);}
-  }
-  @media(max-width:768px){
-    :root{--side:1.25rem;}
-    nav{padding:1rem var(--side);gap:0.6rem;}
-    .nav-logo{font-size:1.03rem;}
-    .nav-links{gap:0.9rem;}
-    .nav-links a{font-size:0.86rem;}
-    .nav-hire{display:none;}
-    .stats-row{gap:1.2rem;}
-    .stat-divider{display:none;}
-    .projects-grid{grid-template-columns:1fr !important;}
-    .contact-grid{grid-template-columns:1fr;}
-    .edu-card{flex-direction:column;}
-    .section-title{font-size:1.4rem;}
-    section{padding:3.2rem var(--side);}
-    .skills-grid{grid-template-columns:repeat(2,1fr);}
-  }
-  @media(max-width:480px){
-    :root{--side:1rem;}
-    .offer-grid{grid-template-columns:1fr;}
-    .stats-row{gap:1rem;}
-    .hero h1{font-size:2rem;}
-    .skill-tag{padding:8px 8px;font-size:0.84rem;gap:6px;}
-    .skill-dot{width:6px;height:6px;}
-    .skills-grid{gap:7px;grid-template-columns:repeat(2,1fr);}
-    .skill-cat-label{font-size:0.78rem;margin:1.2rem 0 0.6rem;}
-  }
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:2rem var(--side);
+  color:var(--muted);font-size:0.86rem;
+  border-top:1px solid var(--border);
+}
+.footer-links{
+  display:flex;justify-content:center;gap:1.5rem;
+  margin-bottom:0.8rem;flex-wrap:wrap;
+}
+.footer-links a{color:var(--muted);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--accent);}
+
+/* ── SCROLL TOP ── */
+#scrolltop{
+  position:fixed;bottom:1.5rem;right:1.5rem;
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,#00d4ff,#7c3aed);
+  border:none;color:#fff;cursor:pointer;
+  display:none;align-items:center;justify-content:center;
+  font-size:1.1rem;z-index:99;box-shadow:0 4px 16px rgba(0,212,255,0.3);
+}
+#scrolltop.show{display:flex;}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+
+/* Tablet */
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;}
+  .offer-grid{grid-template-columns:repeat(2,1fr);}
+  .contact-grid{grid-template-columns:1fr;}
+}
+
+/* Mobile */
+@media(max-width:768px){
+  :root{--side:1.2rem;}
+
+  /* Nav */
+  nav{padding:0.9rem var(--side);}
+  .nav-logo{font-size:1rem;}
+  .nav-links{gap:1rem;}
+  .nav-links a{font-size:0.82rem;}
+  .nav-hire{padding:5px 12px;font-size:0.8rem !important;}
+
+  /* Hero */
+  .hero{padding:3rem var(--side) 2.5rem;}
+  .hero h1{font-size:1.9rem;}
+  .hero-sub{font-size:0.92rem;}
+  .hero-location{font-size:0.83rem;padding:7px 14px;}
+  .stats-row{max-width:100%;}
+  .stat{padding:0.9rem 0.3rem;}
+  .stat-num{font-size:1.4rem;}
+  .stat-lbl{font-size:0.65rem;}
+  .btn-primary,.btn-outline{padding:10px 22px;font-size:0.9rem;}
+
+  /* Sections */
+  section{padding:3rem var(--side);}
+  .section-title{font-size:1.4rem;}
+
+  /* Skills */
+  .pill{font-size:0.82rem;padding:5px 13px;}
+  .offer-grid{grid-template-columns:repeat(2,1fr);}
+
+  /* Projects */
+  .projects-grid{grid-template-columns:1fr;}
+
+  /* Education */
+  .edu-card{flex-direction:column;gap:12px;}
+
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr;}
+  .contact-card{padding:1.4rem;}
+}
+
+/* Small mobile */
+@media(max-width:400px){
+  :root{--side:1rem;}
+  .hero h1{font-size:1.65rem;}
+  .nav-links a:not(.nav-hire){display:none;}
+  .stats-row{flex-direction:column;max-width:200px;border:none;background:transparent;gap:0.5rem;}
+  .stat{border:1px solid var(--border);border-radius:8px;background:var(--surface);}
+  .offer-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
 
-<!-- NAV — Ronit Parmar clickable, new order -->
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Ronit Parmar</a>
   <div class="nav-links">
@@ -198,25 +472,38 @@
 
 <!-- 1. HERO -->
 <div class="hero">
-  <div class="hero-badge"><span class="dot"></span>&nbsp; Open to opportunities</div>
+  <div class="hero-badge"><span class="pulse-dot"></span>&nbsp;Open to opportunities</div>
   <h1>Hi, I'm <span>Ronit Parmar</span></h1>
   <p class="hero-sub">Full Stack Developer (Fresher) — <strong>React.js · Node.js · Firebase · React Native</strong></p>
-  <div class="hero-company">
-    <i class="ti ti-briefcase" style="font-size:15px;color:#8892a4"></i>
-    Freelance Developer &mdash; Surat, Gujarat
+  <div class="hero-location">
+    <i class="ti ti-briefcase" style="font-size:14px;color:#8892a4"></i>
+    Freelance Developer — Surat, Gujarat
   </div>
   <div class="stats-row">
-    <div class="stat"><div class="stat-num">2</div><div class="stat-lbl">PRODUCTION APPS</div></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><div class="stat-num">3+</div><div class="stat-lbl">PROJECTS</div></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">MONTHS EXPERIENCE</div></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><div class="stat-num">2026</div><div class="stat-lbl">B.TECH GRADUATE</div></div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-lbl">PRODUCTION APPS</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3+</div>
+      <div class="stat-lbl">PROJECTS</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-lbl">MONTHS EXP</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2026</div>
+      <div class="stat-lbl">B.TECH GRAD</div>
+    </div>
   </div>
   <div class="cta-row">
-    <a href="#projects" class="btn-primary"><i class="ti ti-layout-grid" style="font-size:15px"></i> View Projects</a>
-    <a href="mailto:parmarronit018@gmail.com" class="btn-outline"><i class="ti ti-mail" style="font-size:15px"></i> Hire Me</a>
+    <a href="#projects" class="btn-primary">
+      <i class="ti ti-layout-grid" style="font-size:15px"></i> View Projects
+    </a>
+    <a href="mailto:parmarronit018@gmail.com" class="btn-outline">
+      <i class="ti ti-mail" style="font-size:15px"></i> Hire Me
+    </a>
   </div>
 </div>
 
@@ -231,41 +518,39 @@
   <div class="about-grid">
     <div class="about-text">
       <div class="about-highlight">
-        <i class="ti ti-rocket about-highlight-icon"></i>
-        <div class="about-highlight-text">
-          <strong>B.Tech IT fresher (2026)</strong> who has shipped 2 production-grade apps — a Restaurant POS system (Dosa Charcoal, in active development) and a solo-built, multi-role bus booking app packaged as a production-ready APK.
-        </div>
+        <i class="ti ti-rocket"></i>
+        <p><strong>B.Tech IT fresher (2026)</strong> who has shipped 2 production-grade apps — a Restaurant POS system (Dosa Charcoal, in active development) and a solo-built, multi-role bus booking app packaged as a production-ready APK.</p>
       </div>
-      <p>Gained hands-on experience through a <strong style="color:var(--text)">3-month internship</strong> and ongoing freelance work, building real-world products with <strong style="color:var(--text)">React.js, TypeScript, Firebase, Node.js, and REST APIs</strong>.</p>
+      <p>Gained hands-on experience through a <strong>3-month internship</strong> and ongoing freelance work, building real-world products with <strong>React.js, TypeScript, Firebase, Node.js, and REST APIs</strong>.</p>
       <p>Writes clean, component-driven code and thrives in fast-paced production codebases — from role-based POS access control to real-time seat booking systems with Firestore sync.</p>
-      <p>Currently freelancing from Surat and open to <strong style="color:var(--text)">full-time, hybrid, or remote opportunities</strong> where I can contribute to production-grade work and keep growing.</p>
+      <p>Currently freelancing from Surat and open to <strong>full-time, hybrid, or remote opportunities</strong> where I can contribute to production-grade work and keep growing.</p>
     </div>
 
-    <div class="about-info-col">
-      <div class="about-info-row">
-        <i class="ti ti-map-pin" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Location</span>
-        <span style="margin-left:auto;color:var(--text)">Varachha, Surat, Gujarat</span>
-      </div>
-      <div class="about-info-row">
-        <i class="ti ti-code" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Focus</span>
-        <span style="margin-left:auto;color:var(--text)">Full Stack &amp; Mobile</span>
-      </div>
-      <div class="about-info-row">
-        <i class="ti ti-language" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Languages</span>
-        <span style="margin-left:auto;color:var(--text)">English, Hindi, Gujarati</span>
-      </div>
-      <div class="about-info-row">
-        <i class="ti ti-device-mobile" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Available</span>
-        <span style="margin-left:auto;">
-          <span style="background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 10px;font-size:0.83rem;">Surat / Hybrid</span>
-        </span>
+    <div>
+      <div class="info-card">
+        <div class="info-row">
+          <i class="ti ti-map-pin"></i>
+          <span class="info-label">Location</span>
+          <span class="info-value">Varachha, Surat</span>
+        </div>
+        <div class="info-row">
+          <i class="ti ti-code"></i>
+          <span class="info-label">Focus</span>
+          <span class="info-value">Full Stack &amp; Mobile</span>
+        </div>
+        <div class="info-row">
+          <i class="ti ti-language"></i>
+          <span class="info-label">Languages</span>
+          <span class="info-value">EN · HI · GU</span>
+        </div>
+        <div class="info-row">
+          <i class="ti ti-check"></i>
+          <span class="info-label">Available</span>
+          <span class="avail-badge">Surat / Hybrid</span>
+        </div>
       </div>
       <div class="qr-box">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https%3A%2F%2Fronitparmar018.github.io&bgcolor=111827&color=00d4ff&qzone=1" alt="QR code for portfolio" width="130" height="130">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https%3A%2F%2Fronitparmar018.github.io&bgcolor=111827&color=00d4ff&qzone=1" alt="QR code" width="120" height="120">
         <div class="qr-label">
           <strong>Scan to visit portfolio</strong>
           ronitparmar018.github.io
@@ -283,67 +568,79 @@
   <h2 class="section-title">Technical Skills</h2>
   <p class="section-sub">Technologies I use to build web and mobile products</p>
 
-  <p class="skill-cat-label">Frontend</p>
-  <div class="skills-grid">
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>React.js</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>TypeScript</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>JavaScript (ES6+)</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>HTML5</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>CSS3</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Tailwind CSS</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Redux Toolkit</div>
-    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Context API</div>
-  </div>
-
-  <p class="skill-cat-label">Backend</p>
-  <div class="skills-grid">
-    <div class="skill-tag"><span class="skill-dot d-green"></span>Node.js (Basic)</div>
-    <div class="skill-tag"><span class="skill-dot d-green"></span>Express.js (Basic)</div>
-  </div>
-
-  <p class="skill-cat-label">Database</p>
-  <div class="skills-grid">
-    <div class="skill-tag"><span class="skill-dot d-orange"></span>Firebase Firestore</div>
-    <div class="skill-tag"><span class="skill-dot d-orange"></span>MongoDB (Basic)</div>
-  </div>
-
-  <p class="skill-cat-label">Mobile</p>
-  <div class="skills-grid">
-    <div class="skill-tag"><span class="skill-dot d-purple"></span>React Native</div>
-    <div class="skill-tag"><span class="skill-dot d-purple"></span>Expo</div>
-    <div class="skill-tag"><span class="skill-dot d-purple"></span>EAS Build</div>
-  </div>
-
-  <p class="skill-cat-label">Tools</p>
-  <div class="skills-grid">
-    <div class="skill-tag"><span class="skill-dot d-red"></span>Git</div>
-    <div class="skill-tag"><span class="skill-dot d-red"></span>GitHub</div>
-    <div class="skill-tag"><span class="skill-dot d-red"></span>Postman</div>
-    <div class="skill-tag"><span class="skill-dot d-red"></span>VS Code</div>
-    <div class="skill-tag"><span class="skill-dot d-red"></span>GitHub Actions (CI/CD)</div>
-  </div>
-
-  <p class="offer-section-label">What I can build for you</p>
-  <div class="offer-grid">
-    <div class="offer-card">
-      <div class="offer-icon">🌐</div>
-      <div class="offer-title">Web Applications</div>
-      <div class="offer-desc">Modern, component-driven web apps using React.js, TypeScript &amp; Tailwind CSS</div>
+  <div class="skill-category">
+    <div class="skill-cat-title">Frontend</div>
+    <div class="pills">
+      <span class="pill cyan">React.js</span>
+      <span class="pill cyan">TypeScript</span>
+      <span class="pill cyan">JavaScript (ES6+)</span>
+      <span class="pill cyan">HTML5</span>
+      <span class="pill cyan">CSS3</span>
+      <span class="pill cyan">Tailwind CSS</span>
+      <span class="pill cyan">Redux Toolkit</span>
+      <span class="pill cyan">Context API</span>
     </div>
-    <div class="offer-card">
-      <div class="offer-icon">📱</div>
-      <div class="offer-title">Mobile Apps</div>
-      <div class="offer-desc">Cross-platform apps with React Native, Expo, and production APK builds via EAS</div>
+  </div>
+
+  <div class="skill-category">
+    <div class="skill-cat-title">Backend</div>
+    <div class="pills">
+      <span class="pill green">Node.js</span>
+      <span class="pill green">Express.js</span>
     </div>
-    <div class="offer-card">
-      <div class="offer-icon">🔥</div>
-      <div class="offer-title">Firebase Backend</div>
-      <div class="offer-desc">Real-time data sync, authentication, and Firestore-powered backend systems</div>
+  </div>
+
+  <div class="skill-category">
+    <div class="skill-cat-title">Database</div>
+    <div class="pills">
+      <span class="pill orange">Firebase Firestore</span>
+      <span class="pill orange">MongoDB</span>
     </div>
-    <div class="offer-card">
-      <div class="offer-icon">🛒</div>
-      <div class="offer-title">E-Commerce</div>
-      <div class="offer-desc">Online stores with product management, cart, payments, and admin panels</div>
+  </div>
+
+  <div class="skill-category">
+    <div class="skill-cat-title">Mobile</div>
+    <div class="pills">
+      <span class="pill purple">React Native</span>
+      <span class="pill purple">Expo</span>
+      <span class="pill purple">EAS Build</span>
+    </div>
+  </div>
+
+  <div class="skill-category">
+    <div class="skill-cat-title">Tools</div>
+    <div class="pills">
+      <span class="pill red">Git</span>
+      <span class="pill red">GitHub</span>
+      <span class="pill red">Postman</span>
+      <span class="pill red">VS Code</span>
+      <span class="pill red">GitHub Actions (CI/CD)</span>
+    </div>
+  </div>
+
+  <div class="offer-sep">
+    <div class="offer-label">What I can build for you</div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-icon">🌐</div>
+        <div class="offer-title">Web Applications</div>
+        <div class="offer-desc">Modern, component-driven apps using React.js, TypeScript &amp; Tailwind CSS</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon">📱</div>
+        <div class="offer-title">Mobile Apps</div>
+        <div class="offer-desc">Cross-platform apps with React Native, Expo &amp; production APK via EAS</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon">🔥</div>
+        <div class="offer-title">Firebase Backend</div>
+        <div class="offer-desc">Real-time sync, authentication &amp; Firestore-powered backend systems</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon">🛒</div>
+        <div class="offer-title">E-Commerce</div>
+        <div class="offer-desc">Online stores with cart, payments, product management &amp; admin panels</div>
+      </div>
     </div>
   </div>
 </section>
@@ -358,34 +655,37 @@
 
   <div class="timeline">
     <div class="tl-item">
+      <div class="tl-dot"></div>
       <div class="tl-date">JUN 2026 – PRESENT</div>
       <div class="tl-role">Frontend Developer <span class="tl-badge">Active</span></div>
       <div class="tl-company">Dosa Charcoal POS &middot; Surat, Gujarat &middot; Task-based, part-time</div>
-      <ul class="tl-desc">
+      <ul class="tl-list">
         <li>Working on Dosa Charcoal (V1) — a live production Restaurant POS built with React 18 + TypeScript + Tailwind CSS + Redux Toolkit</li>
         <li>Built the complete User Management module including Add User Form and User List</li>
-        <li>Developed Role Permission system with access control logic for different user roles within the POS</li>
-        <li>Designed reusable UI components — data cards, tables, and form elements — for consistent design across modules</li>
-        <li>Collaborating on production codebase using Git branching strategy and code review practices</li>
+        <li>Developed Role Permission system with access control logic for different user roles</li>
+        <li>Designed reusable UI components — data cards, tables, and form elements</li>
+        <li>Collaborating on production codebase using Git branching strategy and code reviews</li>
       </ul>
     </div>
 
     <div class="tl-item">
+      <div class="tl-dot"></div>
       <div class="tl-date">16 MAR 2026 – 15 JUN 2026</div>
       <div class="tl-role">Frontend Developer <span class="tl-badge">Hired as a Fresher</span></div>
       <div class="tl-company">SkyLink IT Hub &middot; Ahmedabad, Gujarat &middot; Project / freelance basis</div>
-      <ul class="tl-desc">
-        <li>Continued association with SkyLink IT Hub after successful internship completion, working on a project/freelance basis</li>
-        <li>Extended work on LUMIERE — the Jewellery Store web app — with ongoing feature improvements</li>
-        <li>Maintained REST API integrations, payment flow, and authentication systems built during the internship</li>
+      <ul class="tl-list">
+        <li>Continued with SkyLink IT Hub after successful internship completion</li>
+        <li>Extended work on LUMIERE — Jewellery Store web app — with ongoing improvements</li>
+        <li>Maintained REST API integrations, payment flow, and authentication systems</li>
       </ul>
     </div>
 
     <div class="tl-item">
+      <div class="tl-dot"></div>
       <div class="tl-date">15 DEC 2025 – 15 MAR 2026</div>
       <div class="tl-role">React JS Developer Intern</div>
-      <div class="tl-company">SkyLink IT Hub &middot; Ahmedabad, Gujarat &middot; Frontend Development Internship (3 months)</div>
-      <ul class="tl-desc">
+      <div class="tl-company">SkyLink IT Hub &middot; Ahmedabad, Gujarat &middot; 3-month Internship</div>
+      <ul class="tl-list">
         <li>Built LUMIERE — a full-featured Jewellery Store web app with modern UI/UX using React.js</li>
         <li>Integrated Razorpay Payment Gateway for secure transactions and order management</li>
         <li>Implemented Google Maps API for store location and JWT-based authentication flow</li>
@@ -404,47 +704,47 @@
   <p class="section-sub">Solo-built and freelance projects, shipped to production</p>
 
   <div class="projects-grid">
-    <div class="proj-card web-card">
+    <div class="proj-card">
       <div class="proj-header">
         <div class="proj-emoji">🚌</div>
         <div>
           <div class="proj-name">SwadeshBus</div>
-          <div class="proj-type purple">BUS BOOKING MOBILE APP</div>
+          <div class="proj-type">BUS BOOKING MOBILE APP</div>
         </div>
       </div>
-      <ul class="proj-desc">
-        <li>Solo-built — a multi-role bus booking app for the Surat–Vallabhipur route, packaged as a production-ready APK using EAS Build</li>
-        <li>Real-time seat selection across 40+ seats with Firestore sync, UPI payment flow, and dynamic pricing</li>
+      <ul class="proj-list">
+        <li>Solo-built multi-role bus booking app for Surat–Vallabhipur route, packaged as production APK via EAS Build</li>
+        <li>Real-time seat selection across 40+ seats with Firestore sync, UPI payment &amp; dynamic pricing</li>
         <li>Multi-role architecture (Admin / Manager / Passenger) with PIN-based auth and OTP flows</li>
         <li>Bilingual UI (English/Gujarati), ad monetization via Start.io</li>
       </ul>
       <div class="proj-tags">
         <span class="tag cyan">React Native</span>
-        <span class="tag">Expo</span>
+        <span class="tag purple">Expo</span>
         <span class="tag green">Firebase</span>
         <span class="tag amber">TypeScript</span>
-        <span class="tag">EAS Build</span>
+        <span class="tag purple">EAS Build</span>
       </div>
     </div>
 
-    <div class="proj-card web-card">
+    <div class="proj-card">
       <div class="proj-header">
         <div class="proj-emoji">🛒</div>
         <div>
           <div class="proj-name">Ram Enterprise</div>
-          <div class="proj-type purple">E-COMMERCE WEB APP</div>
+          <div class="proj-type">E-COMMERCE WEB APP</div>
         </div>
       </div>
-      <ul class="proj-desc">
-        <li>E-commerce platform with product listing, cart, and order management, including a Super Admin Panel (UI built, functionality in progress)</li>
+      <ul class="proj-list">
+        <li>E-commerce platform with product listing, cart, order management &amp; Super Admin Panel</li>
         <li>Firebase Firestore for real-time data sync and Firebase Auth for user authentication</li>
-        <li>Luxury dark-themed UI with fully responsive UserPanel and Admin layout built with Tailwind CSS</li>
+        <li>Luxury dark-themed UI with fully responsive UserPanel &amp; Admin layout using Tailwind CSS</li>
       </ul>
       <div class="proj-tags">
         <span class="tag cyan">React.js</span>
         <span class="tag green">Firebase</span>
         <span class="tag amber">Tailwind CSS</span>
-        <span class="tag">Redux Toolkit</span>
+        <span class="tag purple">Redux Toolkit</span>
         <span class="tag cyan">Node.js</span>
       </div>
     </div>
@@ -475,30 +775,45 @@
   <h2 class="section-title">Contact</h2>
   <p class="section-sub">Interested in working together? Let's talk.</p>
   <div class="contact-card">
-    <div class="available-banner">
+    <div class="avail-banner">
       <span class="green-dot"></span>
       Currently available for full-time, freelance, or hybrid opportunities
     </div>
     <div class="contact-grid">
       <div class="contact-item">
         <div class="contact-icon"><i class="ti ti-phone"></i></div>
-        <div><div class="contact-lbl">Mobile / WhatsApp</div><div class="contact-val">+91 93139 99596</div></div>
+        <div>
+          <div class="contact-lbl">Mobile / WhatsApp</div>
+          <div class="contact-val">+91 93139 99596</div>
+        </div>
       </div>
       <div class="contact-item">
         <div class="contact-icon"><i class="ti ti-mail"></i></div>
-        <div><div class="contact-lbl">Email</div><div class="contact-val">parmarronit018@gmail.com</div></div>
+        <div>
+          <div class="contact-lbl">Email</div>
+          <div class="contact-val">parmarronit018@gmail.com</div>
+        </div>
       </div>
       <div class="contact-item">
         <div class="contact-icon"><i class="ti ti-brand-linkedin"></i></div>
-        <div><div class="contact-lbl">LinkedIn</div><div class="contact-val"><a href="https://linkedin.com/in/ronitparmar18" target="_blank">linkedin.com/in/ronitparmar18</a></div></div>
+        <div>
+          <div class="contact-lbl">LinkedIn</div>
+          <div class="contact-val"><a href="https://linkedin.com/in/ronitparmar18" target="_blank">linkedin.com/in/ronitparmar18</a></div>
+        </div>
       </div>
       <div class="contact-item">
         <div class="contact-icon"><i class="ti ti-brand-github"></i></div>
-        <div><div class="contact-lbl">GitHub</div><div class="contact-val"><a href="https://github.com/parmarronit018" target="_blank">github.com/parmarronit018</a></div></div>
+        <div>
+          <div class="contact-lbl">GitHub</div>
+          <div class="contact-val"><a href="https://github.com/parmarronit018" target="_blank">github.com/parmarronit018</a></div>
+        </div>
       </div>
       <div class="contact-item">
         <div class="contact-icon"><i class="ti ti-map-pin"></i></div>
-        <div><div class="contact-lbl">Location</div><div class="contact-val">Surat, Gujarat, India</div></div>
+        <div>
+          <div class="contact-lbl">Location</div>
+          <div class="contact-val">Surat, Gujarat, India</div>
+        </div>
       </div>
     </div>
   </div>
@@ -515,16 +830,16 @@
     <a href="mailto:parmarronit018@gmail.com">Hire Me</a>
   </div>
   <p>Designed &amp; built by <strong style="color:var(--text)">Ronit Parmar</strong> &nbsp;&middot;&nbsp; Surat, Gujarat</p>
-  <p style="margin-top:4px;font-size:0.83rem;opacity:0.5;">&copy; 2026 Ronit Parmar. All rights reserved.</p>
+  <p style="margin-top:4px;font-size:0.8rem;opacity:0.45;">&copy; 2026 Ronit Parmar. All rights reserved.</p>
 </footer>
 
-<button id="scrolltop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+<button id="scrolltop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
   <i class="ti ti-arrow-up"></i>
 </button>
 
 <script>
 window.addEventListener('scroll',()=>{
-  document.getElementById('scrolltop').classList.toggle('show',window.scrollY>400);
+  document.getElementById('scrolltop').classList.toggle('show', window.scrollY > 400);
 });
 </script>
 </body>

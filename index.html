@@ -21,7 +21,7 @@
   body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',serif;font-size:15px;line-height:1.7;}
 
   nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem var(--side);border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,14,26,0.95);backdrop-filter:blur(10px);z-index:100;gap:1rem;}
-  .nav-logo{font-family:'Source Serif 4',serif;font-weight:700;font-size:1.1rem;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap;flex-shrink:0;}
+  .nav-logo{font-family:'Source Serif 4',serif;font-weight:700;font-size:1.1rem;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap;flex-shrink:0;text-decoration:none;cursor:pointer;}
   .nav-links{display:flex;gap:2rem;align-items:center;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
   .nav-links::-webkit-scrollbar{display:none;}
   .nav-links a{color:var(--muted);text-decoration:none;font-size:0.93rem;letter-spacing:0.04em;transition:color .2s;white-space:nowrap;flex-shrink:0;}
@@ -39,7 +39,6 @@
   .hero-sub{color:var(--muted);font-size:1.05rem;max-width:600px;margin:0 auto 1rem;line-height:1.6;}
   .hero-sub strong{color:var(--text);}
   .hero-company{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 18px;font-size:0.93rem;color:var(--muted);margin-bottom:2rem;}
-  .hero-company strong{color:var(--text);}
   .stats-row{display:flex;justify-content:center;gap:2.5rem;margin:2rem 0 2.5rem;flex-wrap:wrap;}
   .stat{text-align:center;}
   .stat-num{font-family:'Source Serif 4',serif;font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
@@ -54,7 +53,22 @@
   .section-label{font-size:0.8rem;letter-spacing:0.12em;color:var(--accent);font-weight:500;margin-bottom:0.5rem;text-transform:uppercase;}
   .section-title{font-family:'Source Serif 4',serif;font-size:1.7rem;font-weight:700;margin-bottom:0.5rem;}
   .section-sub{color:var(--muted);font-size:0.98rem;margin-bottom:2rem;}
-  .divider{border:none;border-top:1px solid var(--border);max-width:var(--max);margin:0 auto;padding:0 var(--side);}
+  .divider{border:none;border-top:1px solid var(--border);max-width:var(--max);margin:0 auto;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;}
+  .about-info-col{display:flex;flex-direction:column;gap:10px;}
+  .about-info-row{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.93rem;}
+  .about-text p{color:var(--muted);font-size:0.98rem;line-height:1.85;margin-bottom:1.1rem;}
+  .about-text p:last-child{margin-bottom:0;}
+  .about-highlight{display:flex;align-items:flex-start;gap:10px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);border-radius:10px;padding:14px 16px;margin-bottom:1.1rem;}
+  .about-highlight-icon{color:var(--accent);font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+  .about-highlight-text{font-size:0.93rem;color:var(--muted);line-height:1.65;}
+  .about-highlight-text strong{color:var(--text);}
+  .qr-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;margin-top:10px;}
+  .qr-box img{width:130px;height:130px;border-radius:6px;display:block;margin:0 auto 8px;}
+  .qr-label{font-size:0.83rem;color:var(--muted);line-height:1.4;}
+  .qr-label strong{color:var(--accent);display:block;font-size:0.88rem;margin-bottom:2px;}
 
   /* SKILLS */
   .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:2rem;}
@@ -64,7 +78,6 @@
   .d-cyan{background:#00d4ff;}.d-purple{background:#7c3aed;}.d-green{background:#10b981;}.d-orange{background:#f59e0b;}.d-red{background:#ef4444;}
   .skill-cat-label{font-size:0.86rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin:1.6rem 0 0.8rem;font-weight:500;}
   .skill-cat-label:first-child{margin-top:0;}
-
   .offer-section-label{font-size:0.88rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;margin-top:0.5rem;padding-top:2rem;border-top:1px solid var(--border);}
   .offer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
   .offer-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;transition:border-color .2s;}
@@ -73,7 +86,7 @@
   .offer-title{font-family:'Source Serif 4',serif;font-weight:600;font-size:0.98rem;margin-bottom:5px;}
   .offer-desc{font-size:0.88rem;color:var(--muted);line-height:1.5;}
 
-  /* EXPERIENCE TIMELINE */
+  /* EXPERIENCE */
   .timeline{position:relative;padding-left:1.8rem;}
   .timeline::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--border);}
   .tl-item{position:relative;margin-bottom:2.2rem;}
@@ -87,10 +100,7 @@
   .tl-desc li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
   .tl-badge{display:inline-block;background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 9px;font-size:0.78rem;margin-left:8px;vertical-align:middle;}
 
-  /* PROJECT CARDS */
-  .cat-label{display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;letter-spacing:0.1em;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:1.2rem;}
-  .cat-android{background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);}
-  .cat-web{background:rgba(0,212,255,0.08);color:var(--accent);border:1px solid rgba(0,212,255,0.2);}
+  /* PROJECTS */
   .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:2.5rem;}
   .proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;}
   .proj-card:hover{border-color:rgba(0,212,255,0.35);transform:translateY(-3px);}
@@ -108,8 +118,6 @@
   .tag.cyan{background:rgba(0,212,255,0.08);border-color:rgba(0,212,255,0.2);color:var(--accent);}
   .tag.green{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.2);color:#34d399;}
   .tag.amber{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.2);color:#fbbf24;}
-  .private-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:6px;padding:4px 10px;font-size:0.79rem;color:#fbbf24;margin-top:12px;width:fit-content;}
-  .demo-note{font-size:0.91rem;color:var(--muted);text-align:center;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:8px;line-height:1.7;}
 
   /* EDUCATION */
   .edu-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.6rem;display:flex;gap:16px;align-items:flex-start;}
@@ -117,16 +125,6 @@
   .edu-degree{font-family:'Source Serif 4',serif;font-weight:600;font-size:1.05rem;margin-bottom:3px;}
   .edu-school{font-size:0.96rem;color:var(--muted);margin-bottom:3px;}
   .edu-date{font-size:0.86rem;color:var(--accent);}
-
-  /* ABOUT */
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;}
-  .about-info-col{display:flex;flex-direction:column;gap:10px;}
-  .about-info-row{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.93rem;}
-  .about-text p{color:var(--muted);font-size:0.98rem;line-height:1.85;margin-bottom:1rem;}
-  .qr-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;margin-top:10px;}
-  .qr-box img{width:130px;height:130px;border-radius:6px;display:block;margin:0 auto 8px;}
-  .qr-label{font-size:0.83rem;color:var(--muted);line-height:1.4;}
-  .qr-label strong{color:var(--accent);display:block;font-size:0.88rem;margin-bottom:2px;}
 
   /* CONTACT */
   .contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2.2rem;}
@@ -184,19 +182,21 @@
 </head>
 <body>
 
+<!-- NAV — Ronit Parmar clickable, new order -->
 <nav>
-  <span class="nav-logo">Ronit Parmar</span>
+  <a href="#" class="nav-logo">Ronit Parmar</a>
   <div class="nav-links">
+    <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#about">About</a>
+    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
     <a href="mailto:parmarronit018@gmail.com" class="nav-hire">Hire Me</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- 1. HERO -->
 <div class="hero">
   <div class="hero-badge"><span class="dot"></span>&nbsp; Open to opportunities</div>
   <h1>Hi, I'm <span>Ronit Parmar</span></h1>
@@ -222,7 +222,62 @@
 
 <hr class="divider">
 
-<!-- SKILLS -->
+<!-- 2. ABOUT -->
+<section id="about">
+  <p class="section-label">Who I am</p>
+  <h2 class="section-title">About Me</h2>
+  <p class="section-sub">A little background on my journey and what I bring to the table</p>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="about-highlight">
+        <i class="ti ti-rocket about-highlight-icon"></i>
+        <div class="about-highlight-text">
+          <strong>B.Tech IT fresher (2026)</strong> who has shipped 2 production-grade apps — a Restaurant POS system (Dosa Charcoal, in active development) and a solo-built, multi-role bus booking app packaged as a production-ready APK.
+        </div>
+      </div>
+      <p>Gained hands-on experience through a <strong style="color:var(--text)">3-month internship</strong> and ongoing freelance work, building real-world products with <strong style="color:var(--text)">React.js, TypeScript, Firebase, Node.js, and REST APIs</strong>.</p>
+      <p>Writes clean, component-driven code and thrives in fast-paced production codebases — from role-based POS access control to real-time seat booking systems with Firestore sync.</p>
+      <p>Currently freelancing from Surat and open to <strong style="color:var(--text)">full-time, hybrid, or remote opportunities</strong> where I can contribute to production-grade work and keep growing.</p>
+    </div>
+
+    <div class="about-info-col">
+      <div class="about-info-row">
+        <i class="ti ti-map-pin" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Location</span>
+        <span style="margin-left:auto;color:var(--text)">Varachha, Surat, Gujarat</span>
+      </div>
+      <div class="about-info-row">
+        <i class="ti ti-code" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Focus</span>
+        <span style="margin-left:auto;color:var(--text)">Full Stack &amp; Mobile</span>
+      </div>
+      <div class="about-info-row">
+        <i class="ti ti-language" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Languages</span>
+        <span style="margin-left:auto;color:var(--text)">English, Hindi, Gujarati</span>
+      </div>
+      <div class="about-info-row">
+        <i class="ti ti-device-mobile" style="color:var(--accent);font-size:16px"></i>
+        <span style="color:var(--muted)">Available</span>
+        <span style="margin-left:auto;">
+          <span style="background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 10px;font-size:0.83rem;">Surat / Hybrid</span>
+        </span>
+      </div>
+      <div class="qr-box">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https%3A%2F%2Fronitparmar018.github.io&bgcolor=111827&color=00d4ff&qzone=1" alt="QR code for portfolio" width="130" height="130">
+        <div class="qr-label">
+          <strong>Scan to visit portfolio</strong>
+          ronitparmar018.github.io
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- 3. SKILLS -->
 <section id="skills">
   <p class="section-label">What I work with</p>
   <h2 class="section-title">Technical Skills</h2>
@@ -295,8 +350,7 @@
 
 <hr class="divider">
 
-<!-- EXPERIENCE -->
-<section id="experience">
+<!-- 4. EXPERIENCE -->
 <section id="experience">
   <p class="section-label">Where I've worked</p>
   <h2 class="section-title">Experience</h2>
@@ -343,7 +397,7 @@
 
 <hr class="divider">
 
-<!-- PROJECTS -->
+<!-- 5. PROJECTS -->
 <section id="projects">
   <p class="section-label">What I've built</p>
   <h2 class="section-title">Projects</h2>
@@ -399,7 +453,7 @@
 
 <hr class="divider">
 
-<!-- EDUCATION -->
+<!-- 6. EDUCATION -->
 <section id="education">
   <p class="section-label">My background</p>
   <h2 class="section-title">Education</h2>
@@ -415,58 +469,7 @@
 
 <hr class="divider">
 
-<!-- ABOUT -->
-<section id="about">
-  <p class="section-label">Who I am</p>
-  <h2 class="section-title">About Me</h2>
-  <p class="section-sub">A little background on my journey and what I bring to the table</p>
-
-  <div class="about-grid">
-    <div class="about-text">
-      <p>I'm a <strong style="color:var(--text)">B.Tech IT fresher (2026)</strong> based in Surat, Gujarat, who has built and shipped 2 production-grade apps — a live Restaurant POS system (Dosa Charcoal) and a solo-built, multi-role bus booking app packaged as a production-ready APK.</p>
-      <p>I gained hands-on experience through a 3-month internship and ongoing freelance project work with <strong style="color:var(--text)">React.js, TypeScript, Firebase, Node.js, and REST APIs</strong>. I started with mobile development using React Native and Expo, then expanded into full-stack web development.</p>
-      <p>I write clean, component-driven code and thrive in fast-paced, real-world codebases. I enjoy turning complex problems into clean, practical products that solve real challenges — whether that's a real-time seat booking system or a role-based POS access control flow.</p>
-      <p>I'm currently working as a freelancer from my hometown, Surat, and open to Surat-based or hybrid opportunities where I can keep learning and contributing to production codebases.</p>
-    </div>
-
-    <div class="about-info-col">
-      <div class="about-info-row">
-        <i class="ti ti-map-pin" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Location</span>
-        <span style="margin-left:auto;color:var(--text)">Varachha, Surat, Gujarat</span>
-      </div>
-      <div class="about-info-row">
-        <i class="ti ti-code" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Focus</span>
-        <span style="margin-left:auto;color:var(--text)">Full Stack &amp; Mobile</span>
-      </div>
-      <div class="about-info-row">
-        <i class="ti ti-language" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Languages</span>
-        <span style="margin-left:auto;color:var(--text)">English, Hindi, Gujarati</span>
-      </div>
-      <div class="about-info-row">
-        <i class="ti ti-device-mobile" style="color:var(--accent);font-size:16px"></i>
-        <span style="color:var(--muted)">Available</span>
-        <span style="margin-left:auto;">
-          <span style="background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 10px;font-size:0.83rem;">Surat / Hybrid</span>
-        </span>
-      </div>
-
-      <div class="qr-box">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https%3A%2F%2Fronitparmar018.github.io&bgcolor=111827&color=00d4ff&qzone=1" alt="QR code for portfolio" width="130" height="130">
-        <div class="qr-label">
-          <strong>Scan to visit portfolio</strong>
-          ronitparmar018.github.io
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- CONTACT -->
+<!-- 7. CONTACT -->
 <section id="contact">
   <p class="section-label">Get in touch</p>
   <h2 class="section-title">Contact</h2>
@@ -503,10 +506,11 @@
 
 <footer>
   <div class="footer-links">
+    <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#about">About</a>
+    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
     <a href="mailto:parmarronit018@gmail.com">Hire Me</a>
   </div>
@@ -524,4 +528,4 @@ window.addEventListener('scroll',()=>{
 });
 </script>
 </body>
-</html> 
+</html>

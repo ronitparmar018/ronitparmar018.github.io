@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ronit Parmar — Web & Android Developer</title>
-<meta name="description" content="Ronit Parmar — Web & Mobile App Developer building real-world apps with React, React Native & AI. Based in Surat, Gujarat.">
+<title>Ronit Parmar — Full Stack Developer</title>
+<meta name="description" content="Ronit Parmar — Full Stack Developer (Fresher) | React.js, Node.js, Firebase, React Native. Based in Surat, Gujarat.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -20,7 +20,6 @@
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;}
 
-  /* NAV */
   nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem var(--side);border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,14,26,0.95);backdrop-filter:blur(10px);z-index:100;}
   .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
   .nav-links{display:flex;gap:2rem;align-items:center;}
@@ -29,7 +28,6 @@
   .nav-hire{background:linear-gradient(135deg,#00d4ff,#7c3aed);color:#fff !important;padding:6px 16px;border-radius:6px;font-size:0.8rem !important;font-weight:500;}
   .nav-hire:hover{opacity:0.9;}
 
-  /* HERO */
   .hero{padding:6rem var(--side) 5rem;text-align:center;position:relative;overflow:hidden;max-width:var(--max);margin:0 auto;}
   .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(0,212,255,0.07),transparent);pointer-events:none;}
   .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);border-radius:99px;padding:5px 16px;font-size:0.75rem;color:var(--accent);margin-bottom:1.8rem;letter-spacing:0.06em;}
@@ -37,7 +35,7 @@
   @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
   .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:700;line-height:1.1;margin-bottom:1rem;}
   .hero h1 span{background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-  .hero-sub{color:var(--muted);font-size:1.05rem;max-width:560px;margin:0 auto 1rem;line-height:1.6;}
+  .hero-sub{color:var(--muted);font-size:1.05rem;max-width:600px;margin:0 auto 1rem;line-height:1.6;}
   .hero-sub strong{color:var(--text);}
   .hero-company{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 18px;font-size:0.85rem;color:var(--muted);margin-bottom:2rem;}
   .hero-company strong{color:var(--text);}
@@ -51,7 +49,6 @@
   .btn-outline{background:transparent;color:var(--accent);border:1px solid rgba(0,212,255,0.4);border-radius:8px;padding:11px 28px;font-size:0.9rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:background .2s;}
   .btn-outline:hover{background:rgba(0,212,255,0.08);}
 
-  /* SECTIONS */
   section{padding:4.5rem var(--side);max-width:var(--max);margin:0 auto;}
   .section-label{font-size:0.72rem;letter-spacing:0.12em;color:var(--accent);font-weight:500;margin-bottom:0.5rem;text-transform:uppercase;}
   .section-title{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:700;margin-bottom:0.5rem;}
@@ -59,13 +56,14 @@
   .divider{border:none;border-top:1px solid var(--border);max-width:var(--max);margin:0 auto;padding:0 var(--side);}
 
   /* SKILLS */
-  .skills-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:2.5rem;}
+  .skills-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:2rem;}
   .skill-tag{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:9px 16px;font-size:0.85rem;color:var(--text);display:flex;align-items:center;gap:8px;transition:border-color .2s;}
   .skill-tag:hover{border-color:rgba(0,212,255,0.3);}
   .skill-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
   .d-cyan{background:#00d4ff;}.d-purple{background:#7c3aed;}.d-green{background:#10b981;}.d-orange{background:#f59e0b;}.d-red{background:#ef4444;}
+  .skill-cat-label{font-size:0.78rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin:1.6rem 0 0.8rem;font-weight:500;}
+  .skill-cat-label:first-child{margin-top:0;}
 
-  /* OFFER CARDS (inside skills) */
   .offer-section-label{font-size:0.8rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;margin-top:0.5rem;padding-top:2rem;border-top:1px solid var(--border);}
   .offer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
   .offer-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;transition:border-color .2s;}
@@ -74,12 +72,24 @@
   .offer-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:0.9rem;margin-bottom:5px;}
   .offer-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;}
 
-  /* PROJECT CATEGORY LABELS */
+  /* EXPERIENCE TIMELINE */
+  .timeline{position:relative;padding-left:1.8rem;}
+  .timeline::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--border);}
+  .tl-item{position:relative;margin-bottom:2.2rem;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-item::before{content:'';position:absolute;left:-1.8rem;top:6px;width:11px;height:11px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);}
+  .tl-date{font-size:0.74rem;color:var(--accent);letter-spacing:0.05em;margin-bottom:4px;font-weight:500;}
+  .tl-role{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.05rem;margin-bottom:2px;}
+  .tl-company{font-size:0.85rem;color:var(--muted);margin-bottom:10px;}
+  .tl-desc{font-size:0.85rem;color:var(--muted);line-height:1.7;}
+  .tl-desc li{margin-bottom:5px;list-style:none;padding-left:1.1rem;position:relative;}
+  .tl-desc li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
+  .tl-badge{display:inline-block;background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:2px 9px;font-size:0.7rem;margin-left:8px;vertical-align:middle;}
+
+  /* PROJECT CARDS */
   .cat-label{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;letter-spacing:0.1em;font-weight:600;padding:4px 14px;border-radius:99px;margin-bottom:1.2rem;}
   .cat-android{background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);}
   .cat-web{background:rgba(0,212,255,0.08);color:var(--accent);border:1px solid rgba(0,212,255,0.2);}
-
-  /* PROJECT CARDS */
   .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:2.5rem;}
   .proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;}
   .proj-card:hover{border-color:rgba(0,212,255,0.35);transform:translateY(-3px);}
@@ -90,6 +100,8 @@
   .proj-type{font-size:0.7rem;color:var(--accent);letter-spacing:0.06em;margin-top:3px;}
   .proj-type.purple{color:#a78bfa;}
   .proj-desc{font-size:0.84rem;color:var(--muted);line-height:1.65;margin-bottom:14px;flex:1;}
+  .proj-desc li{margin-bottom:4px;list-style:none;padding-left:1rem;position:relative;}
+  .proj-desc li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
   .proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
   .tag{background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);border-radius:4px;padding:2px 9px;font-size:0.71rem;color:#a78bfa;}
   .tag.cyan{background:rgba(0,212,255,0.08);border-color:rgba(0,212,255,0.2);color:var(--accent);}
@@ -98,12 +110,195 @@
   .private-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:6px;padding:4px 10px;font-size:0.71rem;color:#fbbf24;margin-top:12px;width:fit-content;}
   .demo-note{font-size:0.83rem;color:var(--muted);text-align:center;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:8px;line-height:1.7;}
 
+  /* EDUCATION */
+  .edu-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.6rem;display:flex;gap:16px;align-items:flex-start;}
+  .edu-icon{width:48px;height:48px;border-radius:10px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+  .edu-degree{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.05rem;margin-bottom:3px;}
+  .edu-school{font-size:0.88rem;color:var(--muted);margin-bottom:3px;}
+  .edu-date{font-size:0.78rem;color:var(--accent);}
+
   /* ABOUT */
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;}
   .about-info-col{display:flex;flex-direction:column;gap:10px;}
   .about-info-row{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:0.85rem;}
   .about-text p{color:var(--muted);font-size:0.9rem;line-height:1.85;margin-bottom:1rem;}
+  .qr-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;margin-top:10px;}
+  .qr-box img{width:130px;height:130px;border-radius:6px;display:block;margin:0 auto 8px;}
+  .qr-label{font-size:0.75rem;color:var(--muted);line-height:1.4;}
+  .qr-label strong{color:var(--accent);display:block;font-size:0.8rem;margin-bottom:2px;}
 
+  /* CONTACT */
+  .contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2.2rem;}
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem;}
+  .contact-item{display:flex;align-items:center;gap:12px;}
+  .contact-icon{width:38px;height:38px;border-radius:9px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .contact-icon i{font-size:17px;color:var(--accent);}
+  .contact-val{color:var(--text);font-size:0.84rem;word-break:break-all;}
+  .contact-val a{color:var(--text);text-decoration:none;}
+  .contact-val a:hover{color:var(--accent);}
+  .contact-lbl{font-size:0.7rem;color:var(--muted);margin-bottom:1px;}
+  .available-banner{display:flex;align-items:center;gap:10px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:13px 16px;font-size:0.85rem;color:#34d399;margin-bottom:1.5rem;}
+  .green-dot{width:8px;height:8px;border-radius:50%;background:#10b981;animation:pulse 2s infinite;flex-shrink:0;display:inline-block;}
+
+  footer{text-align:center;padding:2.5rem var(--side);color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);}
+  .footer-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;}
+  .footer-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;transition:color .2s;}
+  .footer-links a:hover{color:var(--accent);}
+
+  #scrolltop{position:fixed;bottom:2rem;right:2rem;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#7c3aed);border:none;color:#fff;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.1rem;z-index:99;}
+  #scrolltop.show{display:flex;}
+
+  @media(max-width:900px){
+    .offer-grid{grid-template-columns:repeat(2,1fr);}
+    .about-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:768px){
+    :root{--side:1.25rem;}
+    .nav-links{gap:1rem;}
+    .nav-hire{display:none;}
+    .stats-row{gap:1.2rem;}
+    .stat-divider{display:none;}
+    .projects-grid{grid-template-columns:1fr !important;}
+    .contact-grid{grid-template-columns:1fr;}
+    .edu-card{flex-direction:column;}
+  }
+  @media(max-width:480px){
+    :root{--side:1rem;}
+    .offer-grid{grid-template-columns:1fr;}
+    .stats-row{gap:1rem;}
+    .hero h1{font-size:2rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Ronit Parmar</span>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:parmarronit018@gmail.com" class="nav-hire">Hire Me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge"><span class="dot"></span>&nbsp; Open to opportunities</div>
+  <h1>Hi, I'm <span>Ronit Parmar</span></h1>
+  <p class="hero-sub">Full Stack Developer (Fresher) — <strong>React.js · Node.js · Firebase · React Native</strong></p>
+  <div class="hero-company">
+    <i class="ti ti-briefcase" style="font-size:15px;color:#8892a4"></i>
+    Freelance Developer &mdash; Surat, Gujarat
+  </div>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">2</div><div class="stat-lbl">PRODUCTION APPS</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">3+</div><div class="stat-lbl">PROJECTS</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">MONTHS EXPERIENCE</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">2026</div><div class="stat-lbl">B.TECH GRADUATE</div></div>
+  </div>
+  <div class="cta-row">
+    <a href="#projects" class="btn-primary"><i class="ti ti-layout-grid" style="font-size:15px"></i> View Projects</a>
+    <a href="mailto:parmarronit018@gmail.com" class="btn-outline"><i class="ti ti-mail" style="font-size:15px"></i> Hire Me</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">What I work with</p>
+  <h2 class="section-title">Technical Skills</h2>
+  <p class="section-sub">Technologies I use to build web and mobile products</p>
+
+  <p class="skill-cat-label">Frontend</p>
+  <div class="skills-grid">
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>React.js</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>TypeScript</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>JavaScript (ES6+)</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>HTML5</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>CSS3</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Tailwind CSS</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Redux Toolkit</div>
+    <div class="skill-tag"><span class="skill-dot d-cyan"></span>Context API</div>
+  </div>
+
+  <p class="skill-cat-label">Backend</p>
+  <div class="skills-grid">
+    <div class="skill-tag"><span class="skill-dot d-green"></span>Node.js (Basic)</div>
+    <div class="skill-tag"><span class="skill-dot d-green"></span>Express.js (Basic)</div>
+  </div>
+
+  <p class="skill-cat-label">Database</p>
+  <div class="skills-grid">
+    <div class="skill-tag"><span class="skill-dot d-orange"></span>Firebase Firestore</div>
+    <div class="skill-tag"><span class="skill-dot d-orange"></span>MongoDB (Basic)</div>
+  </div>
+
+  <p class="skill-cat-label">Mobile</p>
+  <div class="skills-grid">
+    <div class="skill-tag"><span class="skill-dot d-purple"></span>React Native</div>
+    <div class="skill-tag"><span class="skill-dot d-purple"></span>Expo</div>
+    <div class="skill-tag"><span class="skill-dot d-purple"></span>EAS Build</div>
+  </div>
+
+  <p class="skill-cat-label">Tools</p>
+  <div class="skills-grid">
+    <div class="skill-tag"><span class="skill-dot d-red"></span>Git</div>
+    <div class="skill-tag"><span class="skill-dot d-red"></span>GitHub</div>
+    <div class="skill-tag"><span class="skill-dot d-red"></span>Postman</div>
+    <div class="skill-tag"><span class="skill-dot d-red"></span>VS Code</div>
+    <div class="skill-tag"><span class="skill-dot d-red"></span>GitHub Actions (CI/CD)</div>
+  </div>
+
+  <p class="offer-section-label">What I can build for you</p>
+  <div class="offer-grid">
+    <div class="offer-card">
+      <div class="offer-icon">🌐</div>
+      <div class="offer-title">Web Applications</div>
+      <div class="offer-desc">Modern, component-driven web apps using React.js, TypeScript &amp; Tailwind CSS</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon">📱</div>
+      <div class="offer-title">Mobile Apps</div>
+      <div class="offer-desc">Cross-platform apps with React Native, Expo, and production APK builds via EAS</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon">🔥</div>
+      <div class="offer-title">Firebase Backend</div>
+      <div class="offer-desc">Real-time data sync, authentication, and Firestore-powered backend systems</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon">🛒</div>
+      <div class="offer-title">E-Commerce</div>
+      <div class="offer-desc">Online stores with product management, cart, payments, and admin panels</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">Where I've worked</p>
+  <h2 class="section-title">Experience</h2>
+  <p class="section-sub">Internship and freelance project work</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">JUN 2026 – PRESENT</div>
+      <div class="tl-role">Frontend Developer <span class="tl-badge">Active</span></div>
+      <div class="tl-company">Dosa Charcoal POS &middot; Surat, Gujarat &middot; Task-based, part-time</div>
+      <ul class="tl-desc">
+        <li>Working on Dosa Charcoal (V1) — a live production Restaurant POS built with React 18 + TypeScript + Tailwind CSS + Redux Toolkit</li>
+        <li>Built the complete User Management module including Add User Form and User List</li>
+        <li>Developed Role Permission system with access control logic for different user roles within the POS</li>
+        <li>Designed reusable UI components — data cards, tables, and form elements — for consistent design across module
   /* QR */
   .qr-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;margin-top:10px;}
   .qr-box canvas,.qr-box img{width:130px;height:130px;border-radius:6px;display:block;margin:0 auto 8px;}

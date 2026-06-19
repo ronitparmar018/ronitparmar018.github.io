@@ -56,8 +56,8 @@
   .divider{border:none;border-top:1px solid var(--border);max-width:var(--max);margin:0 auto;padding:0 var(--side);}
 
   /* SKILLS */
-  .skills-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:2rem;}
-  .skill-tag{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:9px 16px;font-size:0.85rem;color:var(--text);display:flex;align-items:center;gap:8px;transition:border-color .2s;}
+  .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:2rem;}
+  .skill-tag{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:0.83rem;color:var(--text);display:flex;align-items:center;gap:8px;transition:border-color .2s;justify-content:center;text-align:center;}
   .skill-tag:hover{border-color:rgba(0,212,255,0.3);}
   .skill-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
   .d-cyan{background:#00d4ff;}.d-purple{background:#7c3aed;}.d-green{background:#10b981;}.d-orange{background:#f59e0b;}.d-red{background:#ef4444;}
@@ -151,6 +151,7 @@
   @media(max-width:900px){
     .offer-grid{grid-template-columns:repeat(2,1fr);}
     .about-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:repeat(3,1fr);}
   }
   @media(max-width:768px){
     :root{--side:1.25rem;}
@@ -161,12 +162,19 @@
     .projects-grid{grid-template-columns:1fr !important;}
     .contact-grid{grid-template-columns:1fr;}
     .edu-card{flex-direction:column;}
+    .section-title{font-size:1.4rem;}
+    section{padding:3.2rem var(--side);}
+    .skills-grid{grid-template-columns:repeat(2,1fr);}
   }
   @media(max-width:480px){
     :root{--side:1rem;}
     .offer-grid{grid-template-columns:1fr;}
     .stats-row{gap:1rem;}
     .hero h1{font-size:2rem;}
+    .skill-tag{padding:8px 8px;font-size:0.76rem;gap:6px;}
+    .skill-dot{width:6px;height:6px;}
+    .skills-grid{gap:7px;grid-template-columns:repeat(2,1fr);}
+    .skill-cat-label{font-size:0.7rem;margin:1.2rem 0 0.6rem;}
   }
 </style>
 </head>
@@ -371,12 +379,6 @@
       </div>
     </div>
   </div>
-
-  <div class="demo-note">
-    <i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:6px"></i>
-    Live demos available on request &mdash; APKs on WhatsApp and website localhost ready on pendrive / Offline
-    <strong style="color:var(--text)">&nbsp;(due to security reasons of these sites)</strong>
-  </div>
 </section>
 
 <hr class="divider">
@@ -508,4 +510,3 @@ window.addEventListener('scroll',()=>{
 </body>
 </html>
 
-         

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ronit Parmar — Front End Developer</title>
-<meta name="description" content="Ronit Parmar — Front End Developer (Fresher) | React.js, Node.js, Firebase, React Native. Based in Surat, Gujarat.">
+<meta name="description" content="Ronit Parmar — Front End Developer | React.js, Node.js, Firebase, React Native. Based in Surat, Gujarat.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -45,6 +45,8 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 @keyframes borderGlow{0%,100%{box-shadow:0 0 0 0 rgba(0,212,255,0);}50%{box-shadow:0 0 20px 4px rgba(0,212,255,0.15);}}
 @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 @keyframes shimmer{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
+/* lazy-loader style sweep, played on hover */
+@keyframes sweep{0%{transform:translateX(-120%) skewX(-15deg);}100%{transform:translateX(220%) skewX(-15deg);}}
 
 /* scroll reveal */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
@@ -53,6 +55,18 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 .reveal-left.visible{opacity:1;transform:translateX(0);}
 .reveal-right{opacity:0;transform:translateX(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .reveal-right.visible{opacity:1;transform:translateX(0);}
+
+/* ── SHIMMER / LAZY-LOAD HOVER SWEEP ──
+   Add class "sweep-hover" to any element with position:relative + overflow:hidden
+   to get a light band that sweeps across it on hover, like a skeleton loader flash. */
+.sweep-hover{position:relative;overflow:hidden;}
+.sweep-hover::after{
+  content:'';position:absolute;top:0;left:0;width:40%;height:100%;
+  background:linear-gradient(115deg,transparent,rgba(255,255,255,0.16),transparent);
+  transform:translateX(-120%) skewX(-15deg);
+  pointer-events:none;
+}
+.sweep-hover:hover::after{animation:sweep 0.9s ease forwards;}
 
 /* ── NAV ── */
 nav{
@@ -94,6 +108,11 @@ nav.scrolled{background:rgba(10,14,26,0.97);}
 }
 .nav-links a:hover{color:var(--accent);}
 .nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+.nav-resume{
+  display:inline-flex;align-items:center;gap:5px;
+  color:var(--muted) !important;font-size:0.85rem !important;
+}
+.nav-resume:hover{color:var(--accent) !important;}
 .nav-hire{
   background:linear-gradient(135deg,#00d4ff,#7c3aed);
   color:#fff !important;padding:6px 16px;
@@ -227,6 +246,7 @@ nav.scrolled{background:rgba(10,14,26,0.97);}
   font-size:0.95rem;cursor:pointer;text-decoration:none;
   display:inline-flex;align-items:center;gap:7px;
   transition:background .2s, transform .25s, box-shadow .25s, border-color .25s;
+  position:relative;overflow:hidden;
 }
 .btn-outline:hover{
   background:rgba(0,212,255,0.08);
@@ -235,6 +255,20 @@ nav.scrolled{background:rgba(10,14,26,0.97);}
   border-color:rgba(0,212,255,0.7);
 }
 .btn-outline:active{transform:translateY(0);}
+.btn-ghost{
+  background:var(--surface);color:var(--text);
+  border:1px solid var(--border);
+  border-radius:8px;padding:12px 28px;
+  font-size:0.95rem;cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:7px;
+  transition:background .2s, transform .25s, box-shadow .25s, border-color .25s;
+  position:relative;overflow:hidden;
+}
+.btn-ghost:hover{
+  border-color:rgba(0,212,255,0.5);color:var(--accent);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,212,255,0.12);
+}
 
 /* ── SECTION BASE ── */
 section{padding:4rem var(--side);max-width:var(--max);margin:0 auto;}
@@ -460,7 +494,7 @@ section{padding:4rem var(--side);max-width:var(--max);margin:0 auto;}
 }
 .proj-card:hover .proj-list li{color:#a8b4c0;}
 .proj-list li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
-.proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
 .tag{
   border-radius:4px;padding:3px 10px;font-size:0.78rem;
   border:1px solid;transition:transform 0.2s, box-shadow 0.2s;
@@ -471,6 +505,14 @@ section{padding:4rem var(--side);max-width:var(--max);margin:0 auto;}
 .tag.green{background:rgba(16,185,129,0.07);border-color:rgba(16,185,129,0.2);color:#34d399;}
 .tag.amber{background:rgba(245,158,11,0.07);border-color:rgba(245,158,11,0.2);color:#fbbf24;}
 .tag.rose{background:rgba(244,63,94,0.07);border-color:rgba(244,63,94,0.2);color:#fb7185;}
+.proj-links{display:flex;gap:10px;flex-wrap:wrap;}
+.proj-link{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:0.8rem;color:var(--accent);text-decoration:none;
+  border:1px solid rgba(0,212,255,0.3);border-radius:6px;
+  padding:5px 12px;transition:background .2s, border-color .2s, transform .2s;
+}
+.proj-link:hover{background:rgba(0,212,255,0.08);border-color:var(--accent);transform:translateY(-1px);}
 
 /* ── EDUCATION ── */
 .edu-card{
@@ -533,6 +575,26 @@ section{padding:4rem var(--side);max-width:var(--max);margin:0 auto;}
 .contact-val a{color:var(--text);text-decoration:none;transition:color 0.2s;}
 .contact-val a:hover{color:var(--accent);}
 
+/* ── INQUIRY FORM ── */
+.inquiry-form{border-top:1px solid var(--border);margin-top:1.75rem;padding-top:1.75rem;}
+.inquiry-label{font-size:0.75rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:1rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group label{font-size:0.8rem;color:var(--muted);}
+.form-group input,.form-group textarea{
+  background:var(--bg);border:1px solid var(--border);border-radius:8px;
+  padding:10px 14px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--text);
+  outline:none;transition:border-color 0.2s, box-shadow 0.2s;resize:none;
+}
+.form-group input::placeholder,.form-group textarea::placeholder{color:#5a6478;}
+.form-group input:focus,.form-group textarea:focus{
+  border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,212,255,0.12);
+}
+.form-footer{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:0.25rem;}
+.form-note{font-size:0.78rem;color:#5a6478;margin-top:10px;}
+.form-sent{font-size:0.85rem;color:#34d399;display:none;align-items:center;gap:6px;}
+.form-sent.show{display:inline-flex;}
+
 /* ── FOOTER ── */
 footer{
   text-align:center;padding:2rem var(--side);
@@ -564,6 +626,7 @@ footer{
   .about-grid{grid-template-columns:1fr;}
   .offer-grid{grid-template-columns:repeat(2,1fr);}
   .contact-grid{grid-template-columns:1fr;}
+  .projects-grid{grid-template-columns:1fr;}
 }
 @media(max-width:768px){
   :root{--side:1.2rem;}
@@ -580,7 +643,7 @@ footer{
   .stat{padding:0.9rem 0.3rem;}
   .stat-num{font-size:1.4rem;}
   .stat-lbl{font-size:0.65rem;}
-  .btn-primary,.btn-outline{padding:10px 22px;font-size:0.9rem;}
+  .btn-primary,.btn-outline,.btn-ghost{padding:10px 22px;font-size:0.9rem;}
   section{padding:3rem var(--side);}
   .section-title{font-size:1.4rem;}
   .pill{font-size:0.82rem;padding:5px 13px;}
@@ -589,6 +652,7 @@ footer{
   .edu-card{flex-direction:column;gap:12px;}
   .contact-grid{grid-template-columns:1fr;}
   .contact-card{padding:1.4rem;}
+  .form-row{grid-template-columns:1fr;}
 }
 @media(max-width:400px){
   :root{--side:1rem;}
@@ -618,6 +682,7 @@ footer{
     <a href="#projects">Projects</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
+    <a href="resume.pdf" download class="nav-resume"><i class="ti ti-download" style="font-size:13px"></i> Resume</a>
     <a href="mailto:parmarronit018@gmail.com" class="nav-hire">Hire Me</a>
   </div>
 </nav>
@@ -626,7 +691,7 @@ footer{
 <div class="hero">
   <div class="hero-badge reveal"><span class="pulse-dot"></span>&nbsp;Open to opportunities</div>
   <h1 class="reveal">Hi, I'm <span>Ronit Parmar</span></h1>
-  <p class="hero-sub reveal">Front End Developer (Fresher) — <strong>React.js · Node.js · Firebase · React Native</strong></p>
+  <p class="hero-sub reveal">Front End Developer — <strong>React.js · Node.js · Firebase · React Native</strong></p>
   <div class="hero-location reveal">
     <i class="ti ti-briefcase" style="font-size:14px;color:#8892a4"></i>
     Freelance Developer — Surat, Gujarat
@@ -637,7 +702,7 @@ footer{
       <div class="stat-lbl">PRODUCTION APPS</div>
     </div>
     <div class="stat">
-      <div class="stat-num">4</div>
+      <div class="stat-num">5</div>
       <div class="stat-lbl">PROJECTS</div>
     </div>
     <div class="stat">
@@ -650,11 +715,14 @@ footer{
     </div>
   </div>
   <div class="cta-row">
-    <a href="#projects" class="btn-primary">
+    <a href="#projects" class="btn-primary sweep-hover">
       <i class="ti ti-layout-grid" style="font-size:15px"></i> View Projects
     </a>
-    <a href="mailto:parmarronit018@gmail.com" class="btn-outline">
+    <a href="mailto:parmarronit018@gmail.com" class="btn-outline sweep-hover">
       <i class="ti ti-mail" style="font-size:15px"></i> Hire Me
+    </a>
+    <a href="resume.pdf" download class="btn-ghost sweep-hover">
+      <i class="ti ti-download" style="font-size:15px"></i> Download Resume
     </a>
   </div>
 </div>
@@ -671,7 +739,7 @@ footer{
     <div class="about-text reveal-left">
       <div class="about-highlight">
         <i class="ti ti-rocket"></i>
-        <p><strong>B.Tech IT Fresher (2026)</strong> I have shipped 2 production-grade apps — a Restaurant POS system (Dosa Charcoal, in active development) and a solo-built, multi-role bus booking app packaged as a production-ready APK.</p>
+        <p><strong>B.Tech IT, 2026.</strong> I have shipped 2 production-grade apps — a Restaurant POS system (Dosa Charcoal, in active development) and a solo-built, multi-role bus booking app packaged as a production-ready APK.</p>
       </div>
       <p>Gained hands-on experience through a <strong>3-month internship</strong> and ongoing freelance work, building real-world products with <strong>React.js, TypeScript, Firebase, Node.js, and REST APIs</strong>.</p>
       <p>Writes clean, component-driven code and thrives in fast-paced production codebases — from role-based POS access control to real-time seat booking systems with Firestore sync.</p>
@@ -769,22 +837,22 @@ footer{
   <div class="offer-sep reveal">
     <div class="offer-label">What I can build for you</div>
     <div class="offer-grid">
-      <div class="offer-card">
+      <div class="offer-card sweep-hover">
         <div class="offer-icon">🌐</div>
         <div class="offer-title">Web Applications</div>
         <div class="offer-desc">Modern, component-driven apps using React.js, TypeScript &amp; Tailwind CSS</div>
       </div>
-      <div class="offer-card">
+      <div class="offer-card sweep-hover">
         <div class="offer-icon">📱</div>
         <div class="offer-title">Mobile Apps</div>
         <div class="offer-desc">Cross-platform apps with React Native, Expo &amp; production APK via EAS</div>
       </div>
-      <div class="offer-card">
+      <div class="offer-card sweep-hover">
         <div class="offer-icon">🔥</div>
         <div class="offer-title">Firebase Backend</div>
         <div class="offer-desc">Real-time sync, authentication &amp; Firestore-powered backend systems</div>
       </div>
-      <div class="offer-card">
+      <div class="offer-card sweep-hover">
         <div class="offer-icon">🛒</div>
         <div class="offer-title">E-Commerce</div>
         <div class="offer-desc">Online stores with cart, payments, product management &amp; admin panels</div>
@@ -818,7 +886,7 @@ footer{
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-date">16 MAR 2026 – 15 JUN 2026</div>
-      <div class="tl-role">Frontend Developer <span class="tl-badge">Hired as a Fresher</span></div>
+      <div class="tl-role">Frontend Developer <span class="tl-badge">Retained after internship</span></div>
       <div class="tl-company">SkyLink IT Hub · Ahmedabad, Gujarat · Project / freelance basis</div>
       <ul class="tl-list">
         <li>Continued with SkyLink IT Hub after successful internship completion</li>
@@ -843,7 +911,7 @@ footer{
 
 <hr class="divider">
 
-<!-- 5. PROJECTS — 4 CARDS -->
+<!-- 5. PROJECTS — 5 CARDS -->
 <section id="projects">
   <p class="section-label reveal">What I've built</p>
   <h2 class="section-title reveal">Projects</h2>
@@ -875,7 +943,33 @@ footer{
       </div>
     </div>
 
-    <!-- Card 2: Ram Enterprise -->
+    <!-- Card 2: GitHub Explorer (NEW) -->
+    <div class="proj-card reveal">
+      <div class="proj-header">
+        <div class="proj-emoji">🔍</div>
+        <div>
+          <div class="proj-name">GitHub Explorer</div>
+          <div class="proj-type">DEVELOPER TOOL · Frontend Intern Assignment</div>
+        </div>
+      </div>
+      <ul class="proj-list">
+        <li>Search any GitHub username and view their profile — avatar, bio, followers, public repo count</li>
+        <li>View top 5 most-starred repositories, sorted client-side (GitHub's sort=stars param doesn't work on the repos API)</li>
+        <li>Gracefully handled loading, error (user not found), and empty-input states</li>
+        <li>Built a <strong style="color:var(--text)">Watchlist</strong> feature — save/filter/remove users with a stats panel (total saved, average followers)</li>
+      </ul>
+      <div class="proj-tags">
+        <span class="tag cyan">React (Vite)</span>
+        <span class="tag amber">Tailwind CSS</span>
+        <span class="tag purple">GitHub REST API</span>
+      </div>
+      <div class="proj-links">
+        <a href="https://github-explorer-alpha-six.vercel.app" target="_blank" class="proj-link"><i class="ti ti-external-link" style="font-size:13px"></i> Live Demo</a>
+        <a href="https://github.com/parmarronit018/github-explorer" target="_blank" class="proj-link"><i class="ti ti-brand-github" style="font-size:13px"></i> GitHub Repo</a>
+      </div>
+    </div>
+
+    <!-- Card 3: Ram Enterprise -->
     <div class="proj-card reveal">
       <div class="proj-header">
         <div class="proj-emoji">🛒</div>
@@ -899,7 +993,7 @@ footer{
       </div>
     </div>
 
-    <!-- Card 3: LUMIERE -->
+    <!-- Card 4: LUMIERE -->
     <div class="proj-card reveal">
       <div class="proj-header">
         <div class="proj-emoji">💎</div>
@@ -923,7 +1017,7 @@ footer{
       </div>
     </div>
 
-    <!-- Card 4: Dosa Charcoal POS -->
+    <!-- Card 5: Dosa Charcoal POS -->
     <div class="proj-card reveal">
       <div class="proj-header">
         <div class="proj-emoji">🍽️</div>
@@ -1015,6 +1109,32 @@ footer{
         </div>
       </div>
     </div>
+
+    <!-- INQUIRY FORM -->
+    <form class="inquiry-form" id="inquiryForm">
+      <div class="inquiry-label">Or send a quick inquiry</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="inq-name">Your name</label>
+          <input type="text" id="inq-name" placeholder="Jane Doe" required>
+        </div>
+        <div class="form-group">
+          <label for="inq-email">Your email</label>
+          <input type="email" id="inq-email" placeholder="jane@company.com" required>
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:1rem;">
+        <label for="inq-message">Message</label>
+        <textarea id="inq-message" rows="4" placeholder="Tell me a bit about the role or project..." required></textarea>
+      </div>
+      <div class="form-footer">
+        <button type="submit" class="btn-primary sweep-hover" style="padding:10px 24px;font-size:0.9rem;">
+          <i class="ti ti-send" style="font-size:15px"></i> Send Inquiry
+        </button>
+        <span class="form-sent" id="formSent"><i class="ti ti-check"></i> Opening your email app…</span>
+      </div>
+      <p class="form-note">This opens your email app with the message pre-filled — nothing is sent from here directly.</p>
+    </form>
   </div>
 </section>
 
@@ -1026,6 +1146,7 @@ footer{
     <a href="#projects">Projects</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
+    <a href="resume.pdf" download>Resume</a>
     <a href="mailto:parmarronit018@gmail.com">Hire Me</a>
   </div>
   <p>Designed &amp; built by <strong style="color:var(--text)">Ronit Parmar</strong> &nbsp;·&nbsp; Surat, Gujarat</p>
@@ -1091,6 +1212,24 @@ const countObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 counters.forEach(c => countObserver.observe(c));
+
+// ── Inquiry form: opens the visitor's email app with a pre-filled message
+const inquiryForm = document.getElementById('inquiryForm');
+const formSent = document.getElementById('formSent');
+inquiryForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('inq-name').value.trim();
+  const email = document.getElementById('inq-email').value.trim();
+  const message = document.getElementById('inq-message').value.trim();
+  if (!name || !email || !message) return;
+
+  const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+  const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+  window.location.href = `mailto:parmarronit018@gmail.com?subject=${subject}&body=${body}`;
+
+  formSent.classList.add('show');
+  setTimeout(() => formSent.classList.remove('show'), 4000);
+});
 </script>
 </body>
 </html>

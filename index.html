@@ -442,39 +442,40 @@ section{padding:4rem var(--side);max-width:var(--max);margin:0 auto;}
 .tl-list li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
 
 /* ── PROJECTS ── */
-.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;perspective:1200px;}
 .proj-card{
+  --mx:50%;--my:50%;
   background:var(--card);border:1px solid var(--border);
   border-radius:16px;padding:1.6rem;
-  transition:border-color .3s, transform .35s cubic-bezier(0.34,1.56,0.64,1), box-shadow .3s;
+  transition:transform .12s ease-out, box-shadow .3s ease, border-color .3s ease;
   display:flex;flex-direction:column;
   position:relative;overflow:hidden;
   cursor:default;
+  transform-style:preserve-3d;
+  will-change:transform;
 }
-/* top shimmer bar on hover */
+/* cursor-following spotlight glow, sits on top of the card surface */
 .proj-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent));
-  background-size:200% auto;
-  opacity:0;transition:opacity 0.3s;
-  animation:gradientShift 3s linear infinite;
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:radial-gradient(420px circle at var(--mx) var(--my),rgba(0,212,255,0.14),transparent 60%);
+  opacity:0;transition:opacity 0.35s ease;
+  pointer-events:none;z-index:1;
 }
-/* glow blob */
+/* glowing ring that traces the border, brighter near the cursor */
 .proj-card::after{
-  content:'';position:absolute;
-  width:200px;height:200px;border-radius:50%;
-  background:radial-gradient(circle,rgba(124,58,237,0.12),transparent 70%);
-  bottom:-60px;right:-60px;
-  opacity:0;transition:opacity 0.4s, transform 0.4s;
-  transform:scale(0.7);
+  content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:radial-gradient(280px circle at var(--mx) var(--my),rgba(0,212,255,0.9),rgba(124,58,237,0.35) 45%,transparent 70%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:0;transition:opacity 0.35s ease;
+  pointer-events:none;z-index:1;
 }
 .proj-card:hover{
-  border-color:rgba(124,58,237,0.5);
-  transform:translateY(-6px) scale(1.01);
-  box-shadow:0 20px 50px rgba(124,58,237,0.15), 0 0 0 1px rgba(124,58,237,0.1);
+  box-shadow:0 24px 60px rgba(0,0,0,0.35), 0 0 40px rgba(0,212,255,0.08);
 }
 .proj-card:hover::before{opacity:1;}
-.proj-card:hover::after{opacity:1;transform:scale(1);}
+.proj-card:hover::after{opacity:1;}
+.proj-card>*{position:relative;z-index:2;}
 .proj-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
 .proj-emoji{
   width:50px;height:50px;border-radius:12px;
@@ -483,7 +484,7 @@ section{padding:4rem var(--side);max-width:var(--max);margin:0 auto;}
   flex-shrink:0;border:1px solid var(--border);
   transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
 }
-.proj-card:hover .proj-emoji{transform:rotate(-8deg) scale(1.15);box-shadow:0 6px 20px rgba(0,212,255,0.2);}
+.proj-card:hover .proj-emoji{transform:translateZ(30px) rotate(-8deg) scale(1.15);box-shadow:0 6px 20px rgba(0,212,255,0.2);}
 .proj-name{font-family:'Source Serif 4',serif;font-weight:600;font-size:1.05rem;}
 .proj-type{font-size:0.75rem;color:#a78bfa;letter-spacing:0.06em;margin-top:3px;}
 .proj-list{list-style:none;padding:0;flex:1;margin-bottom:14px;}
@@ -941,9 +942,12 @@ footer{
         <span class="tag amber">TypeScript</span>
         <span class="tag purple">EAS Build</span>
       </div>
+      <div class="proj-links">
+        <a href="https://github.com/parmarronit018/Swadesh-bus-app" target="_blank" class="proj-link"><i class="ti ti-brand-github" style="font-size:13px"></i> GitHub Repo</a>
+      </div>
     </div>
 
-    <!-- Card 2: GitHub Explorer (NEW) -->
+    <!-- Card 2: GitHub Explorer -->
     <div class="proj-card reveal">
       <div class="proj-header">
         <div class="proj-emoji">🔍</div>
@@ -1158,6 +1162,33 @@ footer{
 </button>
 
 <script>
+// ── Project card 3D tilt + cursor spotlight
+document.querySelectorAll('.proj-card').forEach(card => {
+  const strength = 8; // max tilt degrees
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const px = x / rect.width;
+    const py = y / rect.height;
+
+    // spotlight position
+    card.style.setProperty('--mx', `${px * 100}%`);
+    card.style.setProperty('--my', `${py * 100}%`);
+
+    // 3D tilt: rotateY follows x, rotateX follows y (inverted)
+    const rotateY = (px - 0.5) * strength * 2;
+    const rotateX = (0.5 - py) * strength * 2;
+    card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale(1.015)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
+    card.style.setProperty('--mx', '50%');
+    card.style.setProperty('--my', '50%');
+  });
+});
+
 // ── Cursor glow
 const glow = document.getElementById('cursorGlow');
 document.addEventListener('mousemove', e => {

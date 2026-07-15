@@ -442,58 +442,34 @@ section{padding:4rem var(--side);max-width:var(--max);margin:0 auto;}
 .tl-list li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
 
 /* ── PROJECTS ── */
-.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;perspective:1200px;}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
 .proj-card{
-  --mx:50%;--my:50%;
   background:var(--card);border:1px solid var(--border);
   border-radius:16px;padding:1.6rem;
-  transition:transform .12s ease-out, box-shadow .3s ease, border-color .3s ease;
+  transition:all 0.3s ease;
   display:flex;flex-direction:column;
-  position:relative;overflow:hidden;
+  position:relative;
   cursor:default;
-  transform-style:preserve-3d;
-  will-change:transform;
-}
-/* cursor-following spotlight glow, sits on top of the card surface */
-.proj-card::before{
-  content:'';position:absolute;inset:0;border-radius:inherit;
-  background:radial-gradient(420px circle at var(--mx) var(--my),rgba(0,212,255,0.14),transparent 60%);
-  opacity:0;transition:opacity 0.35s ease;
-  pointer-events:none;z-index:1;
-}
-/* glowing ring that traces the border, brighter near the cursor */
-.proj-card::after{
-  content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;
-  background:radial-gradient(280px circle at var(--mx) var(--my),rgba(0,212,255,0.9),rgba(124,58,237,0.35) 45%,transparent 70%);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  opacity:0;transition:opacity 0.35s ease;
-  pointer-events:none;z-index:1;
 }
 .proj-card:hover{
-  box-shadow:0 24px 60px rgba(0,0,0,0.35), 0 0 40px rgba(0,212,255,0.08);
+  transform:scale(1.03);
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  border-color:rgba(0,212,255,0.3);
 }
-.proj-card:hover::before{opacity:1;}
-.proj-card:hover::after{opacity:1;}
-.proj-card>*{position:relative;z-index:2;}
 .proj-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
 .proj-emoji{
   width:50px;height:50px;border-radius:12px;
   background:var(--surface);display:flex;align-items:center;
   justify-content:center;font-size:1.5rem;
   flex-shrink:0;border:1px solid var(--border);
-  transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
 }
-.proj-card:hover .proj-emoji{transform:translateZ(30px) rotate(-8deg) scale(1.15);box-shadow:0 6px 20px rgba(0,212,255,0.2);}
 .proj-name{font-family:'Source Serif 4',serif;font-weight:600;font-size:1.05rem;}
 .proj-type{font-size:0.75rem;color:#a78bfa;letter-spacing:0.06em;margin-top:3px;}
 .proj-list{list-style:none;padding:0;flex:1;margin-bottom:14px;}
 .proj-list li{
   font-size:0.88rem;color:var(--muted);line-height:1.65;
   margin-bottom:4px;padding-left:1rem;position:relative;
-  transition:color 0.2s;
 }
-.proj-card:hover .proj-list li{color:#a8b4c0;}
 .proj-list li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
 .proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
 .tag{
@@ -514,6 +490,21 @@ section{padding:4rem var(--side);max-width:var(--max);margin:0 auto;}
   padding:5px 12px;transition:background .2s, border-color .2s, transform .2s;
 }
 .proj-link:hover{background:rgba(0,212,255,0.08);border-color:var(--accent);transform:translateY(-1px);}
+.proj-link-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:0.8rem;color:var(--accent);text-decoration:none;
+  border:1px solid rgba(0,212,255,0.3);border-radius:6px;
+  padding:5px 12px;transition:background .2s, border-color .2s, transform .2s;
+  background:transparent;font-family:'Inter',sans-serif;cursor:pointer;
+}
+.proj-link-btn:hover{background:rgba(0,212,255,0.08);border-color:var(--accent);transform:translateY(-1px);}
+.ongoing-pill{
+  display:inline-block;
+  background:rgba(245,158,11,0.1);color:#fbbf24;
+  border:1px solid rgba(245,158,11,0.25);
+  border-radius:4px;padding:2px 10px;font-size:0.75rem;
+  margin-left:8px;vertical-align:middle;
+}
 
 /* ── EDUCATION ── */
 .edu-card{
@@ -620,6 +611,44 @@ footer{
 #scrolltop.show{display:flex;animation:scaleIn 0.3s ease;}
 #scrolltop:hover{transform:scale(1.15) translateY(-2px);box-shadow:0 8px 28px rgba(0,212,255,0.5);}
 
+/* ── APK MODAL ── */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.modal.show{display:flex;}
+.modal-box{
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:2rem;
+  border-radius:12px;
+  max-width:400px;
+  width:90%;
+}
+.modal-box h3{
+  font-family:'Source Serif 4',serif;
+  font-size:1.15rem;
+  margin-bottom:0.75rem;
+}
+.modal-box ul{
+  margin:1rem 0;
+  padding-left:1.2rem;
+  color:var(--muted);
+  font-size:0.9rem;
+  line-height:1.8;
+}
+.modal-actions{
+  display:flex;
+  gap:10px;
+  margin-top:0.5rem;
+  flex-wrap:wrap;
+}
+
 /* ══════════════════════════════
    RESPONSIVE
 ══════════════════════════════ */
@@ -677,14 +706,11 @@ footer{
 <nav id="navbar">
   <a href="#" class="nav-logo">Ronit Parmar</a>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
+    <a href="#">Home</a>
     <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
-    <a href="resume.pdf" download class="nav-resume"><i class="ti ti-download" style="font-size:13px"></i> Resume</a>
-    <a href="mailto:parmarronit018@gmail.com" class="nav-hire">Hire Me</a>
+    <a href="mailto:parmarronit018@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Ronit%2C%20I%20want%20to%20discuss%20an%20opportunity%20with%20you." class="nav-hire">Hire Me</a>
   </div>
 </nav>
 
@@ -707,7 +733,7 @@ footer{
       <div class="stat-lbl">PROJECTS</div>
     </div>
     <div class="stat">
-      <div class="stat-num">4</div>
+      <div class="stat-num">1.5</div>
       <div class="stat-lbl">MONTHS EXP</div>
     </div>
     <div class="stat">
@@ -719,11 +745,8 @@ footer{
     <a href="#projects" class="btn-primary sweep-hover">
       <i class="ti ti-layout-grid" style="font-size:15px"></i> View Projects
     </a>
-    <a href="mailto:parmarronit018@gmail.com" class="btn-outline sweep-hover">
+    <a href="mailto:parmarronit018@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Ronit%2C%20I%20want%20to%20discuss%20an%20opportunity%20with%20you." class="btn-outline sweep-hover">
       <i class="ti ti-mail" style="font-size:15px"></i> Hire Me
-    </a>
-    <a href="resume.pdf" download class="btn-ghost sweep-hover">
-      <i class="ti ti-download" style="font-size:15px"></i> Download Resume
     </a>
   </div>
 </div>
@@ -868,7 +891,7 @@ footer{
 <section id="experience">
   <p class="section-label reveal">Where I've worked</p>
   <h2 class="section-title reveal">Experience</h2>
-  <p class="section-sub reveal">Internship and freelance project work</p>
+  <p class="section-sub reveal">Internship and current project work</p>
 
   <div class="timeline">
     <div class="tl-item reveal">
@@ -890,10 +913,11 @@ footer{
       <div class="tl-role">React JS Developer Intern</div>
       <div class="tl-company">SkyLink IT Hub · Ahmedabad, Gujarat · 3-month Internship</div>
       <ul class="tl-list">
-        <li>Built a full-featured Jewellery Store web app with modern UI/UX using React.js</li>
-        <li>Integrated Razorpay Payment Gateway for secure transactions and order management</li>
-        <li>Implemented Google Maps API for store location and JWT-based authentication flow</li>
-        <li>Consumed REST APIs for dynamic product listing, filtering, and cart functionality</li>
+        <li>Worked on Ram Enterprise project — developed UI, optimized performance and handled frontend implementation</li>
+        <li>Built <strong style="color:var(--text)">Ram Enterprise</strong> — an e-commerce web app with product listing, cart, order management &amp; a Super Admin Panel using React.js</li>
+        <li>Wrote basic Node.js + Express REST APIs (GET/POST routes) for product and order data as part of the MERN backend scaffold</li>
+        <li>Used Firebase Firestore for real-time data sync and Firebase Auth for user authentication</li>
+        <li>Live demo: <a href="https://ram-enterprise-nine.vercel.app/" target="_blank" style="color:var(--accent)">ram-enterprise-nine.vercel.app</a></li>
       </ul>
     </div>
   </div>
@@ -901,7 +925,7 @@ footer{
 
 <hr class="divider">
 
-<!-- 5. PROJECTS -->
+<!-- 5. PROJECTS — 4 CARDS -->
 <section id="projects">
   <p class="section-label reveal">What I've built</p>
   <h2 class="section-title reveal">Projects</h2>
@@ -932,6 +956,7 @@ footer{
         <span class="tag purple">EAS Build</span>
       </div>
       <div class="proj-links">
+        <button type="button" class="proj-link-btn" onclick="openApkModal()"><i class="ti ti-download" style="font-size:13px"></i> Download APK</button>
         <a href="https://github.com/parmarronit018/Swadesh-bus-app" target="_blank" class="proj-link"><i class="ti ti-brand-github" style="font-size:13px"></i> GitHub Repo</a>
       </div>
     </div>
@@ -986,6 +1011,7 @@ footer{
       </div>
       <div class="proj-links">
         <a href="https://ram-enterprise-nine.vercel.app/" target="_blank" class="proj-link"><i class="ti ti-external-link" style="font-size:13px"></i> Live Demo</a>
+        <a href="https://github.com/parmarronit018/Ram-Enterprise" target="_blank" class="proj-link"><i class="ti ti-brand-github" style="font-size:13px"></i> GitHub Repo</a>
       </div>
     </div>
 
@@ -994,7 +1020,7 @@ footer{
       <div class="proj-header">
         <div class="proj-emoji">🍽️</div>
         <div>
-          <div class="proj-name">Dosa Charcoal POS</div>
+          <div class="proj-name">Dosa Charcoal POS <span class="ongoing-pill">Ongoing</span></div>
           <div class="proj-type">RESTAURANT POS SYSTEM · WebAppNova</div>
         </div>
       </div>
@@ -1025,9 +1051,9 @@ footer{
   <div class="edu-card reveal">
     <div class="edu-icon">🎓</div>
     <div>
-      <div class="edu-degree">B.Tech — Information Technology</div>
+      <div class="edu-degree">B.Tech (IT)</div>
       <div class="edu-school">Bhagwan Arihant Institute of Technology (BAIT), Surat, Gujarat</div>
-      <div class="edu-date">Aug 2022 – Apr 2026</div>
+      <div class="edu-date">2022 – 2026</div>
     </div>
   </div>
 </section>
@@ -1112,14 +1138,11 @@ footer{
 
 <footer>
   <div class="footer-links">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
+    <a href="#">Home</a>
     <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
-    <a href="resume.pdf" download>Resume</a>
-    <a href="mailto:parmarronit018@gmail.com">Hire Me</a>
+    <a href="mailto:parmarronit018@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Ronit%2C%20I%20want%20to%20discuss%20an%20opportunity%20with%20you.">Hire Me</a>
   </div>
   <p>Designed &amp; built by <strong style="color:var(--text)">Ronit Parmar</strong> &nbsp;·&nbsp; Surat, Gujarat</p>
   <p style="margin-top:4px;font-size:0.8rem;opacity:0.45;">&copy; 2026 Ronit Parmar. All rights reserved.</p>
@@ -1129,34 +1152,26 @@ footer{
   <i class="ti ti-arrow-up"></i>
 </button>
 
+<!-- APK INSTALL MODAL -->
+<div id="apkModal" class="modal">
+  <div class="modal-box">
+    <h3>How to Install App</h3>
+    <ul>
+      <li>Download APK file</li>
+      <li>Enable "Unknown Sources"</li>
+      <li>Open downloaded file</li>
+      <li>Tap Install</li>
+    </ul>
+    <div class="modal-actions">
+      <a href="https://drive.google.com/file/d/1D_SzNFAe5-X0JAkuKqSTTDZtI7Ez-jDc/view" target="_blank" class="btn-primary">
+        Download APK
+      </a>
+      <button type="button" onclick="closeApkModal()" class="btn-ghost">Close</button>
+    </div>
+  </div>
+</div>
+
 <script>
-// ── Project card 3D tilt + cursor spotlight
-document.querySelectorAll('.proj-card').forEach(card => {
-  const strength = 8; // max tilt degrees
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const px = x / rect.width;
-    const py = y / rect.height;
-
-    // spotlight position
-    card.style.setProperty('--mx', `${px * 100}%`);
-    card.style.setProperty('--my', `${py * 100}%`);
-
-    // 3D tilt: rotateY follows x, rotateX follows y (inverted)
-    const rotateY = (px - 0.5) * strength * 2;
-    const rotateX = (0.5 - py) * strength * 2;
-    card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale(1.015)`;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
-    card.style.setProperty('--mx', '50%');
-    card.style.setProperty('--my', '50%');
-  });
-});
-
 // ── Cursor glow
 const glow = document.getElementById('cursorGlow');
 document.addEventListener('mousemove', e => {
@@ -1195,17 +1210,19 @@ const countObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     const el = entry.target;
-    const target = el.textContent.replace(/[^0-9]/g,'');
-    const suffix = el.textContent.replace(/[0-9]/g,'');
-    if (!target) return;
+    const match = el.textContent.match(/[0-9.]+/);
+    if (!match) return;
+    const numStr = match[0];
+    const isDecimal = numStr.includes('.');
+    const suffix = el.textContent.replace(numStr,'');
+    const end = parseFloat(numStr);
     let current = 0;
-    const end = parseInt(target);
     const duration = 1200;
     const step = end / (duration / 16);
     const timer = setInterval(() => {
       current += step;
       if (current >= end) { current = end; clearInterval(timer); }
-      el.textContent = Math.floor(current) + suffix;
+      el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
     }, 16);
     countObserver.unobserve(el);
   });
@@ -1228,6 +1245,17 @@ inquiryForm.addEventListener('submit', (e) => {
 
   formSent.classList.add('show');
   setTimeout(() => formSent.classList.remove('show'), 4000);
+});
+
+// ── APK install modal
+function openApkModal(){
+  document.getElementById('apkModal').classList.add('show');
+}
+function closeApkModal(){
+  document.getElementById('apkModal').classList.remove('show');
+}
+document.getElementById('apkModal').addEventListener('click', (e) => {
+  if (e.target.id === 'apkModal') closeApkModal();
 });
 </script>
 </body>
